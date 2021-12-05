@@ -1,0 +1,6 @@
+<bpa-table [columnConfig]="config"
+           [columns]="['name', 'level', 'type', 'health', 'birthday']"
+           [dataset]="data"
+           (deleteEvent)="die($event)"
+           (editEvent)="view($event)"
+           translateKey="hero.components.hero-list."></bpa-table>

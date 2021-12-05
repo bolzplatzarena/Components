@@ -1,0 +1,33 @@
+{
+  "name": "@bolzplatzarena/components",
+  "version": "0.0.2",
+  "author": "Thomas Renger",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bolzplatzarena/Components"
+  },
+  "bugs": {
+    "url": "https://github.com/bolzplatzarena/Components/issues"
+  },
+  "keywords": [
+    "angular",
+    "component",
+    "table"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^13.0.0",
+    "@angular/core": "^13.0.0",
+    "@angular/material": "^13.0.3",
+    "@fortawesome/angular-fontawesome": "^0.10.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@ngx-translate/core": "^14.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

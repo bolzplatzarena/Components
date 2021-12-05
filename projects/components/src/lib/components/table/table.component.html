@@ -1,0 +1,32 @@
+<table [dataSource]="dataSource" class="mat-elevation-z8 tw-w-full" mat-table>
+  <ng-container *ngFor="let column of columns" [matColumnDef]="column">
+    <th *matHeaderCellDef mat-header-cell>{{ (translateKey + column | lowercase) | translate }}</th>
+    <td *matCellDef="let element" mat-cell>
+      <ng-container [ngSwitch]="columnConfig?.[column]?.type">
+        <ng-container *ngSwitchCase="ColumnType.Date">
+          {{ element[column] | date }}
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          {{ element[column] }}
+        </ng-container>
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th *matHeaderCellDef
+        mat-header-cell>{{ (translateKey + 'actions' | lowercase) | translate }}</th>
+    <td *matCellDef="let element" mat-cell>
+      <button (click)="deleteAction(element)" *ngIf="delete" mat-icon-button>
+        <fa-icon [icon]="deleteIcon"></fa-icon>
+      </button>
+      <button (click)="editAction(element)" *ngIf="edit" mat-icon-button>
+        <fa-icon [icon]="editIcon"></fa-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+</table>
+<mat-progress-bar *ngIf="!dataset" mode="indeterminate"></mat-progress-bar>

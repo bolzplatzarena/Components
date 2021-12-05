@@ -1,0 +1,14 @@
+{
+  "hero": {
+    "components": {
+      "hero-list": {
+        "name": "Name",
+        "level": "Level",
+        "type": "Type",
+        "health": "Health",
+        "birthday": "Birthday",
+        "actions": "Actions"
+      }
+    }
+  }
+}
