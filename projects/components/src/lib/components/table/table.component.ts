@@ -13,6 +13,7 @@ export interface ColumnConfig {
 @Component({
   selector: 'bpa-table',
   templateUrl: './table.component.html',
+  styleUrls: ['../../../../../styles/tailwind.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent<T> implements OnChanges {
