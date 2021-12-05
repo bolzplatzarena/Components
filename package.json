@@ -2,13 +2,14 @@
   "name": "bolzplatzarena-components",
   "version": "0.0.0",
   "scripts": {
-    "ng": "bolzplatzarena-components/node_modules/.bin/ng",
-    "start": "bolzplatzarena-components/node_modules/.bin/ng serve",
-    "build": "bolzplatzarena-components/node_modules/.bin/ng build",
-    "watch": "bolzplatzarena-components/node_modules/.bin/ng build --watch --configuration development",
-    "test": "bolzplatzarena-components/node_modules/.bin/ng test",
+    "ng": "node_modules/.bin/ng",
+    "start": "node_modules/.bin/ng serve",
+    "build": "npm run build-lib && node_modules/.bin/ng build",
+    "watch": "node_modules/.bin/ng build --watch --configuration development",
+    "test-component": "node_modules/.bin/jest --coverage --config ./projects/components/jest.config.js",
     "tailwind": "npx tailwindcss-cli@latest build -o ./projects/styles/tailwind.scss",
-    "build-lib": "npm run tailwind && ng build components"
+    "build-lib": "npm run tailwind && ng build components",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -32,17 +33,24 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.0.4",
+    "@angular-eslint/builder": "13.0.1",
+    "@angular-eslint/eslint-plugin": "13.0.1",
+    "@angular-eslint/eslint-plugin-template": "13.0.1",
+    "@angular-eslint/schematics": "13.0.1",
+    "@angular-eslint/template-parser": "13.0.1",
     "@angular/cli": "~13.0.4",
     "@angular/compiler-cli": "~13.0.0",
     "@types/jasmine": "~3.10.0",
+    "@types/jest": "^27.0.3",
     "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "5.3.0",
+    "@typescript-eslint/parser": "5.3.0",
+    "eslint": "^8.2.0",
     "jasmine-core": "~3.10.0",
-    "karma": "~6.3.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage": "~2.0.3",
-    "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "~1.7.0",
+    "jest": "^27.4.3",
+    "jest-preset-angular": "^11.0.1",
     "ng-packagr": "^13.0.0",
+    "ts-jest": "^27.1.0",
     "typescript": "~4.4.3"
   }
 }

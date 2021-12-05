@@ -26,11 +26,11 @@ export class AppComponent {
     'birthday': { type: ColumnType.Date },
   };
 
-  die(hero: Hero): void {
+  die(): void {
     alert('Die');
   }
 
-  view(hero: Hero) {
+  view() {
     alert('View');
   }
 }

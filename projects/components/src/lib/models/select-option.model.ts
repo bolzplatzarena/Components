@@ -4,7 +4,7 @@ export interface SelectOption<T> {
   value: T;
 }
 
-export function translatableFrom<T>(types: any, translateKey: string): SelectOption<T>[] {
+export function translatableFrom<T>(types: ArrayLike<unknown>, translateKey: string): SelectOption<T>[] {
   return Object
     .entries(types)
     .filter(([key]) => isNaN(Number(key)))
