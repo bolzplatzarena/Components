@@ -4,9 +4,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "components": [
-        "dist/components/components",
-        "dist/components"
+      "@bolzplatzarena/components": [
+        "dist/@bolzplatzarena/components"
       ]
     },
     "outDir": "./dist/out-tsc",
@@ -21,6 +20,7 @@
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
