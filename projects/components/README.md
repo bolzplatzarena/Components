@@ -28,4 +28,27 @@ The example could be find in the repository.
 
 ## Usage
 
-To be updated soon
+In the template of your components you can add the following
+
+```
+<bpa-table [columnConfig]="config"
+           [columns]="['name', 'level', 'type', 'health', 'birthday']"
+           [dataset]="data"
+           (deleteEvent)="die($event)"
+           (editEvent)="view($event)"
+           translateKey="hero.components.hero-list."></bpa-table>
+```
+
+The only inputs needed are `columns` and `dataset`.
+
+If you listen to the `delete` event, the corresponding action icon is automatically added to th columns.
+
+If you listen to the `edit` event, the corresponding action icon is automatically added to th columns.
+
+The column configuration can be used for custom columns:
+
+```
+  readonly config: { [key: string]: ColumnConfig } = {
+    'birthday': { type: ColumnType.Date },
+  };
+```
