@@ -1,24 +1,31 @@
 # Components
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.0.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.0. It includes
+components for angular.
 
-## Code scaffolding
+## Get started
 
-Run `ng generate component component-name --project components` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project components`.
-> Note: Don't forget to add `--project components` or else it will be added to the default project in your `angular.json` file. 
+This library uses the following tools / libraries:
 
-## Build
+- @fortawesome/angular-fontawesome
+- @fortawesome/free-solid-svg-icons
+- @ngx-translate/core
 
-Run `ng build components` to build the project. The build artifacts will be stored in the `dist/` directory.
+The components are fully translatable but the configuration needs to be done by your own in you application or libray:
 
-## Publishing
+```
+import * as en from './i18n/en.json';
 
-After building your library with `ng build components`, go to the dist folder `cd dist/components` and run `npm publish`.
+export class AppModule {
+  constructor(translate: TranslateService) {
+    translate.setTranslation('en', en, true);
+    translate.use('en');
+  }
+}
+```
 
-## Running unit tests
+The example could be find in the repository.
 
-Run `ng test components` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To be updated soon
