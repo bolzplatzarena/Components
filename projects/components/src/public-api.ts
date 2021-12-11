@@ -1,5 +1,5 @@
 // services
-export * from './lib/components.service';
+export * from './lib/services/components.service';
 //modules
 export * from './lib/components.module';
 // components

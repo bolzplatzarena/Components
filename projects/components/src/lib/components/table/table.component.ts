@@ -1,13 +1,16 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { Dictionary } from '../../models/dictionary.model';
 
 export enum ColumnType {
   Date,
+  Enum,
 }
 
 export interface ColumnConfig {
   type: ColumnType,
+  args?: Dictionary<unknown>,
 }
 
 @Component({
