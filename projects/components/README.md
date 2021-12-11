@@ -41,14 +41,28 @@ In the template of your components you can add the following
 
 The only inputs needed are `columns` and `dataset`.
 
+### Actions
+
 If you listen to the `delete` event, the corresponding action icon is automatically added to th columns.
 
 If you listen to the `edit` event, the corresponding action icon is automatically added to th columns.
+
+### Column Configuration
 
 The column configuration can be used for custom columns:
 
 ```
   readonly config: { [key: string]: ColumnConfig } = {
     'birthday': { type: ColumnType.Date },
+    'type': { type: ColumnType.Enum, args: MyEnum },
   };
 ```
+
+#### Date
+
+The input needs to be a date and will be formatted probably
+
+#### Enum
+
+This configuration can be used if a property of the data is an enum type. The tables generates are translate key
+automatically, so you can use the translate config file to give the enum value a term.
