@@ -11,6 +11,10 @@
         "birthday": "Birthday",
         "actions": "Actions"
       }
+    },
+    "types": {
+      "fighter": "Fighter",
+      "hammer": "Thor"
     }
   }
 }
