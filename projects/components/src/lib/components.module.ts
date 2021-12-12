@@ -8,10 +8,12 @@ import { faAddressCard } from '@fortawesome/free-solid-svg-icons/faAddressCard';
 import { faSkullCrossbones } from '@fortawesome/free-solid-svg-icons/faSkullCrossbones';
 import { TranslateModule } from '@ngx-translate/core';
 import { TableComponent } from './components/table/table.component';
+import { EnumKeyPipe } from './pipes/enum-key.pipe';
 
 @NgModule({
   declarations: [
     TableComponent,
+    EnumKeyPipe,
   ],
   imports: [
     CommonModule,

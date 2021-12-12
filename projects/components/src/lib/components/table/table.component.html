@@ -6,6 +6,9 @@
         <ng-container *ngSwitchCase="ColumnType.Date">
           {{ element[column] | date }}
         </ng-container>
+        <ng-container *ngSwitchCase="ColumnType.Enum">
+          {{ (translateKey + column + '.' + (element[column] | enumKey : columnConfig ![column].args !)) | lowercase | translate }}
+        </ng-container>
         <ng-container *ngSwitchDefault>
           {{ element[column] }}
         </ng-container>

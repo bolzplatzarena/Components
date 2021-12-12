@@ -5,6 +5,8 @@
         "name": "Name",
         "level": "Level",
         "type": "Type",
+        "type.hammer": "Hammer",
+        "type.fighter": "Fighter",
         "health": "Health",
         "birthday": "Birthday",
         "actions": "Actions"
