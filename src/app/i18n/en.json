@@ -7,6 +7,8 @@
         "type": "Type",
         "type.hammer": "Hammer",
         "type.fighter": "Fighter",
+        "type.spy": "Spion",
+        "type.scientist": "Wissenschaftler",
         "health": "Health",
         "birthday": "Birthday",
         "actions": "Actions"
@@ -14,7 +16,9 @@
     },
     "types": {
       "fighter": "Fighter",
-      "hammer": "Thor"
+      "hammer": "Thor",
+      "scientist": "Wissenschaftler",
+      "spy": "Spion"
     }
   }
 }

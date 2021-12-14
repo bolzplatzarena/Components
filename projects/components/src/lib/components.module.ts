@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons/faAddressCard';
@@ -22,6 +23,7 @@ import { EnumKeyPipe } from './pipes/enum-key.pipe';
     MatProgressBarModule,
     MatTableModule,
     TranslateModule,
+    MatSortModule,
   ],
   exports: [
     TableComponent,
