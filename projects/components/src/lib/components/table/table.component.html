@@ -32,4 +32,8 @@
   <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
   <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
 </table>
+<mat-paginator *ngIf="dataset"
+               [pageSizeOptions]="[5, 10, 20]"
+               showFirstLastButtons>
+</mat-paginator>
 <mat-progress-bar *ngIf="!dataset" mode="indeterminate"></mat-progress-bar>

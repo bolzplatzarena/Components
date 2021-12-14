@@ -41,6 +41,10 @@ In the template of your components you can add the following
 
 The only inputs needed are `columns` and `dataset`.
 
+### Sorting
+
+Sorting is enabled by default but it can be disabled by setting `sortable` to false.
+
 ### Actions
 
 If you listen to the `delete` event, the corresponding action icon is automatically added to th columns.
@@ -66,3 +70,22 @@ The input needs to be a date and will be formatted probably
 
 This configuration can be used if a property of the data is an enum type. The tables generates are translate key
 automatically, so you can use the translate config file to give the enum value a term.
+
+### Paging
+
+You need to configure the terms of pagination or you implement your own implementation of `MatPaginatorIntl`.
+
+```
+  "bpa": {
+    "components": {
+      "table": {
+        "items-per-page": "Einträge pro Seite",
+        "page": "Seite {{ page }} von {{ amountPages }}",
+        "next-page": "Nächste Seite",
+        "last-page": "Letzte Seite",
+        "first-page": "Erste Seite",
+        "previous-page": "Vorherige Seite"
+      }
+    }
+  },
+```

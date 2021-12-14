@@ -1,4 +1,16 @@
 {
+  "bpa": {
+    "components": {
+      "table": {
+        "items-per-page": "Einträge pro Seite",
+        "page": "Seite {{ page }} von {{ amountPages }}",
+        "next-page": "Nächste Seite",
+        "last-page": "Letzte Seite",
+        "first-page": "Erste Seite",
+        "previous-page": "Vorherige Seite"
+      }
+    }
+  },
   "hero": {
     "components": {
       "hero-list": {

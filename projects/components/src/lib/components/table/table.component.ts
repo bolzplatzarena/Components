@@ -8,6 +8,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
@@ -42,6 +43,7 @@ export class TableComponent<T> implements OnChanges, AfterViewInit {
   @Output() readonly deleteEvent = new EventEmitter<T>();
   @Output() readonly editEvent = new EventEmitter<T>();
 
+  @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
   edit = false;
@@ -67,6 +69,7 @@ export class TableComponent<T> implements OnChanges, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   deleteAction(item: T): void {
