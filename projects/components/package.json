@@ -1,6 +1,6 @@
 {
   "name": "@bolzplatzarena/components",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "author": "Thomas Renger",
   "repository": {
     "type": "git",
@@ -12,7 +12,8 @@
   "keywords": [
     "angular",
     "component",
-    "table"
+    "table",
+    "enum"
   ],
   "license": "MIT",
   "peerDependencies": {
