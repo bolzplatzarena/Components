@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ColumnConfig, ColumnType } from '@bolzplatzarena/components';
-import { translatableFrom } from '../../projects/components/src/lib/models/select-option.model';
+import { ColumnConfig, ColumnType, translatableFrom } from '@bolzplatzarena/components';
 
 enum HeroType {
   Fighter,
@@ -107,6 +106,7 @@ export class AppComponent {
   };
 
   readonly items = translatableFrom(HeroType, 'hero.types');
+  readonly HeroType = HeroType;
 
   die(): void {
     alert('Die');

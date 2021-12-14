@@ -10,3 +10,21 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+h1, h2, h3, h4, h5, h6 {
+  @apply tw-border-0;
+  @apply tw-border-b;
+  @apply tw-border-solid;
+  @apply tw-border-gray-300;
+}
+
+code {
+  @apply tw-block;
+  @apply tw-p-4;
+  @apply tw-m-4;
+  @apply tw-border;
+  @apply tw-border-solid;
+  @apply tw-border-gray-300;
+  @apply tw-rounded;
+}

@@ -15,20 +15,21 @@ import { EnumKeyPipe } from './pipes/enum-key.pipe';
 
 @NgModule({
   declarations: [
-    TableComponent,
     EnumKeyPipe,
+    TableComponent,
   ],
   imports: [
     CommonModule,
     FontAwesomeModule,
     MatButtonModule,
+    MatPaginatorModule,
     MatProgressBarModule,
+    MatSortModule,
     MatTableModule,
     TranslateModule,
-    MatSortModule,
-    MatPaginatorModule,
   ],
   exports: [
+    EnumKeyPipe,
     TableComponent,
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: PaginatorTexts }],
