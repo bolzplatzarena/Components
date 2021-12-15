@@ -3,13 +3,3 @@ export interface SelectOption<T> {
   labelTranslateKey?: string;
   value: T;
 }
-
-export function translatableFrom<T>(types: ArrayLike<unknown>, translateKey: string): SelectOption<T>[] {
-  return Object
-    .entries(types)
-    .filter(([key]) => isNaN(Number(key)))
-    .map(([key, value]) => ({
-      labelTranslateKey: `${translateKey}.${key.toLowerCase()}`,
-      value: value as T,
-    }));
-}

@@ -9,6 +9,7 @@
     "test-component": "node_modules/.bin/jest --coverage --config ./projects/components/jest.config.js",
     "tailwind": "npx tailwindcss-cli@latest build -o ./projects/styles/tailwind.scss",
     "lib": "ng build components",
+    "debug": "ng build components && ng serve",
     "build-lib": "npm run tailwind && ng build components",
     "lint": "ng lint"
   },

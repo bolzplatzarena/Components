@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MatSelectModule } from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentsModule } from '@bolzplatzarena/components';
@@ -16,6 +17,7 @@ import * as en from './i18n/en.json';
     ComponentsModule,
     NoopAnimationsModule,
     TranslateModule.forRoot(),
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

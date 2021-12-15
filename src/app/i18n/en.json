@@ -1,4 +1,16 @@
 {
+  "bpa": {
+    "components": {
+      "table": {
+        "items-per-page": "Einträge pro Seite",
+        "page": "Seite {{ page }} von {{ amountPages }}",
+        "next-page": "Nächste Seite",
+        "last-page": "Letzte Seite",
+        "first-page": "Erste Seite",
+        "previous-page": "Vorherige Seite"
+      }
+    }
+  },
   "hero": {
     "components": {
       "hero-list": {
@@ -7,10 +19,18 @@
         "type": "Type",
         "type.hammer": "Hammer",
         "type.fighter": "Fighter",
+        "type.spy": "Spion",
+        "type.scientist": "Wissenschaftler",
         "health": "Health",
         "birthday": "Birthday",
         "actions": "Actions"
       }
+    },
+    "types": {
+      "fighter": "Fighter",
+      "hammer": "Thor",
+      "scientist": "Wissenschaftler",
+      "spy": "Spion"
     }
   }
 }
