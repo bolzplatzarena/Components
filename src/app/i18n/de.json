@@ -1,5 +1,25 @@
 {
-  "Bolzplatzarena Component Examples": "Bolzplatzarena Component Beispiele",
+  "content": {
+    "text": {
+      "1": "Dies ist eine Sammlungen von Komponenten welche auf Basis von Angular Material gebaut wurden. Zudem finden sich hier noch diverse Helferlein, welche euch das Arbeiten möglichst vereinfachen sollen.",
+      "examples": "Hier findet man viele praktische Beispiele.",
+      "table": "Einfache Implementierung der Tabelle, welche viele Sachen abnimmt und es daher einfach machen die Material Table zu nutzen.",
+      "column": "Erweiterte Spaltenkonfiguration ist verfügbar für:",
+      "options": "sortable (default: true) - auf \"false\" setzen um zu deaktivieren",
+      "enum": "Enums sind toll, Enums sind wichtig. Aber manchmal sind sie schwer zu nutzen, vor allem in Tempülates.<br>Hier findet ihr Tools die euch unterstützen.",
+      "enum_options": "Dies ist eine Methode um aus einem Enum eine Datenquelle für ein Dropdown zu machen und dabei die Werte auch noch zu übersetzen.",
+      "pipe": "Die Pipe gibt euch die Möglichkeit den Enum-Schlüssel in einer View zu nutzen. Dies ist vor allem dann wichtig, wenn das Enum nicht auf einem String basiert."
+    },
+    "headline": {
+      "first": "Bolzplatzarena Components",
+      "examples": "Beispiele",
+      "table": "Die Tabelle",
+      "options": "Optionen",
+      "enum": "Enum Helferlein",
+      "enum_options": "Select Options mit Enumerationen",
+      "pipe": "Pipe"
+    }
+  },
   "bpa": {
     "components": {
       "table": {

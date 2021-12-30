@@ -1,9 +1,17 @@
 <section>
-  <h1 class="tw-p-4 tw-m-0" translate>Bolzplatzarena Component Examples</h1>
-  <p class="tw-px-4">Collection of conmponents and utilities based on the angular material library.</p>
-  <h2 class="tw-p-4 tw-m-0">Table</h2>
-  <p class="tw-px-4">Easy way to use a table, whitout the need to implement to headers and columns by you own.</p>
-  <p class="tw-px-4">Custom column configuration availble for:</p>
+  <mat-button-toggle-group>
+    <mat-button-toggle (click)="setLanguage('de')">Deutsch</mat-button-toggle>
+    <mat-button-toggle (click)="setLanguage('en')">English</mat-button-toggle>
+  </mat-button-toggle-group>
+  <h1 class="tw-p-4 tw-m-0" translate>content.headline.first</h1>
+  <p class="tw-px-4" translate>
+    content.text.1
+  </p>
+  <h2 class="tw-p-4 tw-m-0" translate>content.headline.examples</h2>
+  <p class="tw-px-4" translate>content.text.examples</p>
+  <h2 class="tw-p-4 tw-m-0" translate>content.headline.table</h2>
+  <p class="tw-px-4" translate>content.text.table</p>
+  <p class="tw-px-4" translate>content.text.column</p>
   <ul>
     <li>Date</li>
     <li>Enumeration</li>
@@ -14,18 +22,15 @@
              (deleteEvent)="die()"
              (editEvent)="view()"
              translateKey="hero.components.hero-list."></bpa-table>
-  <h3 class="tw-p-4">Options</h3>
-  <p class="tw-px-4">
-    sortable (default: true) - set to false to disable sorting
-  </p>
-  <h2 class="tw-p-4">Enum Helper</h2>
-  <p class="tw-px-4">
-    Sometimes it is hard to handle enums but it is important to use an enum instead of just using a number or a string.
-    <br>Here you can find some little helpers, which enable you to use enum for material select or in the tempalte as a
-    string very easily.
-  </p>
-  <h3 class="tw-p-4">Select Options with enumeration</h3>
-  <p class="tw-px-4">Easy why to use a typescript enum as source of the material select.</p>
+  <h3 class="tw-p-4" translate>content.headline.options</h3>
+  <p class="tw-px-4" translate>content.text.options</p>
+  <h2 class="tw-p-4" translate>content.headline.enum</h2>
+  <p class="tw-px-4" [innerHtml]="'content.text.enum' | translate"></p>
+  <h3 class="tw-p-4" translate>content.headline.enum_options</h3>
+  <p class="tw-px-4" translate>content.text.enum_options</p>
+  <code>
+    readonly items = translatableFrom(HeroType, 'hero.types');
+  </code>
   <section class="tw-px-4">
     <mat-form-field>
       <mat-label>Hero Type</mat-label>
@@ -36,7 +41,8 @@
       </mat-select>
     </mat-form-field>
   </section>
-  <h3 class="tw-p-4">Pipe</h3>
+  <h3 class="tw-p-4" translate>content.headline.pipe</h3>
+  <p class="tw-px-4" translate>content.text.pipe</p>
   <p class="tw-px-4">
     Original value: {{ HeroType.Scientist }}
   </p>

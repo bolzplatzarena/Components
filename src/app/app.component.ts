@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ColumnConfig, ColumnType, translatableFrom } from '@bolzplatzarena/components';
+import { TranslateService } from '@ngx-translate/core';
 
 enum HeroType {
   Fighter,
@@ -107,6 +108,13 @@ export class AppComponent {
 
   readonly items = translatableFrom(HeroType, 'hero.types');
   readonly HeroType = HeroType;
+
+  constructor(private readonly translate: TranslateService) {
+  }
+
+  setLanguage(lang: string): void {
+    this.translate.use(lang);
+  }
 
   die(): void {
     alert('Die');
