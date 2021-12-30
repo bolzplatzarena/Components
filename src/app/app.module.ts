@@ -6,6 +6,7 @@ import { ComponentsModule } from '@bolzplatzarena/components';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 
+import * as de from './i18n/de.json';
 import * as en from './i18n/en.json';
 
 @NgModule({
@@ -25,6 +26,7 @@ import * as en from './i18n/en.json';
 export class AppModule {
   constructor(translate: TranslateService) {
     translate.setTranslation('en', en, true);
+    translate.setTranslation('de', de, true);
     translate.use('en');
   }
 }
