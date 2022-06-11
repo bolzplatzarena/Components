@@ -1,4 +1,4 @@
-<table [dataSource]="dataSource" class="mat-elevation-z8 tw-w-full" mat-table matSort [matSortDisabled]="!sortable">
+<table mat-table matSort [dataSource]="dataSource" [matSortDisabled]="!sortable" class="mat-elevation-z8 tw-w-full">
   <ng-container *ngFor="let column of columns" [matColumnDef]="column">
     <th *matHeaderCellDef mat-header-cell mat-sort-header>{{ (translateKey + column | lowercase) | translate }}</th>
     <td *matCellDef="let element" mat-cell>
@@ -17,13 +17,14 @@
   </ng-container>
 
   <ng-container matColumnDef="actions">
-    <th *matHeaderCellDef
-        mat-header-cell>{{ (translateKey + 'actions' | lowercase) | translate }}</th>
+    <th *matHeaderCellDef mat-header-cell>
+      {{ (translateKey + 'actions' | lowercase) | translate }}
+    </th>
     <td *matCellDef="let element" mat-cell>
-      <button (click)="deleteAction(element)" *ngIf="delete" mat-icon-button>
+      <button *ngIf="delete" mat-icon-button (click)="deleteAction(element)">
         <fa-icon [icon]="deleteIcon"></fa-icon>
       </button>
-      <button (click)="editAction(element)" *ngIf="edit" mat-icon-button>
+      <button *ngIf="edit" mat-icon-button (click)="editAction(element)">
         <fa-icon [icon]="editIcon"></fa-icon>
       </button>
     </td>
@@ -32,8 +33,5 @@
   <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
   <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
 </table>
-<mat-paginator *ngIf="dataset"
-               [pageSizeOptions]="[5, 10, 20]"
-               showFirstLastButtons>
-</mat-paginator>
+<mat-paginator *ngIf="dataset" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 <mat-progress-bar *ngIf="!dataset" mode="indeterminate"></mat-progress-bar>
