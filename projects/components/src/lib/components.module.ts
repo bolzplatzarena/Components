@@ -36,7 +36,7 @@ import { EnumKeyPipe } from './pipes/enum-key.pipe';
 })
 export class ComponentsModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faAddressCard);
-    library.addIcons(faSkullCrossbones);
+    library.addIcons(faAddressCard as unknown as any);
+    library.addIcons(faSkullCrossbones as unknown as any);
   }
 }
