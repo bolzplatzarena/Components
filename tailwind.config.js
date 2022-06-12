@@ -1,19 +1,9 @@
 module.exports = {
   prefix: 'tw-',
-  purge: {
-    enabled: true,
-    content: [
-      "./src/**/*.{html,ts}",
-      "./projects/**/*.{html,ts}",
-    ]
-  },
-  content: {
-    enabled: true,
-    content: [
-      "./src/**/*.{html,ts}",
-      "./projects/**/*.{html,ts}",
-    ]
-  },
+  content: [
+    "./src/**/*.{html,ts}",
+    "./projects/**/*.{html,ts}",
+  ],
   theme: {
     extend: {},
   },

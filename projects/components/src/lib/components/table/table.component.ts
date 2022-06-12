@@ -51,14 +51,14 @@ export class TableComponent<T> implements OnChanges, AfterViewInit {
 
   dataSource !: MatTableDataSource<T>;
   displayedColumns: string[] = [];
+
   readonly ColumnType = ColumnType;
 
   ngOnChanges(): void {
+    this.delete = this.deleteEvent.observed;
+    this.edit = this.editEvent.observed;
+
     this.displayedColumns = [...this.columns];
-
-    this.delete = !!this.deleteEvent.observers.length;
-    this.edit = !!this.editEvent.observers.length;
-
     if (this.delete || this.edit) {
       this.displayedColumns.push('actions');
     }
