@@ -7,10 +7,15 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 
 import * as en from './i18n/en.json';
+import { TableComponent } from './components/table/table.component';
+import { EnumComponent } from './components/enum/enum.component';
+import { MatTabsModule } from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
     AppComponent,
+    TableComponent,
+    EnumComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,6 +23,7 @@ import * as en from './i18n/en.json';
     NoopAnimationsModule,
     TranslateModule.forRoot(),
     MatSelectModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

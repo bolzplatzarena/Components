@@ -1,42 +1,12 @@
 <section class="tw-p-4">
   <h1>Bolzplatzarena Component Examples</h1>
   <p>Collection of conmponents and utilities based on the angular material library.</p>
-  <h2>Table</h2>
-  <p>Easy way to use a table, whitout the need to implement to headers and columns by you own.</p>
-  <p>Custom column configuration availble for:</p>
-  <ul>
-    <li>Date</li>
-    <li>Enumeration</li>
-  </ul>
-  <bpa-table [columnConfig]="config"
-             [columns]="['name', 'level', 'type', 'health', 'birthday']"
-             [dataset]="data"
-             (deleteEvent)="die()"
-             (editEvent)="view()"
-             translateKey="hero.components.hero-list."></bpa-table>
-  <h3>Options</h3>
-  sortable (default: true) - set to false to disable sorting
-  <h2>Enum Helper</h2>
-  Sometimes it is hard to handle enums but it is important to use an enum instead of just using a number or a string.
-  <br>Here you can find some little helpers, which enable you to use enum for material select or in the tempalte as a
-  string very easily.
-  <h3>Select Options with enumeration</h3>
-  <p>Easy why to use a typescript enum as source of the material select.</p>
-  <mat-form-field>
-    <mat-label>Hero Type</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let item of items" [value]="item.value">
-        {{ item.label ?? (item.labelTranslateKey ! | translate) }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <h3>Pipe</h3>
-  Original value: {{ HeroType.Scientist }}
-  <code>
-    Original value: {{ '&#123;&#123; HeroType.Scientist &#125;&#125;' }}
-  </code>
-  <br>As String: {{ HeroType.Scientist | enumKey : HeroType }}
-  <code>
-    As String: {{ '&#123;&#123; HeroType.Scientist | enumKey : HeroType &#125;&#125;' }}
-  </code>
+  <mat-tab-group>
+    <mat-tab label="Table">
+      <app-table></app-table>
+    </mat-tab>
+    <mat-tab label="Enums">
+      <app-enum></app-enum>
+    </mat-tab>
+  </mat-tab-group>
 </section>

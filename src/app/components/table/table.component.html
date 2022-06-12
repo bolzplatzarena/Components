@@ -1,0 +1,15 @@
+<h2>Table</h2>
+<p>Easy way to use a table, whitout the need to implement to headers and columns by you own.</p>
+<p>Custom column configuration availble for:</p>
+<ul>
+  <li>Date</li>
+  <li>Enumeration</li>
+</ul>
+<bpa-table [columnConfig]="config"
+           [columns]="['name', 'level', 'type', 'health', 'birthday']"
+           [dataset]="data"
+           (deleteEvent)="die()"
+           (editEvent)="view()"
+           translateKey="hero.components.hero-list."></bpa-table>
+<h3>Options</h3>
+sortable (default: true) - set to false to disable sorting
