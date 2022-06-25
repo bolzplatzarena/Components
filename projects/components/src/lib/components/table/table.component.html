@@ -1,4 +1,5 @@
-<table mat-table matSort [dataSource]="dataSource" [matSortDisabled]="!sortable" class="mat-elevation-z8 tw-w-full">
+<table mat-table matSort [dataSource]="dataSource" [matSortDisabled]="!sortable"
+       class="mat-elevation-z8 tw-w-full">
   <ng-container *ngFor="let column of columns" [matColumnDef]="column">
     <th *matHeaderCellDef mat-header-cell mat-sort-header>{{ (translateKey + column | lowercase) | translate }}</th>
     <td *matCellDef="let element" mat-cell>
