@@ -1,5 +1,5 @@
 module.exports = {
-  prefix: 'tm,wbaaad-',
+  prefix: 'tm-',
   content: [
     "./src/**/*.{html,ts}",
     "./projects/**/*.{html,ts}",

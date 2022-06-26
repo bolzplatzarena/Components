@@ -1,36 +1,13 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  ViewChild,
-} from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
-import { Dictionary } from '../../models/dictionary.model';
-
-export enum ColumnType {
-  Date,
-  Enum,
-}
-
-export interface ColumnConfig {
-  type: ColumnType,
-  args?: Dictionary<unknown>,
-}
+import { ColumnConfig } from './inner-table/inner-table.component';
 
 @Component({
   selector: 'bpa-table',
   templateUrl: './table.component.html',
-  styleUrls: ['../../../../../styles/tailwind.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TableComponent<T> implements OnChanges, AfterViewInit {
+export class TableComponent<T> implements OnChanges {
   @Input() columns !: string[];
   @Input() dataset: T[] | undefined | null = [];
   @Input() translateKey = 'core.components.table.';
@@ -43,16 +20,11 @@ export class TableComponent<T> implements OnChanges, AfterViewInit {
   @Output() readonly deleteEvent = new EventEmitter<T>();
   @Output() readonly editEvent = new EventEmitter<T>();
 
-  @ViewChild(MatPaginator) paginator !: MatPaginator;
-  @ViewChild(MatSort) sort !: MatSort;
 
   edit = false;
   delete = false;
 
-  dataSource !: MatTableDataSource<T>;
-  displayedColumns: string[] = [];
-
-  readonly ColumnType = ColumnType;
+  displayedColumns!: string[];
 
   ngOnChanges(): void {
     this.delete = this.deleteEvent.observed;
@@ -62,14 +34,6 @@ export class TableComponent<T> implements OnChanges, AfterViewInit {
     if (this.delete || this.edit) {
       this.displayedColumns.push('actions');
     }
-
-    this.dataSource = new MatTableDataSource<T>(this.dataset ?? []);
-    this.dataSource.sort = this.sort;
-  }
-
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
   }
 
   deleteAction(item: T): void {

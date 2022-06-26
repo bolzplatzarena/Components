@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentsModule } from '@bolzplatzarena/components';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
+import { EnumComponent } from './components/enum/enum.component';
+import { TableComponent } from './components/table/table.component';
 
 import * as en from './i18n/en.json';
-import { TableComponent } from './components/table/table.component';
-import { EnumComponent } from './components/enum/enum.component';
-import { MatTabsModule } from "@angular/material/tabs";
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EnumComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     ComponentsModule,
-    NoopAnimationsModule,
     TranslateModule.forRoot(),
     MatSelectModule,
     MatTabsModule,
     FontAwesomeModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
