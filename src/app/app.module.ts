@@ -10,6 +10,7 @@ import * as en from './i18n/en.json';
 import { TableComponent } from './components/table/table.component';
 import { EnumComponent } from './components/enum/enum.component';
 import { MatTabsModule } from "@angular/material/tabs";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MatTabsModule } from "@angular/material/tabs";
     TranslateModule.forRoot(),
     MatSelectModule,
     MatTabsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
