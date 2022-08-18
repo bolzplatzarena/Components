@@ -1,4 +1,4 @@
-<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar *ngIf="progress" [mode]="loading ? 'indeterminate' : 'determinate'"></mat-progress-bar>
 <bpa-inner-table *ngIf="innerData && displayedColumns"
                  [columnConfig]="columnConfig"
                  [columns]="columns"

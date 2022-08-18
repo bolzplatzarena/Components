@@ -13,6 +13,7 @@ export class TableComponent<T> implements OnChanges {
   @Input() translateKey = 'core.components.table.';
   @Input() columnConfig: { [key: string]: ColumnConfig } | undefined;
 
+  @Input() progressBar: 'always' | 'never' | 'auto' = 'always';
   @Input() sortable = true;
   @Input() deleteIcon: IconName = 'skull-crossbones';
   @Input() editIcon: IconName = 'address-card';
@@ -26,6 +27,10 @@ export class TableComponent<T> implements OnChanges {
 
   displayedColumns!: string[];
   innerData: T[] | undefined | null = [];
+
+  get progress(): boolean {
+    return this.progressBar === 'always' || (this.progressBar === 'auto' && this.loading);
+  }
 
   ngOnChanges(): void {
     this.delete = this.deleteEvent.observed;
