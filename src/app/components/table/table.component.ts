@@ -92,7 +92,7 @@ export class TableComponent {
     'birthday': { type: ColumnType.Date },
     'type': { type: ColumnType.Enum, args: HeroType },
   };
-  readonly data$ = interval(2000).pipe(
+  readonly data$ = interval(3000).pipe(
     mergeMap(() => of(this.data).pipe(
       delay(1500),
       startWith(null),
