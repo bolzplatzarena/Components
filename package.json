@@ -8,6 +8,7 @@
     "watch": "node_modules/.bin/ng build --watch --configuration development",
     "test-component": "node_modules/.bin/jest --coverage --config ./projects/components/jest.config.js",
     "tailwind": "npx tailwindcss build -o ./projects/styles/tailwind.scss -c ./tailwind.lib.config.js",
+    "tailwind-ng": "npx tailwindcss build -o ./src/styles/tailwind.scss -c ./tailwind.config.js",
     "lib": "ng build components",
     "debug": "ng build components && ng serve",
     "build-lib": "npm run tailwind && ng build components",
