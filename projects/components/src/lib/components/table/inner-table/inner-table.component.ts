@@ -55,8 +55,7 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   ngOnChanges(): void {
     this.dataSource = new MatTableDataSource<T>(this.dataset);
     this.dataSource.sort = this.sort;
-
-    console.log(this.columns, this.columnConfig, this.displayedColumns);
+    this.dataSource.paginator = this.paginator;
   }
 
   ngAfterViewInit(): void {

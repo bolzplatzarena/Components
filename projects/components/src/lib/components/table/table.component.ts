@@ -20,11 +20,12 @@ export class TableComponent<T> implements OnChanges {
   @Output() readonly deleteEvent = new EventEmitter<T>();
   @Output() readonly editEvent = new EventEmitter<T>();
 
-
+  loading = true;
   edit = false;
   delete = false;
 
   displayedColumns!: string[];
+  innerData: T[] | undefined | null = [];
 
   ngOnChanges(): void {
     this.delete = this.deleteEvent.observed;
@@ -33,6 +34,11 @@ export class TableComponent<T> implements OnChanges {
     this.displayedColumns = [...this.columns];
     if (this.delete || this.edit) {
       this.displayedColumns.push('actions');
+    }
+
+    this.loading = !this.dataset;
+    if (!this.loading) {
+      this.innerData = this.dataset;
     }
   }
 

@@ -1,12 +1,12 @@
-<bpa-inner-table *ngIf="dataset && displayedColumns"
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<bpa-inner-table *ngIf="innerData && displayedColumns"
                  [columnConfig]="columnConfig"
                  [columns]="columns"
                  [sortable]="sortable"
                  [edit]="edit"
                  [delete]="delete"
                  [translateKey]="translateKey"
-                 [dataset]="dataset"
+                 [dataset]="innerData"
                  [displayedColumns]="displayedColumns"
                  (deleteEvent)="deleteAction($event)"
                  (editEvent)="editAction($event)"></bpa-inner-table>
-<mat-progress-bar *ngIf="!dataset" mode="indeterminate"></mat-progress-bar>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ColumnConfig, ColumnType } from '@bolzplatzarena/components';
-import { delay, of, startWith } from 'rxjs';
+import { delay, interval, mergeMap, of, startWith } from 'rxjs';
 import { Hero } from '../../models/hero';
 import { HeroType } from '../../models/hero-type';
 
@@ -92,9 +92,11 @@ export class TableComponent {
     'birthday': { type: ColumnType.Date },
     'type': { type: ColumnType.Enum, args: HeroType },
   };
-  readonly data$ = of(this.data).pipe(
-    startWith(null),
-    delay(2000),
+  readonly data$ = interval(2000).pipe(
+    mergeMap(() => of(this.data).pipe(
+      delay(1500),
+      startWith(null),
+    )),
   );
 
   die(): void {
