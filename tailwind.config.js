@@ -1,8 +1,7 @@
 module.exports = {
-  prefix: 'tm,wbaaad-',
+  prefix: 'tw-',
   content: [
     "./src/**/*.{html,ts}",
-    "./projects/**/*.{html,ts}",
   ],
   important: true,
   corePlugins: {

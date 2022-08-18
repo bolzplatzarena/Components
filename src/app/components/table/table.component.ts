@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ColumnConfig, ColumnType } from "@bolzplatzarena/components";
+import { ColumnConfig, ColumnType } from '@bolzplatzarena/components';
+import { delay, interval, mergeMap, of, startWith } from 'rxjs';
 import { Hero } from '../../models/hero';
-import { HeroType } from "../../models/hero-type";
+import { HeroType } from '../../models/hero-type';
 
 @Component({
   selector: 'app-table',
@@ -91,6 +92,12 @@ export class TableComponent {
     'birthday': { type: ColumnType.Date },
     'type': { type: ColumnType.Enum, args: HeroType },
   };
+  readonly data$ = interval(3000).pipe(
+    mergeMap(() => of(this.data).pipe(
+      delay(1500),
+      startWith(null),
+    )),
+  );
 
   die(): void {
     alert('Die');

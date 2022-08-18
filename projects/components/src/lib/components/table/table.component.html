@@ -1,38 +1,12 @@
-<table mat-table matSort [dataSource]="dataSource" [matSortDisabled]="!sortable"
-       class="mat-elevation-z8 tw-w-full">
-  <ng-container *ngFor="let column of columns" [matColumnDef]="column">
-    <th *matHeaderCellDef mat-header-cell mat-sort-header>{{ (translateKey + column | lowercase) | translate }}</th>
-    <td *matCellDef="let element" mat-cell>
-      <ng-container [ngSwitch]="columnConfig?.[column]?.type">
-        <ng-container *ngSwitchCase="ColumnType.Date">
-          {{ element[column] | date }}
-        </ng-container>
-        <ng-container *ngSwitchCase="ColumnType.Enum">
-          {{ (translateKey + column + '.' + (element[column] | enumKey : columnConfig ![column].args !)) | lowercase | translate }}
-        </ng-container>
-        <ng-container *ngSwitchDefault>
-          {{ element[column] }}
-        </ng-container>
-      </ng-container>
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th *matHeaderCellDef mat-header-cell>
-      {{ (translateKey + 'actions' | lowercase) | translate }}
-    </th>
-    <td *matCellDef="let element" mat-cell>
-      <button *ngIf="delete" mat-icon-button (click)="deleteAction(element)">
-        <fa-icon [icon]="deleteIcon"></fa-icon>
-      </button>
-      <button *ngIf="edit" mat-icon-button (click)="editAction(element)">
-        <fa-icon [icon]="editIcon"></fa-icon>
-      </button>
-    </td>
-  </ng-container>
-
-  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
-</table>
-<mat-paginator *ngIf="dataset" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-<mat-progress-bar *ngIf="!dataset" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar *ngIf="progress" [mode]="loading ? 'indeterminate' : 'determinate'"></mat-progress-bar>
+<bpa-inner-table *ngIf="innerData && displayedColumns"
+                 [columnConfig]="columnConfig"
+                 [columns]="columns"
+                 [sortable]="sortable"
+                 [edit]="edit"
+                 [delete]="delete"
+                 [translateKey]="translateKey"
+                 [dataset]="innerData"
+                 [displayedColumns]="displayedColumns"
+                 (deleteEvent)="deleteAction($event)"
+                 (editEvent)="editAction($event)"></bpa-inner-table>

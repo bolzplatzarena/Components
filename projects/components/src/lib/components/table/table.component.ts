@@ -1,41 +1,19 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  ViewChild,
-} from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
-import { Dictionary } from '../../models/dictionary.model';
-
-export enum ColumnType {
-  Date,
-  Enum,
-}
-
-export interface ColumnConfig {
-  type: ColumnType,
-  args?: Dictionary<unknown>,
-}
+import { ColumnConfig } from './inner-table/inner-table.component';
 
 @Component({
   selector: 'bpa-table',
   templateUrl: './table.component.html',
-  styleUrls: ['../../../../../styles/tailwind.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TableComponent<T> implements OnChanges, AfterViewInit {
+export class TableComponent<T> implements OnChanges {
   @Input() columns !: string[];
   @Input() dataset: T[] | undefined | null = [];
   @Input() translateKey = 'core.components.table.';
   @Input() columnConfig: { [key: string]: ColumnConfig } | undefined;
 
+  @Input() progressBar: 'always' | 'never' | 'auto' = 'always';
   @Input() sortable = true;
   @Input() deleteIcon: IconName = 'skull-crossbones';
   @Input() editIcon: IconName = 'address-card';
@@ -43,16 +21,16 @@ export class TableComponent<T> implements OnChanges, AfterViewInit {
   @Output() readonly deleteEvent = new EventEmitter<T>();
   @Output() readonly editEvent = new EventEmitter<T>();
 
-  @ViewChild(MatPaginator) paginator !: MatPaginator;
-  @ViewChild(MatSort) sort !: MatSort;
-
+  loading = true;
   edit = false;
   delete = false;
 
-  dataSource !: MatTableDataSource<T>;
-  displayedColumns: string[] = [];
+  displayedColumns!: string[];
+  innerData: T[] | undefined | null = [];
 
-  readonly ColumnType = ColumnType;
+  get progress(): boolean {
+    return this.progressBar === 'always' || (this.progressBar === 'auto' && this.loading);
+  }
 
   ngOnChanges(): void {
     this.delete = this.deleteEvent.observed;
@@ -63,13 +41,10 @@ export class TableComponent<T> implements OnChanges, AfterViewInit {
       this.displayedColumns.push('actions');
     }
 
-    this.dataSource = new MatTableDataSource<T>(this.dataset ?? []);
-    this.dataSource.sort = this.sort;
-  }
-
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    this.loading = !this.dataset;
+    if (!this.loading) {
+      this.innerData = this.dataset;
+    }
   }
 
   deleteAction(item: T): void {

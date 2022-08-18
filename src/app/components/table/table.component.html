@@ -5,11 +5,35 @@
   <li>Date</li>
   <li>Enumeration</li>
 </ul>
+<h3>Using static data</h3>
 <bpa-table [columnConfig]="config"
            [columns]="['name', 'level', 'type', 'health', 'birthday']"
            [dataset]="data"
            (deleteEvent)="die()"
            (editEvent)="view()"
            translateKey="hero.components.hero-list."></bpa-table>
+<h3>Using observables</h3>
+<bpa-table [columnConfig]="config"
+           [columns]="['name', 'level', 'type', 'health', 'birthday']"
+           [dataset]="data$ | async"
+           progressBar="auto"
+           (deleteEvent)="die()"
+           (editEvent)="view()"
+           translateKey="hero.components.hero-list."></bpa-table>
+
 <h3>Options</h3>
-sortable (default: true) - set to false to disable sorting
+<table class="tw-w-full">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>sortable (default: true)</td>
+    <td>set to false to disable sorting</td>
+  </tbody>
+</table>
+
+<br>
