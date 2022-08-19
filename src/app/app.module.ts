@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -11,6 +12,7 @@ import { AppComponent } from './app.component';
 import { EnumComponent } from './components/enum/enum.component';
 import { TableComponent } from './components/table/table.component';
 
+import * as de from './i18n/de.json';
 import * as en from './i18n/en.json';
 
 @NgModule({
@@ -28,6 +30,7 @@ import * as en from './i18n/en.json';
     MatTabsModule,
     FontAwesomeModule,
     MatProgressBarModule,
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -35,6 +38,7 @@ import * as en from './i18n/en.json';
 export class AppModule {
   constructor(translate: TranslateService) {
     translate.setTranslation('en', en, true);
+    translate.setTranslation('de', de, true);
     translate.use('en');
   }
 }

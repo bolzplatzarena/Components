@@ -1,4 +1,26 @@
 {
+  "content": {
+    "text": {
+      "1": "This is a collection of components build on top of angular material to make it easier to use it. Additionally little helpers could by found.",
+      "examples": "Collection of conmponents and utilities based on the angular material library.",
+      "table": "Easy way to use a table, whitout the need to implement to headers and columns by you own.",
+      "column": "Custom column configuration availble for:",
+      "options": "sortable (default: true) - set to false to disable sorting",
+      "enum": "Sometimes it is hard to handle enums but it is important to use an enum instead of just using a number or a string.\n    <br>Here you can find some little helpers, which enable you to use enum for material select or in the tempalte as a\n    string very easily.",
+      "enum_options": "Easy why to use a typescript enum as source of the material select.",
+      "pipe": "The pipe provides an easy way to get the selected key of an enumeration in the template."
+    },
+    "headline": {
+      "first": "Bolzplatzarena Components",
+      "examples": "Examples",
+      "table": "The table",
+      "options": "Options",
+      "enum": "Enum Helper",
+      "enum_options": "Select Options with enumeration",
+      "select": "Select options with enumeration",
+      "pipe": "Pipe"
+    }
+  },
   "bpa": {
     "components": {
       "table": {
