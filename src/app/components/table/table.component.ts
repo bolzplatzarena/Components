@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ColumnConfig, ColumnType } from '@bolzplatzarena/components';
 import { delay, interval, mergeMap, of, startWith } from 'rxjs';
 import { Hero } from '../../models/hero';
@@ -7,6 +7,7 @@ import { HeroType } from '../../models/hero-type';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent {
   readonly data: Hero[] = [
