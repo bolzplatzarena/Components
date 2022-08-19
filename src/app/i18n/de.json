@@ -17,7 +17,9 @@
       "options": "Optionen",
       "enum": "Enum Helferlein",
       "enum_options": "Select Options mit Enumerationen",
-      "pipe": "Pipe"
+      "pipe": "Pipe",
+      "static_data": "Verwendung von statischen Daten",
+      "observables": "Verwendung von Observables"
     }
   },
   "bpa": {
