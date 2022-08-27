@@ -3,7 +3,7 @@
   {{ data.translateKey + '.content' | translate }}
 </div>
 <mat-dialog-actions align="end">
-  <button mat-button matDialogClose="">
+  <button mat-button [matDialogClose]="false">
     {{ 'global.no' | translate }} (Esc)
   </button>
   <button mat-button (click)="submit()" cdkFocusInitial>

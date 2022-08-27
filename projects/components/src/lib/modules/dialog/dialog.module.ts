@@ -15,6 +15,9 @@ import { SimpleDialogComponent } from './components/simple-dialog/simple-dialog.
     MatDialogModule,
     MatButtonModule,
   ],
+  exports: [
+    MatDialogModule,
+  ],
 })
 export class DialogModule {
 }

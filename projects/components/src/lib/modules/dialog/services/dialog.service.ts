@@ -25,13 +25,10 @@ export class DialogService {
         { translateKey },
       ).pipe(
         switchMap(async value => {
-          if (!action) {
-            return Promise.resolve(value);
-          }
-          if (value) {
+          if (value && action) {
             await action();
           }
-          return Promise.resolve();
+          return Promise.resolve(value);
         }),
       ),
     );

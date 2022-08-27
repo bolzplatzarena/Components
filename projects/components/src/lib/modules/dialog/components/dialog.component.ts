@@ -26,8 +26,8 @@ export abstract class DialogComponent<T> {
     });
   }
 
-  close(): void {
-    this.dialogRef.close();
+  close(value?: unknown): void {
+    this.dialogRef.close(value);
   }
 
   abstract submit(): void | Promise<void>;
