@@ -8,7 +8,8 @@
       "options": "sortable (default: true) - auf \"false\" setzen um zu deaktivieren",
       "enum": "Enums sind toll, Enums sind wichtig. Aber manchmal sind sie schwer zu nutzen, vor allem in Tempülates.<br>Hier findet ihr Tools die euch unterstützen.",
       "enum_options": "Dies ist eine Methode um aus einem Enum eine Datenquelle für ein Dropdown zu machen und dabei die Werte auch noch zu übersetzen.",
-      "pipe": "Die Pipe gibt euch die Möglichkeit den Enum-Schlüssel in einer View zu nutzen. Dies ist vor allem dann wichtig, wenn das Enum nicht auf einem String basiert."
+      "pipe": "Die Pipe gibt euch die Möglichkeit den Enum-Schlüssel in einer View zu nutzen. Dies ist vor allem dann wichtig, wenn das Enum nicht auf einem String basiert.",
+      "dialogs": "Diese Bibliothek gibt einige Möglichkeiten, einfach Dialoge zu erstellen und vorgefertigte Dialoge zu nutzen."
     },
     "headline": {
       "first": "Bolzplatzarena Components",
@@ -19,7 +20,8 @@
       "enum_options": "Select Options mit Enumerationen",
       "pipe": "Pipe",
       "static_data": "Verwendung von statischen Daten",
-      "observables": "Verwendung von Observables"
+      "observables": "Verwendung von Observables",
+      "dialogs": "Verwendung von Dialogen"
     }
   },
   "bpa": {
@@ -54,6 +56,12 @@
       "hammer": "Thor",
       "scientist": "Wissenschaftler",
       "spy": "Spion"
+    }
+  },
+  "dialog": {
+    "confirm_delete": {
+      "title": "Löschen bestätigen",
+      "content": "Wollen Sie diesen Eintrag wirklich löschen?"
     }
   }
 }

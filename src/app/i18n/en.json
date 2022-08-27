@@ -8,7 +8,8 @@
       "options": "sortable (default: true) - set to false to disable sorting",
       "enum": "Sometimes it is hard to handle enums, but it is important to use an enum instead of just using a number or a string.\n    <br>Here you can find some little helpers, which enable you to use enum for material select or in the tempalte as a\n    string very easily.",
       "enum_options": "Easy way to use a typescript enum as source of the material select.",
-      "pipe": "The pipe provides an easy way to get the selected key of an enumeration in the template."
+      "pipe": "The pipe provides an easy way to get the selected key of an enumeration in the template.",
+      "dialogs": "This library provides a way to use dialogs in your application."
     },
     "headline": {
       "first": "Bolzplatzarena Components",
@@ -20,7 +21,8 @@
       "select": "Select options with enumeration",
       "pipe": "Pipe",
       "static_data": "Using of static data",
-      "observables": "Using of observables"
+      "observables": "Using of observables",
+      "dialogs": "Usage of dialogs"
     }
   },
   "bpa": {
@@ -55,6 +57,12 @@
       "hammer": "Thor",
       "scientist": "Scientist",
       "spy": "Spy"
+    }
+  },
+  "dialog": {
+    "confirm_delete": {
+      "title": "Confirm delete",
+      "content": "Do you really want to delete this item?"
     }
   }
 }
