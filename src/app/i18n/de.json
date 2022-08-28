@@ -62,6 +62,10 @@
     "confirm_delete": {
       "title": "Löschen bestätigen",
       "content": "Wollen Sie diesen Eintrag wirklich löschen?"
+    },
+    "simple_dialog": {
+      "title": "Einfacher Dialog",
+      "content": "Dies ist ein einfacher Dialog. Der Inhalt muss komplett selbst gestaltet werden. Allerdings kann man den Dialog bereits mit ESC schließen."
     }
   }
 }
