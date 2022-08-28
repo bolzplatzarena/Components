@@ -26,6 +26,10 @@
     }
   },
   "bpa": {
+    "global": {
+      "no": "Cancel",
+      "okay": "Okay"
+    },
     "components": {
       "table": {
         "items-per-page": "Items per page",
@@ -63,6 +67,18 @@
     "confirm_delete": {
       "title": "Confirm delete",
       "content": "Do you really want to delete this item?"
+    },
+    "simple_dialog": {
+      "title": "Simple Dialog",
+      "content": "This is a simple dialog without any special features in it. But it brings already the possibility to use esc key to close the dialog."
+    },
+    "confirmation": {
+      "title": "Confirmation Dialog",
+      "content": "The service provides several function to handle confirmation. Either you handle the result of the confirmation screen by you own or you give already the function which needs to be called (or not) if the okay button is clicked."
+    },
+    "layout": {
+      "title": "Use layout",
+      "content": "Wll, all the dialogs should look like the others. So you can use a simple component which provides the layout with headline, okay and cancel button."
     }
   }
 }
