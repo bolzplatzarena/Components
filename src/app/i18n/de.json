@@ -25,6 +25,10 @@
     }
   },
   "bpa": {
+    "global": {
+      "no": "Abbrechen",
+      "okay": "Okay"
+    },
     "components": {
       "table": {
         "items-per-page": "Einträge pro Seite",
@@ -66,6 +70,14 @@
     "simple_dialog": {
       "title": "Einfacher Dialog",
       "content": "Dies ist ein einfacher Dialog. Der Inhalt muss komplett selbst gestaltet werden. Allerdings kann man den Dialog bereits mit ESC schließen."
+    },
+    "confirmation": {
+      "title": "Bestätigung",
+      "content": "Der Service bietet die Möglichkeit nach eine Bestätigung zu fragen. Dabei kann man das Ergebnis selbst auswerden oder die Methode, welche aufgerufen werden soll gleich mitliefern."
+    },
+    "layout": {
+      "title": "Layout gleich mitliefern lassen",
+      "content": "Keine Lust Überschrift und Buttons jedesmal zu schreiben? Dann kann man einfach eine Basis-Componente nutzen, welche die Überschrift und die Headline direkt mitliefern."
     }
   }
 }

@@ -17,10 +17,7 @@ export class DialogsComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(SimpleComponent, {
-      disableClose: true,
-      data: { translateKey: 'dialog.confirm_delete' },
-    });
+    this.dialog.open(SimpleComponent);
   }
 
   openConfirmation(): Promise<void> {
