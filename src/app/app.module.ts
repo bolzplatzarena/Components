@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -12,6 +14,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { DialogsComponent } from './components/dialogs/dialogs.component';
 import { CommonDialogComponent } from './components/dialogs/examples/common-dialog/common-dialog.component';
+import { FormDialogComponent } from './components/dialogs/examples/form-dialog/form-dialog.component';
 import { SimpleComponent } from './components/dialogs/examples/simple/simple.component';
 import { EnumComponent } from './components/enum/enum.component';
 import { TableComponent } from './components/table/table.component';
@@ -27,6 +30,7 @@ import * as en from './i18n/en.json';
     DialogsComponent,
     SimpleComponent,
     CommonDialogComponent,
+    FormDialogComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -40,6 +44,8 @@ import * as en from './i18n/en.json';
     MatProgressBarModule,
     MatButtonToggleModule,
     MatButtonModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -6,12 +6,12 @@ interface DialogData {
 }
 
 @Directive()
-export abstract class DialogComponent<T> {
+export abstract class DialogComponent<R> {
   protected registerEnterKey = false;
   protected registerEscKey = true;
 
   constructor(
-    protected readonly dialogRef: MatDialogRef<T>,
+    protected readonly dialogRef: MatDialogRef<unknown, R>,
     @Inject(MAT_DIALOG_DATA) readonly data: DialogData,
   ) {
     const subscription = this.dialogRef.keydownEvents().subscribe(event => {
@@ -27,7 +27,7 @@ export abstract class DialogComponent<T> {
     });
   }
 
-  close(value?: unknown): void {
+  close(value?: R | undefined): void {
     this.dialogRef.close(value);
   }
 

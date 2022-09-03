@@ -9,7 +9,7 @@ export class DialogService {
   constructor(private readonly dialog: MatDialog) {
   }
 
-  open<T, R>(component: ComponentType<T> | TemplateRef<T>, data?: unknown): Observable<R> {
+  open<T, R, C = unknown>(component: ComponentType<T> | TemplateRef<T>, data?: C): Observable<R> {
     return this.dialog.open(component, {
       disableClose: true,
       data,
