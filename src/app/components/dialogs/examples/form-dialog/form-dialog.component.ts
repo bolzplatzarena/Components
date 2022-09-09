@@ -17,7 +17,7 @@ export class SimpleFormDialogComponent extends FormDialogComponent<{ email: stri
   constructor(
     private readonly fb: FormBuilder,
     dialogRef: MatDialogRef<{ result: string }>,
-    @Inject(MAT_DIALOG_DATA) data: { info: any, translateKey: string },
+    @Inject(MAT_DIALOG_DATA) data: { info: unknown, translateKey: string },
   ) {
     super(dialogRef, data);
 
