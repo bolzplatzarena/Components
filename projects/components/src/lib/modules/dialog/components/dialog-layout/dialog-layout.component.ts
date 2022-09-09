@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { DialogComponent } from '../dialog.component';
+import { FormDialogComponent } from '../form-dialog.component';
 
 @Component({
   selector: 'bpa-dialog-layout',
@@ -12,6 +14,10 @@ export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnIn
 
   override registerEnterKey = false;
   override registerEscKey = false;
+
+  get form(): FormGroup | { valid: true } {
+    return (this.dialog as FormDialogComponent<unknown>).form ?? { valid: true };
+  }
 
   ngOnInit(): void {
     if (!this.dialog) {

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DialogService } from '@bolzplatzarena/components';
 import { CommonDialogComponent } from './examples/common-dialog/common-dialog.component';
-import { FormDialogComponent } from './examples/form-dialog/form-dialog.component';
+import { SimpleFormDialogComponent } from './examples/form-dialog/form-dialog.component';
 import { SimpleComponent } from './examples/simple/simple.component';
 
 @Component({
@@ -34,8 +34,8 @@ export class DialogsComponent implements OnInit {
   }
 
   openForm(): void {
-    this.dialog.open<FormDialogComponent, { result: string }, { info: string }>(FormDialogComponent, { info: 'Hello' }).subscribe(value => {
-      alert(value.result + ' returned from the dialog');
+    this.dialog.open<SimpleFormDialogComponent, { email: string, name: string }, { info: string }>(SimpleFormDialogComponent, { info: 'Hello' }).subscribe(value => {
+      alert(JSON.stringify(value) + ' returned from the dialog');
     });
   }
 }

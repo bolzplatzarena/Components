@@ -6,7 +6,7 @@
   <button mat-button (click)="close()">
     {{ 'bpa.global.no' | translate }} (Esc)
   </button>
-  <button mat-button (click)="submit()" cdkFocusInitial>
+  <button mat-button [disabled]="form.valid" (click)="submit()" cdkFocusInitial>
     {{ 'bpa.global.okay' | translate }} (Enter)
   </button>
 </mat-dialog-actions>

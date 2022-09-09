@@ -14,7 +14,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { DialogsComponent } from './components/dialogs/dialogs.component';
 import { CommonDialogComponent } from './components/dialogs/examples/common-dialog/common-dialog.component';
-import { FormDialogComponent } from './components/dialogs/examples/form-dialog/form-dialog.component';
+import { SimpleFormDialogComponent } from './components/dialogs/examples/form-dialog/form-dialog.component';
 import { SimpleComponent } from './components/dialogs/examples/simple/simple.component';
 import { EnumComponent } from './components/enum/enum.component';
 import { TableComponent } from './components/table/table.component';
@@ -25,12 +25,12 @@ import * as en from './i18n/en.json';
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent,
-    EnumComponent,
-    DialogsComponent,
-    SimpleComponent,
     CommonDialogComponent,
-    FormDialogComponent,
+    DialogsComponent,
+    EnumComponent,
+    SimpleComponent,
+    SimpleFormDialogComponent,
+    TableComponent,
   ],
   imports: [
     BrowserAnimationsModule,
