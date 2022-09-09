@@ -1,6 +1,6 @@
 {
   "name": "@bolzplatzarena/components",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Thomas Renger",
   "repository": {
     "type": "git",
@@ -13,15 +13,16 @@
     "angular",
     "component",
     "table",
-    "enum"
+    "enum",
+    "dialog"
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^14.1.3",
-    "@angular/core": "^14.1.3",
-    "@angular/material": "^14.1.3",
+    "@angular/common": "^14.2.1",
+    "@angular/core": "^14.2.1",
+    "@angular/material": "^14.2.1",
     "@fortawesome/angular-fontawesome": "^0.11.1",
-    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@ngx-translate/core": "^14.0.0"
   },
   "dependencies": {
