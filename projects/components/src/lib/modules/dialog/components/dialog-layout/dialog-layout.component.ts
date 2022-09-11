@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { map, Observable, of, startWith } from 'rxjs';
 import { DialogComponent } from '../dialog.component';
 import { FormDialogComponent } from '../form-dialog.component';
 
@@ -12,17 +12,24 @@ export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnIn
   @Input() dialog?: DialogComponent<T>;
   @Input() translateKey!: string;
 
+  valid$ !: Observable<boolean>;
   override registerEnterKey = false;
   override registerEscKey = false;
-
-  get form(): FormGroup | { valid: true } {
-    return (this.dialog as FormDialogComponent<unknown>).form ?? { valid: true };
-  }
 
   ngOnInit(): void {
     if (!this.dialog) {
       throw new Error('DialogLayoutComponent requires a dialog input');
     }
+
+    const form = (this.dialog as FormDialogComponent<unknown>).form;
+    if (!form) {
+      this.valid$ = of(true);
+    }
+
+    this.valid$ = form.statusChanges.pipe(
+      startWith(form.valid),
+      map(() => form.valid),
+    );
   }
 
   override close(): void {
