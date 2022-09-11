@@ -18,7 +18,7 @@
   </ng-container>
 
   <ng-container matColumnDef="actions">
-    <th *matHeaderCellDef mat-header-cell>
+    <th *matHeaderCellDef mat-header-cell [style.width.rem]="(+delete+ +edit) * 2.5" style="text-align: center">
       {{ (translateKey + 'actions' | lowercase) | translate }}
     </th>
     <td *matCellDef="let element" mat-cell>
