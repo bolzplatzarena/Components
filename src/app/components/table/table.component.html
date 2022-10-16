@@ -16,7 +16,7 @@
 <bpa-table [columnConfig]="config"
            [columns]="['name', 'level', 'type', 'health', 'birthday']"
            [dataset]="data$ | async"
-           progressBar="auto"
+           progressBar="always"
            (deleteEvent)="die()"
            (editEvent)="view()"
            translateKey="hero.components.hero-list."></bpa-table>

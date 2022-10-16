@@ -17,6 +17,7 @@ import { Dictionary } from '../../../models/dictionary.model';
 export enum ColumnType {
   Date,
   Enum,
+  Number
 }
 
 export interface ColumnConfig {
@@ -55,6 +56,7 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   ngOnChanges(): void {
     this.dataSource = new MatTableDataSource<T>(this.dataset);
     this.dataSource.sort = this.sort;
+    this.dataSource.sortingDataAccessor = (item: T, property: string) => this.sortingAccessor(item, property);
     this.dataSource.paginator = this.paginator;
   }
 
@@ -69,5 +71,14 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
 
   editAction(item: T): void {
     this.editEvent.emit(item);
+  }
+
+  sortingAccessor(item: T, property: string): string | number {
+    switch (this.columnConfig?.[property]?.type) {
+      case ColumnType.Number:
+        return Number(item[property as keyof T]) ?? 0;
+      case ColumnType.Date:
+    }
+    return String(item[property as keyof T]) ?? '';
   }
 }

@@ -18,15 +18,15 @@
   </ng-container>
 
   <ng-container matColumnDef="actions">
-    <th *matHeaderCellDef mat-header-cell [style.width.rem]="(+delete+ +edit) * 2.5" style="text-align: center">
+    <th *matHeaderCellDef mat-header-cell style="text-align: center; width: 1px;">
       {{ (translateKey + 'actions' | lowercase) | translate }}
     </th>
-    <td *matCellDef="let element" mat-cell>
-      <button *ngIf="delete" mat-icon-button (click)="deleteAction(element)">
-        <fa-icon [icon]="deleteIcon"></fa-icon>
-      </button>
-      <button *ngIf="edit" mat-icon-button (click)="editAction(element)">
-        <fa-icon [icon]="editIcon"></fa-icon>
+    <td *matCellDef="let element" mat-cell style="text-align: center">
+      <button mat-icon-button
+              [matMenuTriggerFor]="menu"
+              [matMenuTriggerData]="element"
+              aria-label="Actions">
+        <fa-icon icon="ellipsis-vertical"></fa-icon>
       </button>
     </td>
   </ng-container>
@@ -35,3 +35,16 @@
   <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
 </table>
 <mat-paginator *ngIf="dataset" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+<mat-menu #menu="matMenu">
+  <ng-template matMenuContent let-element="element">
+    <button *ngIf="delete" mat-menu-item (click)="deleteAction(element)">
+      <fa-icon [icon]="deleteIcon"></fa-icon>
+      <span>&nbsp;&nbsp;{{ (translateKey + 'action.delete') | translate }}</span>
+    </button>
+    <button *ngIf="edit" mat-menu-item (click)="editAction(element)">
+      <fa-icon [icon]="editIcon"></fa-icon>
+      <span>&nbsp;&nbsp;{{ (translateKey + 'action.edit') | translate }}</span>
+    </button>
+  </ng-template>
+</mat-menu>

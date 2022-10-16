@@ -52,7 +52,11 @@
         "type.scientist": "Wissenschaftler",
         "health": "Health",
         "birthday": "Birthday",
-        "actions": "Actions"
+        "actions": "Actions",
+        "action": {
+          "edit": "Mehr Details",
+          "delete": "Entlassen"
+        }
       }
     },
     "types": {

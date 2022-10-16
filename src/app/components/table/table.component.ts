@@ -92,6 +92,8 @@ export class TableComponent {
   readonly config: { [key: string]: ColumnConfig } = {
     'birthday': { type: ColumnType.Date },
     'type': { type: ColumnType.Enum, args: HeroType },
+    'level': { type: ColumnType.Number },
+    'health': { type: ColumnType.Number },
   };
   readonly data$ = interval(3000).pipe(
     mergeMap(() => of(this.data).pipe(
