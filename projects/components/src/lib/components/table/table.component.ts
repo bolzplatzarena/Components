@@ -11,7 +11,7 @@ export class TableComponent<T> implements OnChanges {
   @Input() columns !: string[];
   @Input() dataset: T[] | undefined | null = [];
   @Input() translateKey = 'core.components.table.';
-  @Input() columnConfig: { [key: string]: ColumnConfig } | undefined;
+  @Input() columnConfig: { [key: string]: ColumnConfig<T> } | undefined;
 
   @Input() progressBar: 'always' | 'never' | 'auto' = 'always';
   @Input() sortable = true;
@@ -29,7 +29,8 @@ export class TableComponent<T> implements OnChanges {
   innerData: T[] | undefined | null = [];
 
   get progress(): boolean {
-    return this.progressBar === 'always' || (this.progressBar === 'auto' && this.loading);
+    return (this.progressBar === 'always')
+      || ((this.progressBar === 'auto') && this.loading);
   }
 
   ngOnChanges(): void {

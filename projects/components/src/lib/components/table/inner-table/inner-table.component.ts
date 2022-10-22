@@ -15,14 +15,16 @@ import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { Dictionary } from '../../../models/dictionary.model';
 
 export enum ColumnType {
-  Date,
-  Enum,
-  Number
+  Custom = -1,
+  Date = 0,
+  Enum = 1,
+  Number = 2
 }
 
-export interface ColumnConfig {
+export interface ColumnConfig<T> {
   type: ColumnType,
   args?: Dictionary<unknown>,
+  getter?: (item: T) => string | number,
 }
 
 @Component({
@@ -37,7 +39,7 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   @Input() translateKey = 'core.components.table.';
   @Input() sortable = true;
   @Input() displayedColumns: string[] = [];
-  @Input() columnConfig: { [key: string]: ColumnConfig } | undefined;
+  @Input() columnConfig: { [key: string]: ColumnConfig<T> } | undefined;
   @Input() deleteIcon: IconName = 'skull-crossbones';
   @Input() editIcon: IconName = 'address-card';
   @Input() edit = false;
@@ -77,7 +79,10 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
     switch (this.columnConfig?.[property]?.type) {
       case ColumnType.Number:
         return Number(item[property as keyof T]) ?? 0;
-      case ColumnType.Date:
+      case ColumnType.Custom:
+        if (this.columnConfig?.[property]?.getter) {
+          return this.columnConfig[property].getter !(item);
+        }
     }
     return String(item[property as keyof T]) ?? '';
   }

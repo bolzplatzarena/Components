@@ -89,11 +89,12 @@ export class TableComponent {
       birthday: new Date(1991, 1, 1),
     },
   ];
-  readonly config: { [key: string]: ColumnConfig } = {
+  readonly config: { [key: string]: ColumnConfig<Hero> } = {
     'birthday': { type: ColumnType.Date },
     'type': { type: ColumnType.Enum, args: HeroType },
     'level': { type: ColumnType.Number },
     'health': { type: ColumnType.Number },
+    'custom': { type: ColumnType.Custom, getter: (hero: Hero) => hero.name + ' ' + hero.level },
   };
   readonly data$ = interval(3000).pipe(
     mergeMap(() => of(this.data).pipe(
