@@ -9,4 +9,6 @@
                  [dataset]="innerData"
                  [displayedColumns]="displayedColumns"
                  (deleteEvent)="deleteAction($event)"
-                 (editEvent)="editAction($event)"></bpa-inner-table>
+                 (editEvent)="editAction($event)">
+    <ng-content></ng-content>
+</bpa-inner-table>

@@ -52,6 +52,7 @@
         "type.scientist": "Wissenschaftler",
         "health": "Health",
         "birthday": "Birthday",
+        "custom": "Custom",
         "actions": "Actions",
         "action": {
           "edit": "Mehr Details",
