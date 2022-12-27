@@ -13,7 +13,8 @@
     "debug": "ng build components && ng serve",
     "build-lib": "npm run tailwind && ng build components",
     "lint": "ng lint",
-    "deploy": "ng deploy --base-href=https://bolzplatzarena.github.io/Components/"
+    "deploy": "ng deploy --base-href=https://bolzplatzarena.github.io/Components/",
+    "depcheck": "npx depcheck"
   },
   "private": true,
   "dependencies": {
