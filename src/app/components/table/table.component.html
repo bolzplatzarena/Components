@@ -2,8 +2,8 @@
 <p class="tw-px-4" translate>content.text.table</p>
 <p class="tw-px-4" translate>content.text.column</p>
 <ul>
-    <li>Date</li>
-    <li>Enumeration</li>
+  <li>Date</li>
+  <li>Enumeration</li>
 </ul>
 <h3 translate>content.headline.static_data</h3>
 <bpa-table [columnConfig]="config"
@@ -20,14 +20,6 @@
            (deleteEvent)="die()"
            (editEvent)="view()"
            translateKey="hero.components.hero-list.">
-    <ng-container matColumnDef="custom">
-        <th *matHeaderCellDef mat-header-cell>
-            =)
-        </th>
-        <td *matCellDef="let element" mat-cell>
-            =)=)
-        </td>
-    </ng-container>
 </bpa-table>
 <h3 class="tw-p-4" translate>content.headline.options</h3>
 <p class="tw-px-4" translate>content.text.options</p>

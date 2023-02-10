@@ -1,0 +1,21 @@
+<mat-list>
+  <ng-container *ngFor="let folder of folders">
+    <div mat-subheader>{{ folder.name }}</div>
+    <ng-container *ngFor="let file of folder.files; let last = last">
+      <mat-list-item>
+        <div matListItemMeta>
+          <button mat-icon-button>
+            <fa-icon icon="trash"></fa-icon>
+          </button>
+          <button mat-icon-button>
+            <fa-icon icon="ellipsis-v"></fa-icon>
+          </button>
+        </div>
+        <div matListItemLine>{{ file.updated | date }}</div>
+        <div matListItemTitle>{{ file.name }}</div>
+        <fa-icon matListItemIcon icon="file"></fa-icon>
+      </mat-list-item>
+      <mat-divider *ngIf="last"></mat-divider>
+    </ng-container>
+  </ng-container>
+</mat-list>
