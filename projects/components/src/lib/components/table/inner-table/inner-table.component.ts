@@ -44,6 +44,8 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   @Input() editIcon: IconName = 'address-card';
   @Input() edit = false;
   @Input() delete = false;
+  @Input() progress = false;
+  @Input() loading = true;
 
   @Output() readonly deleteEvent = new EventEmitter<T>();
   @Output() readonly editEvent = new EventEmitter<T>();
