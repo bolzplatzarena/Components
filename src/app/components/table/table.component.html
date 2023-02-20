@@ -6,12 +6,15 @@
   <li>Enumeration</li>
 </ul>
 <h3 translate>content.headline.static_data</h3>
-<bpa-table [columnConfig]="config"
-           [columns]="['name', 'level', 'type', 'health', 'birthday']"
-           [dataset]="data"
-           (deleteEvent)="die()"
-           (editEvent)="view()"
-           translateKey="hero.components.hero-list."></bpa-table>
+<section class="tw-h-64 tw-overflow-auto">
+  <bpa-table [columnConfig]="config"
+             [columns]="['name', 'level', 'type', 'health', 'birthday']"
+             [dataset]="data"
+             [pageSizeOptions]="[7, 14, 21]"
+             (deleteEvent)="die()"
+             (editEvent)="view()"
+             translateKey="hero.components.hero-list."></bpa-table>
+</section>
 <h3 translate>content.headline.observables</h3>
 <bpa-table [columnConfig]="config"
            [columns]="['name', 'level', 'type', 'health', 'birthday', 'custom']"
