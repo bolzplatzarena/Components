@@ -1,4 +1,3 @@
-<mat-progress-bar *ngIf="progress" [mode]="loading ? 'indeterminate' : 'determinate'"></mat-progress-bar>
 <bpa-inner-table *ngIf="innerData && displayedColumns"
                  [columnConfig]="columnConfig"
                  [columns]="columns"
@@ -8,7 +7,9 @@
                  [translateKey]="translateKey"
                  [dataset]="innerData"
                  [displayedColumns]="displayedColumns"
+                 [progress]="progress"
+                 [loading]="loading"
                  (deleteEvent)="deleteAction($event)"
                  (editEvent)="editAction($event)">
-    <ng-content></ng-content>
+  <ng-content></ng-content>
 </bpa-inner-table>
