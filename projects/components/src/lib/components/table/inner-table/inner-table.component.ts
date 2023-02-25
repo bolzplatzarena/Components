@@ -46,6 +46,7 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   @Input() delete = false;
   @Input() progress = false;
   @Input() loading = true;
+  @Input() pageSizeOptions = [10, 20, 50];
 
   @Output() readonly deleteEvent = new EventEmitter<T>();
   @Output() readonly editEvent = new EventEmitter<T>();

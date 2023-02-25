@@ -17,6 +17,7 @@ export class TableComponent<T> implements OnChanges {
   @Input() sortable = true;
   @Input() deleteIcon: IconName = 'skull-crossbones';
   @Input() editIcon: IconName = 'address-card';
+  @Input() pageSizeOptions = [10, 20, 50];
 
   @Output() readonly deleteEvent = new EventEmitter<T>();
   @Output() readonly editEvent = new EventEmitter<T>();

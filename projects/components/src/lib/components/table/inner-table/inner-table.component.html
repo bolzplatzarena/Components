@@ -47,7 +47,10 @@
 
   <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
 </table>
-<mat-paginator *ngIf="dataset" [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+<mat-paginator *ngIf="dataset"
+               showFirstLastButtons
+               [pageSizeOptions]="pageSizeOptions"
+               class="tw-sticky tw-bottom-0"></mat-paginator>
 
 <mat-menu #menu="matMenu">
   <ng-template matMenuContent let-element="element">
