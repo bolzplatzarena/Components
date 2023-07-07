@@ -3,7 +3,10 @@
        [matSortDisabled]="!sortable"
        class="mat-elevation-z8 tw-w-full">
   <ng-container *ngFor="let column of columns" [matColumnDef]="column">
-    <th *matHeaderCellDef mat-header-cell mat-sort-header>{{ (translateKey + column | lowercase) | translate }}</th>
+    <th *matHeaderCellDef
+        mat-header-cell
+        mat-sort-header
+        [class]="columnConfig?.[column]?.cssClass">{{ (translateKey + column | lowercase) | translate }}</th>
     <td *matCellDef="let element" mat-cell>
       <ng-container [ngSwitch]="columnConfig?.[column]?.type">
         <ng-container *ngSwitchCase="ColumnType.Date">
@@ -12,11 +15,8 @@
         <ng-container *ngSwitchCase="ColumnType.Enum">
           {{ (translateKey + column + '.' + (element[column] | enumKey : columnConfig ![column].args !)) | lowercase | translate }}
         </ng-container>
-        <ng-container *ngSwitchCase="ColumnType.Custom">
-          {{ columnConfig?.[column]?.getter(element) ?? element[column] }}
-        </ng-container>
         <ng-container *ngSwitchDefault>
-          {{ element[column] }}
+          {{ columnConfig?.[column]?.getter?.(element) ?? element[column] }}
         </ng-container>
       </ng-container>
     </td>

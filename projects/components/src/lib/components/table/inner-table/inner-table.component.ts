@@ -15,7 +15,7 @@ import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { Dictionary } from '../../../models/dictionary.model';
 
 export enum ColumnType {
-  Custom = -1,
+  Unknown = -1,
   Date = 0,
   Enum = 1,
   Number = 2
@@ -25,6 +25,7 @@ export interface ColumnConfig<T> {
   type: ColumnType,
   args?: Dictionary<unknown>,
   getter?: (item: T) => string | number,
+  cssClass?: string,
 }
 
 @Component({
@@ -79,13 +80,12 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   }
 
   sortingAccessor(item: T, property: string): string | number {
+    if (this.columnConfig?.[property]?.getter) {
+      return this.columnConfig[property].getter !(item);
+    }
     switch (this.columnConfig?.[property]?.type) {
       case ColumnType.Number:
         return Number(item[property as keyof T]) ?? 0;
-      case ColumnType.Custom:
-        if (this.columnConfig?.[property]?.getter) {
-          return this.columnConfig[property].getter !(item);
-        }
     }
     return String(item[property as keyof T]) ?? '';
   }
