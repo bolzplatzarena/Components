@@ -10,7 +10,7 @@
     "tailwind": "npx tailwindcss build -o ./projects/styles/tailwind.scss -c ./tailwind.lib.config.js",
     "tailwind-ng": "npx tailwindcss build -o ./src/styles/tailwind.scss -c ./tailwind.config.js",
     "lib": "ng build components",
-    "debug": "ng build components && ng serve",
+    "debug": "npm run tailwind && npm run tailwind-ng && ng build components && ng serve",
     "build-lib": "npm run tailwind && ng build components",
     "lint": "ng lint",
     "deploy": "ng deploy --base-href=https://bolzplatzarena.github.io/Components/",
