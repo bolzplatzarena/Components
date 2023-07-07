@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ColumnConfig, ColumnType } from '@bolzplatzarena/components';
 import { delay, interval, mergeMap, of, startWith } from 'rxjs';
 import { Hero } from '../../models/hero';
@@ -102,6 +103,7 @@ export class TableComponent {
       delay(1500),
       startWith(null),
     )),
+    takeUntilDestroyed(),
   );
 
   die(): void {
