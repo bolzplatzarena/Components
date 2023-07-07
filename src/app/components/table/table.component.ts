@@ -96,7 +96,7 @@ export class TableComponent {
     'type': { type: ColumnType.Enum, args: HeroType, cssClass: 'tw-w-32' },
     'level': { type: ColumnType.Number, cssClass: 'tw-w-32' },
     'health': { type: ColumnType.Number, cssClass: 'tw-w-32' },
-    'custom': { type: ColumnType.Unknown, getter: (hero: Hero) => hero.name + ' ' + hero.level },
+    'custom': { type: ColumnType.Unknown, getter: (hero: Hero) => `${hero.name} ${hero.level}` },
   };
   readonly data$ = interval(3000).pipe(
     mergeMap(() => of(this.data).pipe(
