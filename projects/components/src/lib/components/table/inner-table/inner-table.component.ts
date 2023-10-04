@@ -62,7 +62,7 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   ngOnChanges(): void {
     this.dataSource = new MatTableDataSource<T>(this.dataset);
     this.dataSource.sort = this.sort;
-    this.dataSource.sortingDataAccessor = (item: T, property: string) => this.sortingAccessor(item, property);
+    this.dataSource.sortingDataAccessor = (item: T, property: string) => this.getSortingAccessor(item, property);
     this.dataSource.paginator = this.paginator;
   }
 
@@ -79,7 +79,7 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
     this.editEvent.emit(item);
   }
 
-  sortingAccessor(item: T, property: string): string | number {
+  getSortingAccessor(item: T, property: string): string | number {
     if (this.columnConfig?.[property]?.getter) {
       return this.columnConfig[property].getter !(item);
     }

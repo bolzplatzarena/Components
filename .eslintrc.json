@@ -51,7 +51,8 @@
             "whitelist": [
               "ng",
               "by",
-              "migrate"
+              "migrate",
+              "die"
             ]
           }
         ],
