@@ -12,23 +12,23 @@ export class PaginatorTexts implements MatPaginatorIntl {
 
   get itemsPerPageLabel(): string {
     return this.translate.instant('bpa.components.table.items-per-page');
-  };
+  }
 
   get firstPageLabel(): string {
     return this.translate.instant('bpa.components.table.first-page');
-  };
+  }
 
   get lastPageLabel(): string {
     return this.translate.instant('bpa.components.table.last-page');
-  };
+  }
 
   get nextPageLabel(): string {
     return this.translate.instant('bpa.components.table.next-page');
-  };
+  }
 
   get previousPageLabel(): string {
     return this.translate.instant('bpa.components.table.previous-page');
-  };
+  }
 
   getRangeLabel(page: number, pageSize: number, length: number): string {
     if (length === 0) {
