@@ -6,7 +6,7 @@ import { DialogComponent } from '../dialog.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SimpleDialogComponent extends DialogComponent<boolean> {
-  override close() {
+  override close(): void {
     super.close(false);
   }
 

@@ -13,7 +13,7 @@ export class DialogsComponent {
   constructor(private readonly dialog: DialogService) {
   }
 
-  openDialog() {
+  openDialog(): void {
     this.dialog.open(SimpleComponent);
   }
 
@@ -30,7 +30,9 @@ export class DialogsComponent {
   }
 
   openForm(): void {
-    this.dialog.open<SimpleFormDialogComponent, { email: string, name: string }, { info: string }>(SimpleFormDialogComponent, { info: 'Hello' }).subscribe(value => {
+    this.dialog.open<SimpleFormDialogComponent, { email: string, name: string }, {
+      info: string
+    }>(SimpleFormDialogComponent, { info: 'Hello' }).subscribe(value => {
       alert(JSON.stringify(value) + ' returned from the dialog');
     });
   }

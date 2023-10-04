@@ -110,7 +110,7 @@ export class TableComponent {
     alert('Die');
   }
 
-  view() {
+  view(): void {
     alert('View');
   }
 }
