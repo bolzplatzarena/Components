@@ -1,4 +1,4 @@
-import { DatePipe, LowerCasePipe, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { DatePipe, LowerCasePipe, NgForOf, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -57,6 +57,7 @@ export interface ColumnConfig<T> {
     NgSwitchCase,
     NgSwitchDefault,
     TranslateModule,
+    NgForOf,
   ],
 })
 export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
