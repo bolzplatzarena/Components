@@ -85,8 +85,8 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
     }
     switch (this.columnConfig?.[property]?.type) {
       case ColumnType.Number:
-        return Number(item[property as keyof T]) ?? 0;
+        return Number(item[property as keyof T]);
     }
-    return String(item[property as keyof T]) ?? '';
+    return String(item[property as keyof T]);
   }
 }

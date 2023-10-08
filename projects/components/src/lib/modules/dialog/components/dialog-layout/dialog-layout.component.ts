@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { map, Observable, of, startWith } from 'rxjs';
+import { map, Observable, startWith } from 'rxjs';
 import { DialogComponent } from '../dialog.component';
 import { FormDialogComponent } from '../form-dialog.component';
 
