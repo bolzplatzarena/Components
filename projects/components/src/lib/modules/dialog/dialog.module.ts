@@ -7,20 +7,18 @@ import { SimpleDialogComponent } from './components/simple-dialog/simple-dialog.
 import { DialogLayoutComponent } from './components/dialog-layout/dialog-layout.component';
 
 @NgModule({
-  declarations: [
-    SimpleDialogComponent,
-    DialogLayoutComponent,
-  ],
-  imports: [
-    CommonModule,
-    TranslateModule,
-    MatDialogModule,
-    MatButtonModule,
-  ],
-  exports: [
-    MatDialogModule,
-    DialogLayoutComponent,
-  ],
+    imports: [
+        CommonModule,
+        TranslateModule,
+        MatDialogModule,
+        MatButtonModule,
+        SimpleDialogComponent,
+        DialogLayoutComponent,
+    ],
+    exports: [
+        MatDialogModule,
+        DialogLayoutComponent,
+    ],
 })
 export class DialogModule {
 }

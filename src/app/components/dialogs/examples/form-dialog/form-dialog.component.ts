@@ -1,12 +1,21 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { FormDialogComponent } from '@bolzplatzarena/components';
+import { FormDialogComponent, DialogModule } from '@bolzplatzarena/components';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
-  selector: 'app-form-dialog',
-  templateUrl: './form-dialog.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-form-dialog',
+    templateUrl: './form-dialog.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        DialogModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+    ],
 })
 export class SimpleFormDialogComponent extends FormDialogComponent<{ email: string, name: string }> {
   form = this.fb.nonNullable.group({

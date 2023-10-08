@@ -1,9 +1,24 @@
 import { Component } from '@angular/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatButtonModule } from '@angular/material/button';
+import { NgFor, NgIf, DatePipe } from '@angular/common';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
-  selector: 'app-file-list',
-  templateUrl: './file-list.component.html',
-  styleUrls: ['./file-list.component.scss'],
+    selector: 'app-file-list',
+    templateUrl: './file-list.component.html',
+    styleUrls: ['./file-list.component.scss'],
+    standalone: true,
+    imports: [
+        MatListModule,
+        NgFor,
+        MatButtonModule,
+        FontAwesomeModule,
+        NgIf,
+        MatDividerModule,
+        DatePipe,
+    ],
 })
 export class FileListComponent {
   readonly folders = [

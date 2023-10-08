@@ -3,11 +3,15 @@ import { DialogService } from '@bolzplatzarena/components';
 import { CommonDialogComponent } from './examples/common-dialog/common-dialog.component';
 import { SimpleFormDialogComponent } from './examples/form-dialog/form-dialog.component';
 import { SimpleComponent } from './examples/simple/simple.component';
+import { MatButtonModule } from '@angular/material/button';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-dialogs',
-  templateUrl: './dialogs.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-dialogs',
+    templateUrl: './dialogs.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [TranslateModule, MatButtonModule],
 })
 export class DialogsComponent {
   constructor(private readonly dialog: DialogService) {

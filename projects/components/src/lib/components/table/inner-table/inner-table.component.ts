@@ -8,11 +8,18 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { Dictionary } from '../../../models/dictionary.model';
+import { EnumKeyPipe } from '../../../pipes/enum-key.pipe';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { NgFor, NgSwitch, NgSwitchCase, NgSwitchDefault, NgIf, LowerCasePipe, DatePipe } from '@angular/common';
 
 export enum ColumnType {
   Unknown = -1,
@@ -29,10 +36,29 @@ export interface ColumnConfig<T> {
 }
 
 @Component({
-  selector: 'bpa-inner-table',
-  templateUrl: './inner-table.component.html',
-  styleUrls: ['../../../../../../styles/tailwind.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'bpa-inner-table',
+    templateUrl: './inner-table.component.html',
+    styleUrls: ['../../../../../../styles/tailwind.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        MatTableModule,
+        MatSortModule,
+        NgFor,
+        NgSwitch,
+        NgSwitchCase,
+        NgSwitchDefault,
+        MatButtonModule,
+        MatMenuModule,
+        FontAwesomeModule,
+        NgIf,
+        MatProgressBarModule,
+        MatPaginatorModule,
+        LowerCasePipe,
+        DatePipe,
+        TranslateModule,
+        EnumKeyPipe,
+    ],
 })
 export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   @Input() columns !: string[];

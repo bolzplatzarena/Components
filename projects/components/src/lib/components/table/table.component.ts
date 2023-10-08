@@ -1,11 +1,14 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
-import { ColumnConfig } from './inner-table/inner-table.component';
+import { ColumnConfig, InnerTableComponent } from './inner-table/inner-table.component';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'bpa-table',
-  templateUrl: './table.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'bpa-table',
+    templateUrl: './table.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgIf, InnerTableComponent],
 })
 export class TableComponent<T> implements OnChanges {
   @Input() columns !: string[];

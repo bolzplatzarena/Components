@@ -19,29 +19,27 @@ import { EnumKeyPipe } from './pipes/enum-key.pipe';
 import { InnerTableComponent } from './components/table/inner-table/inner-table.component';
 
 @NgModule({
-  declarations: [
-    EnumKeyPipe,
-    TableComponent,
-    InnerTableComponent,
-  ],
-  imports: [
-    BrowserAnimationsModule,
-    CommonModule,
-    FontAwesomeModule,
-    MatButtonModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatSortModule,
-    MatTableModule,
-    TranslateModule,
-    MatMenuModule,
-    MatIconModule,
-  ],
-  exports: [
-    EnumKeyPipe,
-    TableComponent,
-  ],
-  providers: [{ provide: MatPaginatorIntl, useClass: PaginatorTexts }],
+    imports: [
+        BrowserAnimationsModule,
+        CommonModule,
+        FontAwesomeModule,
+        MatButtonModule,
+        MatPaginatorModule,
+        MatProgressBarModule,
+        MatSortModule,
+        MatTableModule,
+        TranslateModule,
+        MatMenuModule,
+        MatIconModule,
+        EnumKeyPipe,
+        TableComponent,
+        InnerTableComponent,
+    ],
+    exports: [
+        EnumKeyPipe,
+        TableComponent,
+    ],
+    providers: [{ provide: MatPaginatorIntl, useClass: PaginatorTexts }],
 })
 export class ComponentsModule {
   constructor(library: FaIconLibrary) {
