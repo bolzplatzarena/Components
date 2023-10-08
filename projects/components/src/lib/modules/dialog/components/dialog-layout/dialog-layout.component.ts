@@ -24,9 +24,9 @@ export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnIn
   @Input() dialog?: DialogComponent<T>;
   @Input() translateKey!: string;
 
-  valid$ !: Observable<boolean>;
-  override registerEnterKey = false;
-  override registerEscKey = false;
+  protected valid$ !: Observable<boolean>;
+  protected override registerEnterKey = false;
+  protected override registerEscKey = false;
 
   ngOnInit(): void {
     if (!this.dialog) {

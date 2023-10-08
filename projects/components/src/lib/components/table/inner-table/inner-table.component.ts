@@ -77,12 +77,12 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   @Output() readonly deleteEvent = new EventEmitter<T>();
   @Output() readonly editEvent = new EventEmitter<T>();
 
-  @ViewChild(MatPaginator) paginator !: MatPaginator;
-  @ViewChild(MatSort) sort !: MatSort;
+  @ViewChild(MatPaginator) private readonly paginator !: MatPaginator;
+  @ViewChild(MatSort) private readonly sort !: MatSort;
 
-  readonly ColumnType = ColumnType;
+  protected readonly ColumnType = ColumnType;
 
-  dataSource !: MatTableDataSource<T>;
+  protected dataSource !: MatTableDataSource<T>;
 
   ngOnChanges(): void {
     this.dataSource = new MatTableDataSource<T>(this.dataset);
@@ -96,15 +96,15 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  deleteAction(item: T): void {
+  protected deleteAction(item: T): void {
     this.deleteEvent.emit(item);
   }
 
-  editAction(item: T): void {
+  protected editAction(item: T): void {
     this.editEvent.emit(item);
   }
 
-  getSortingAccessor(item: T, property: string): string | number {
+  private getSortingAccessor(item: T, property: string): string | number {
     if (this.columnConfig?.[property]?.getter) {
       return this.columnConfig[property].getter !(item);
     }
