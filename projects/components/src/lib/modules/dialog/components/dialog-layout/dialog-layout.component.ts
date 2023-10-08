@@ -13,10 +13,10 @@ import { FormDialogComponent } from '../form-dialog.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    NgIf,
-    MatDialogModule,
-    MatButtonModule,
     AsyncPipe,
+    MatButtonModule,
+    MatDialogModule,
+    NgIf,
     TranslateModule,
   ],
 })

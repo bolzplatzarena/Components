@@ -1,4 +1,4 @@
-import { DatePipe, LowerCasePipe, NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { DatePipe, LowerCasePipe, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -42,22 +42,21 @@ export interface ColumnConfig<T> {
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    MatTableModule,
+    DatePipe,
+    EnumKeyPipe,
+    FontAwesomeModule,
+    LowerCasePipe,
+    MatButtonModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
     MatSortModule,
-    NgFor,
+    MatTableModule,
+    NgIf,
     NgSwitch,
     NgSwitchCase,
     NgSwitchDefault,
-    MatButtonModule,
-    MatMenuModule,
-    FontAwesomeModule,
-    NgIf,
-    MatProgressBarModule,
-    MatPaginatorModule,
-    LowerCasePipe,
-    DatePipe,
     TranslateModule,
-    EnumKeyPipe,
   ],
 })
 export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
