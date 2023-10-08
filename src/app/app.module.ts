@@ -27,7 +27,8 @@ import { TableComponent } from './components/table/table.component';
 import * as de from './i18n/de.json';
 import * as en from './i18n/en.json';
 
-@NgModule({
+@NgModule(/* TODO(standalone-migration): clean up removed NgModule class manually. 
+{
     declarations: [AppComponent],
     imports: [
         BrowserAnimationsModule,
@@ -55,7 +56,7 @@ import * as en from './i18n/en.json';
     ],
     providers: [],
     bootstrap: [AppComponent],
-})
+} */)
 export class AppModule {
   constructor(library: FaIconLibrary, translate: TranslateService) {
     translate.setTranslation('en', en, true);
