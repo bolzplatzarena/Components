@@ -13,15 +13,15 @@ import { HeroType } from '../../models/hero-type';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    TranslateModule,
+    EnumKeyPipe,
     MatFormFieldModule,
+    MatOptionModule,
     MatSelectModule,
     NgFor,
-    MatOptionModule,
-    EnumKeyPipe,
+    TranslateModule,
   ],
 })
 export class EnumComponent {
-  readonly items = getTranslatableFrom(HeroType, 'hero.types');
-  readonly HeroType = HeroType;
+  protected readonly items = getTranslatableFrom(HeroType, 'hero.types');
+  protected readonly HeroType = HeroType;
 }

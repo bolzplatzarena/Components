@@ -38,7 +38,7 @@ export class AppComponent {
     library.addIcons(faTrash);
   }
 
-  setLanguage(lang: string): void {
+  protected setLanguage(lang: string): void {
     this.translate.use(lang);
   }
 }

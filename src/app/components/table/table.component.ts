@@ -13,13 +13,13 @@ import { HeroType } from '../../models/hero-type';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    TranslateModule,
     AsyncPipe,
     TableComponentFromLib,
+    TranslateModule,
   ],
 })
 export class TableComponent {
-  readonly data: Hero[] = [
+  protected readonly data: Hero[] = [
     {
       name: 'Thor',
       level: 100,
@@ -98,7 +98,7 @@ export class TableComponent {
       birthday: new Date(1991, 1, 1),
     },
   ];
-  readonly config: { [key: string]: ColumnConfig<Hero> } = {
+  protected readonly config: { [key: string]: ColumnConfig<Hero> } = {
     'name': { type: ColumnType.Unknown, cssClass: 'tw-w-32' },
     'birthday': { type: ColumnType.Date, cssClass: 'tw-w-32' },
     'type': { type: ColumnType.Enum, args: HeroType, cssClass: 'tw-w-32' },
@@ -106,7 +106,7 @@ export class TableComponent {
     'health': { type: ColumnType.Number, cssClass: 'tw-w-32' },
     'custom': { type: ColumnType.Unknown, getter: (hero: Hero) => `${hero.name} ${hero.level}` },
   };
-  readonly data$ = interval(3000).pipe(
+  protected readonly data$ = interval(3000).pipe(
     mergeMap(() => of(this.data).pipe(
       delay(1500),
       startWith(null),
@@ -114,11 +114,11 @@ export class TableComponent {
     takeUntilDestroyed(),
   );
 
-  die(): void {
+  protected die(): void {
     alert('Die');
   }
 
-  view(): void {
+  protected view(): void {
     alert('View');
   }
 }

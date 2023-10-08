@@ -11,10 +11,10 @@ import { DialogLayoutComponent, FormDialogComponent } from '@bolzplatzarena/comp
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    ReactiveFormsModule,
+    DialogLayoutComponent,
     MatFormFieldModule,
     MatInputModule,
-    DialogLayoutComponent,
+    ReactiveFormsModule,
   ],
 })
 export class SimpleFormDialogComponent extends FormDialogComponent<{ email: string, name: string }> {
