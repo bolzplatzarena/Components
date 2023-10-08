@@ -10,8 +10,8 @@
       ],
       "parserOptions": {
         "project": [
-          "tsconfig.lib.json",
-          "tsconfig.spec.json"
+          "projects/components/tsconfig.lib.json",
+          "projects/components/tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },

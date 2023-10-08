@@ -1,7 +1,9 @@
-<table mat-table matSort
-       [dataSource]="dataSource"
-       [matSortDisabled]="!sortable"
-       class="mat-elevation-z8 tw-w-full">
+<table
+    mat-table
+    matSort
+    [dataSource]="dataSource"
+    [matSortDisabled]="!sortable"
+    class="mat-elevation-z8 tw-w-full">
   <ng-container *ngFor="let column of columns" [matColumnDef]="column">
     <th *matHeaderCellDef
         mat-header-cell
@@ -27,10 +29,11 @@
       {{ (translateKey + 'actions' | lowercase) | translate }}
     </th>
     <td *matCellDef="let element" mat-cell style="text-align: center">
-      <button mat-icon-button
-              [matMenuTriggerFor]="menu"
-              [matMenuTriggerData]="element"
-              aria-label="Actions">
+      <button
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          [matMenuTriggerData]="element"
+          aria-label="Actions">
         <fa-icon icon="ellipsis-vertical"></fa-icon>
       </button>
     </td>
@@ -47,10 +50,12 @@
 
   <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
 </table>
-<mat-paginator *ngIf="dataset"
-               showFirstLastButtons
-               [pageSizeOptions]="pageSizeOptions"
-               class="tw-sticky tw-bottom-0"></mat-paginator>
+<mat-paginator
+    *ngIf="dataset"
+    [showFirstLastButtons]="true"
+    [pageSizeOptions]="pageSizeOptions"
+    class="tw-sticky tw-bottom-0">
+</mat-paginator>
 
 <mat-menu #menu="matMenu">
   <ng-template matMenuContent let-element="element">

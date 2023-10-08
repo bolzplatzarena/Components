@@ -1,5 +1,9 @@
+import { AsyncPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { map, Observable, of, startWith } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TranslateModule } from '@ngx-translate/core';
+import { map, Observable, startWith } from 'rxjs';
 import { DialogComponent } from '../dialog.component';
 import { FormDialogComponent } from '../form-dialog.component';
 
@@ -7,14 +11,22 @@ import { FormDialogComponent } from '../form-dialog.component';
   selector: 'bpa-dialog-layout',
   templateUrl: './dialog-layout.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    AsyncPipe,
+    MatButtonModule,
+    MatDialogModule,
+    NgIf,
+    TranslateModule,
+  ],
 })
 export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnInit {
   @Input() dialog?: DialogComponent<T>;
   @Input() translateKey!: string;
 
-  valid$ !: Observable<boolean>;
-  override registerEnterKey = false;
-  override registerEscKey = false;
+  protected valid$ !: Observable<boolean>;
+  protected override registerEnterKey = false;
+  protected override registerEscKey = false;
 
   ngOnInit(): void {
     if (!this.dialog) {
@@ -22,10 +34,6 @@ export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnIn
     }
 
     const form = (this.dialog as FormDialogComponent<unknown>).form;
-    if (!form) {
-      this.valid$ = of(true);
-    }
-
     this.valid$ = form.statusChanges.pipe(
       startWith(form.valid),
       map(() => form.valid),

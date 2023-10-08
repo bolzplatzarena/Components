@@ -19,7 +19,7 @@ export abstract class DialogComponent<R> {
         this.close();
       }
       if (this.registerEnterKey && (event.key === 'Enter')) {
-        this.submit();
+        void this.submit();
       }
     });
     this.dialogRef.afterClosed().subscribe(() => {

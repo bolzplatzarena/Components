@@ -1,10 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { DialogComponent } from '@bolzplatzarena/components';
+import { DialogComponent, DialogLayoutComponent } from '@bolzplatzarena/components';
 
 @Component({
   selector: 'app-common-dialog',
   templateUrl: './common-dialog.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    DialogLayoutComponent,
+  ],
 })
 export class CommonDialogComponent extends DialogComponent<boolean> {
   override close(): void {

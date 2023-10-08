@@ -1,13 +1,27 @@
+import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { translatableFrom } from '@bolzplatzarena/components';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { EnumKeyPipe, getTranslatableFrom } from '@bolzplatzarena/components';
+import { TranslateModule } from '@ngx-translate/core';
 import { HeroType } from '../../models/hero-type';
 
 @Component({
   selector: 'app-enum',
   templateUrl: './enum.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    EnumKeyPipe,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule,
+    NgFor,
+    TranslateModule,
+  ],
 })
 export class EnumComponent {
-  readonly items = translatableFrom(HeroType, 'hero.types');
-  readonly HeroType = HeroType;
+  protected readonly items = getTranslatableFrom(HeroType, 'hero.types');
+  protected readonly HeroType = HeroType;
 }
