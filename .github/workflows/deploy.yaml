@@ -1,7 +1,7 @@
-name: Global build & lint & test
+name: Deployment
 
 on:
-  pull_request:
+  push:
     branches: [ main ]
 
 jobs:
@@ -14,23 +14,23 @@ jobs:
         node-version: [ 20.x ]
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - run: git fetch --no-tags --prune --depth=5 origin main
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v1
+      - name: Cache
+        uses: actions/cache@v1
         with:
           path: node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-modules-
-      - run: npm install
-      - run: npm run build
-      - run: npm run test-component
-      - run: npm run lint
+
+      - name: Prepare and deploy
         env:
-          CI: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm install
+          npm run ng -- deploy --base-href=https://bolzplatzarena.github.io/Components/ --no-silent --name="Thomas Renger" --email="info@bolzplatzarena.net"
