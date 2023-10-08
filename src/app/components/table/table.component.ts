@@ -1,22 +1,22 @@
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ColumnConfig, ColumnType, ComponentsModule } from '@bolzplatzarena/components';
+import { TranslateModule } from '@ngx-translate/core';
 import { delay, interval, mergeMap, of, startWith } from 'rxjs';
 import { Hero } from '../../models/hero';
 import { HeroType } from '../../models/hero-type';
-import { AsyncPipe } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-table',
-    templateUrl: './table.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [
-        TranslateModule,
-        ComponentsModule,
-        AsyncPipe,
-    ],
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    TranslateModule,
+    ComponentsModule,
+    AsyncPipe,
+  ],
 })
 export class TableComponent {
   readonly data: Hero[] = [
