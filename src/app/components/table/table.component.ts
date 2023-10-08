@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ColumnConfig, ColumnType, ComponentsModule } from '@bolzplatzarena/components';
+import { ColumnConfig, ColumnType, TableComponent as TableComponentFromLib } from '@bolzplatzarena/components';
 import { TranslateModule } from '@ngx-translate/core';
 import { delay, interval, mergeMap, of, startWith } from 'rxjs';
 import { Hero } from '../../models/hero';
@@ -14,8 +14,8 @@ import { HeroType } from '../../models/hero-type';
   standalone: true,
   imports: [
     TranslateModule,
-    ComponentsModule,
     AsyncPipe,
+    TableComponentFromLib,
   ],
 })
 export class TableComponent {

@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { ComponentsModule, translatableFrom } from '@bolzplatzarena/components';
+import { EnumKeyPipe, getTranslatableFrom } from '@bolzplatzarena/components';
 import { TranslateModule } from '@ngx-translate/core';
 import { HeroType } from '../../models/hero-type';
 
@@ -18,10 +18,10 @@ import { HeroType } from '../../models/hero-type';
     MatSelectModule,
     NgFor,
     MatOptionModule,
-    ComponentsModule,
+    EnumKeyPipe,
   ],
 })
 export class EnumComponent {
-  readonly items = translatableFrom(HeroType, 'hero.types');
+  readonly items = getTranslatableFrom(HeroType, 'hero.types');
   readonly HeroType = HeroType;
 }

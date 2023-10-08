@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
@@ -36,10 +37,11 @@ import { EnumKeyPipe } from './pipes/enum-key.pipe';
     InnerTableComponent,
   ],
   exports: [
-    EnumKeyPipe,
-    TableComponent,
+    MatDialogModule,
   ],
-  providers: [{ provide: MatPaginatorIntl, useClass: PaginatorTexts }],
+  providers: [
+    { provide: MatPaginatorIntl, useClass: PaginatorTexts },
+  ],
 })
 export class ComponentsModule {
   constructor(library: FaIconLibrary) {
