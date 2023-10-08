@@ -1,24 +1,24 @@
+import { AsyncPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TranslateModule } from '@ngx-translate/core';
 import { map, Observable, startWith } from 'rxjs';
 import { DialogComponent } from '../dialog.component';
 import { FormDialogComponent } from '../form-dialog.component';
-import { TranslateModule } from '@ngx-translate/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
-import { NgIf, AsyncPipe } from '@angular/common';
 
 @Component({
-    selector: 'bpa-dialog-layout',
-    templateUrl: './dialog-layout.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [
-        NgIf,
-        MatDialogModule,
-        MatButtonModule,
-        AsyncPipe,
-        TranslateModule,
-    ],
+  selector: 'bpa-dialog-layout',
+  templateUrl: './dialog-layout.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    NgIf,
+    MatDialogModule,
+    MatButtonModule,
+    AsyncPipe,
+    TranslateModule,
+  ],
 })
 export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnInit {
   @Input() dialog?: DialogComponent<T>;

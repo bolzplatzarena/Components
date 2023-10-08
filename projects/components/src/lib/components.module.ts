@@ -13,38 +13,38 @@ import { faAddressCard } from '@fortawesome/free-solid-svg-icons/faAddressCard';
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons/faEllipsisVertical';
 import { faSkullCrossbones } from '@fortawesome/free-solid-svg-icons/faSkullCrossbones';
 import { TranslateModule } from '@ngx-translate/core';
+import { InnerTableComponent } from './components/table/inner-table/inner-table.component';
 import { TableComponent } from './components/table/table.component';
 import { PaginatorTexts } from './paginator-texts';
 import { EnumKeyPipe } from './pipes/enum-key.pipe';
-import { InnerTableComponent } from './components/table/inner-table/inner-table.component';
 
 @NgModule({
-    imports: [
-        BrowserAnimationsModule,
-        CommonModule,
-        FontAwesomeModule,
-        MatButtonModule,
-        MatPaginatorModule,
-        MatProgressBarModule,
-        MatSortModule,
-        MatTableModule,
-        TranslateModule,
-        MatMenuModule,
-        MatIconModule,
-        EnumKeyPipe,
-        TableComponent,
-        InnerTableComponent,
-    ],
-    exports: [
-        EnumKeyPipe,
-        TableComponent,
-    ],
-    providers: [{ provide: MatPaginatorIntl, useClass: PaginatorTexts }],
+  imports: [
+    BrowserAnimationsModule,
+    CommonModule,
+    FontAwesomeModule,
+    MatButtonModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatSortModule,
+    MatTableModule,
+    TranslateModule,
+    MatMenuModule,
+    MatIconModule,
+    EnumKeyPipe,
+    TableComponent,
+    InnerTableComponent,
+  ],
+  exports: [
+    EnumKeyPipe,
+    TableComponent,
+  ],
+  providers: [{ provide: MatPaginatorIntl, useClass: PaginatorTexts }],
 })
 export class ComponentsModule {
   constructor(library: FaIconLibrary) {
     library.addIcons(faAddressCard);
     library.addIcons(faSkullCrossbones);
-    library.addIcons(faEllipsisVertical)
+    library.addIcons(faEllipsisVertical);
   }
 }

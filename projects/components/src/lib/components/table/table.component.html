@@ -1,16 +1,17 @@
-<bpa-inner-table *ngIf="innerData && displayedColumns"
-                 [columnConfig]="columnConfig"
-                 [columns]="columns"
-                 [sortable]="sortable"
-                 [edit]="edit"
-                 [delete]="delete"
-                 [translateKey]="translateKey"
-                 [dataset]="innerData"
-                 [displayedColumns]="displayedColumns"
-                 [progress]="progress"
-                 [loading]="loading"
-                 [pageSizeOptions]="pageSizeOptions"
-                 (deleteEvent)="deleteAction($event)"
-                 (editEvent)="editAction($event)">
+<bpa-inner-table
+    *ngIf="innerData && displayedColumns"
+    [columnConfig]="columnConfig"
+    [columns]="columns"
+    [sortable]="sortable"
+    [edit]="edit"
+    [delete]="delete"
+    [translateKey]="translateKey"
+    [dataset]="innerData"
+    [displayedColumns]="displayedColumns"
+    [progress]="progress"
+    [loading]="loading"
+    [pageSizeOptions]="pageSizeOptions"
+    (deleteEvent)="deleteAction($event)"
+    (editEvent)="editAction($event)">
   <ng-content></ng-content>
 </bpa-inner-table>
