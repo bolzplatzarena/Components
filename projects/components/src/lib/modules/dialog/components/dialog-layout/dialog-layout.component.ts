@@ -22,10 +22,6 @@ export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnIn
     }
 
     const form = (this.dialog as FormDialogComponent<unknown>).form;
-    if (!form) {
-      this.valid$ = of(true);
-    }
-
     this.valid$ = form.statusChanges.pipe(
       startWith(form.valid),
       map(() => form.valid),
