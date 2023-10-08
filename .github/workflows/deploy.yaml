@@ -33,4 +33,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install
+          npm run build
           npm run ng -- deploy --base-href=https://bolzplatzarena.github.io/Components/ --no-silent --name="Thomas Renger" --email="info@bolzplatzarena.net"
