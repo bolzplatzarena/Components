@@ -17,15 +17,29 @@
       translateKey="hero.components.hero-list.">
   </bpa-table>
 </section>
+
+<h3 translate>content.headline.no_paging</h3>
+<section class="tw-h-64 tw-overflow-auto">
+  <bpa-table
+      [columnConfig]="config"
+      [columns]="['name', 'level', 'type', 'health', 'birthday']"
+      [dataset]="data"
+      [pageSizeOptions]="[7, 14, 21]"
+      [paging]="false"
+      (deleteEvent)="die()"
+      (editEvent)="view()"
+      translateKey="hero.components.hero-list.">
+  </bpa-table>
+</section>
 <h3 translate>content.headline.observables</h3>
 <bpa-table
     [columnConfig]="config"
     [columns]="['name', 'level', 'type', 'health', 'birthday', 'custom']"
     [dataset]="data$ | async"
     progressBar="always"
-    translateKey="hero.components.hero-list."
     (deleteEvent)="die()"
-    (editEvent)="view()">
+    (editEvent)="view()"
+    translateKey="hero.components.hero-list.">
 </bpa-table>
 <h3 class="tw-p-4" translate>content.headline.options</h3>
 <p class="tw-px-4 tw-w-32" translate>content.text.options</p>

@@ -17,6 +17,7 @@ export class TableComponent<T> implements OnChanges {
   @Input() columnConfig: { [key: string]: ColumnConfig<T> } | undefined;
   @Input() progressBar: 'always' | 'never' | 'auto' = 'always';
   @Input() sortable = true;
+  @Input() paging = true;
   @Input() deleteIcon: IconName = 'skull-crossbones';
   @Input() editIcon: IconName = 'address-card';
   @Input() pageSizeOptions = [10, 20, 50];

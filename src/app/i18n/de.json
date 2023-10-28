@@ -20,6 +20,7 @@
       "enum_options": "Select Options mit Enumerationen",
       "pipe": "Pipe",
       "static_data": "Verwendung von statischen Daten",
+      "no_paging": "Verwendung ohne Paging (nur erste Seite wird gezeigt)",
       "observables": "Verwendung von Observables",
       "dialogs": "Verwendung von Dialogen"
     }

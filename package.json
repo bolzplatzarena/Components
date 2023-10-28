@@ -13,7 +13,8 @@
     "debug": "npm run tailwind && npm run tailwind-ng && ng build components && ng serve",
     "build-lib": "npm run tailwind && ng build components",
     "lint": "ng lint",
-    "depcheck": "npx depcheck"
+    "depcheck": "npx depcheck",
+    "publish": "npm run build-lib && cd dist/@bolzplatzarena/components && npm publish"
   },
   "private": true,
   "dependencies": {
