@@ -65,6 +65,7 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   @Input() dataset: T[] = [];
   @Input() translateKey = 'core.components.table.';
   @Input() sortable = true;
+  @Input() paging = true;
   @Input() displayedColumns: string[] = [];
   @Input() columnConfig: { [key: string]: ColumnConfig<T> } | undefined;
   @Input() deleteIcon: IconName = 'skull-crossbones';

@@ -51,7 +51,7 @@
   <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
 </table>
 <mat-paginator
-    *ngIf="dataset"
+    *ngIf="paging && dataset"
     [showFirstLastButtons]="true"
     [pageSizeOptions]="pageSizeOptions"
     class="tw-sticky tw-bottom-0">
