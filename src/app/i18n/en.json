@@ -21,6 +21,7 @@
       "select": "Select options with enumeration",
       "pipe": "Pipe",
       "static_data": "Using of static data",
+      "no_paging": "No paging (only first page is shown)",
       "observables": "Using of observables",
       "dialogs": "Usage of dialogs"
     }
