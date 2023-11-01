@@ -114,11 +114,11 @@ export class TableComponent {
     takeUntilDestroyed(),
   );
 
-  protected die(): void {
-    alert('Die');
+  protected die(hero: Hero): void {
+    alert(`Die: ${hero.name}`);
   }
 
-  protected view(): void {
-    alert('View');
+  protected view(hero: Hero): void {
+    alert(`View: ${hero.name}`);
   }
 }
