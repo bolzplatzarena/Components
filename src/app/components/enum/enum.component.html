@@ -1,15 +1,15 @@
 <h2 class="tw-p-4" translate>content.headline.enum</h2>
-<p class="tw-px-4" [innerHtml]="'content.text.enum' | translate"></p>
+<p [innerHtml]="'content.text.enum' | translate" class="tw-px-4"></p>
 <h3 class="tw-p-4" translate>content.headline.enum_options</h3>
 <p class="tw-px-4" translate>content.text.enum_options</p>
 <mat-form-field>
   <mat-label>Hero Type</mat-label>
   <mat-select>
-    @for (item of items; track item) {
-  <mat-option [value]="item.value">
-      {{ item.label ?? (item.labelTranslateKey ! | translate) }}
-    </mat-option>
-}
+    @for (item of items;track item) {
+      <mat-option [value]="item.value">
+        {{ item.label ?? (item.labelTranslateKey ! | translate) }}
+      </mat-option>
+    }
   </mat-select>
 </mat-form-field>
 <h3 class="tw-p-4" translate>content.headline.pipe</h3>

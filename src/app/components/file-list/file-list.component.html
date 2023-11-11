@@ -1,9 +1,7 @@
 <mat-list>
-  @for (folder of folders; track folder) {
-  
+  @for (folder of folders;track folder) {
     <div mat-subheader>{{ folder.name }}</div>
-    @for (file of folder.files; track file; let last = $last) {
-  
+    @for (file of folder.files;track file;let last = $last) {
       <mat-list-item>
         <div matListItemMeta>
           <button mat-icon-button>
@@ -18,10 +16,8 @@
         <fa-icon matListItemIcon icon="file"></fa-icon>
       </mat-list-item>
       @if (last) {
-<mat-divider></mat-divider>
-}
-    
-}
-  
-}
+        <mat-divider></mat-divider>
+      }
+    }
+  }
 </mat-list>
