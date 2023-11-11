@@ -1,7 +1,7 @@
 <mat-list>
-  <ng-container *ngFor="let folder of folders">
+  @for (folder of folders;track folder) {
     <div mat-subheader>{{ folder.name }}</div>
-    <ng-container *ngFor="let file of folder.files; let last = last">
+    @for (file of folder.files;track file;let last = $last) {
       <mat-list-item>
         <div matListItemMeta>
           <button mat-icon-button>
@@ -15,7 +15,9 @@
         <div matListItemTitle>{{ file.name }}</div>
         <fa-icon matListItemIcon icon="file"></fa-icon>
       </mat-list-item>
-      <mat-divider *ngIf="last"></mat-divider>
-    </ng-container>
-  </ng-container>
+      @if (last) {
+        <mat-divider></mat-divider>
+      }
+    }
+  }
 </mat-list>

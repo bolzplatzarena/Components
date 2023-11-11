@@ -1,4 +1,6 @@
-<h2 mat-dialog-title *ngIf="translateKey">{{ translateKey + '.title' | translate }}</h2>
+@if (translateKey) {
+  <h2 mat-dialog-title>{{ translateKey + '.title' | translate }}</h2>
+}
 <div mat-dialog-content>
   <ng-content></ng-content>
 </div>

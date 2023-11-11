@@ -1,28 +1,31 @@
 <table
-    mat-table
-    matSort
     [dataSource]="dataSource"
     [matSortDisabled]="!sortable"
-    class="mat-elevation-z8 tw-w-full">
-  <ng-container *ngFor="let column of columns" [matColumnDef]="column">
-    <th *matHeaderCellDef
-        mat-header-cell
-        mat-sort-header
-        [class]="columnConfig?.[column]?.cssClass">{{ (translateKey + column | lowercase) | translate }}</th>
-    <td *matCellDef="let element" mat-cell>
-      <ng-container [ngSwitch]="columnConfig?.[column]?.type">
-        <ng-container *ngSwitchCase="ColumnType.Date">
-          {{ element[column] | date }}
-        </ng-container>
-        <ng-container *ngSwitchCase="ColumnType.Enum">
-          {{ (translateKey + column + '.' + (element[column] | enumKey : columnConfig ![column].args !)) | lowercase | translate }}
-        </ng-container>
-        <ng-container *ngSwitchDefault>
-          {{ columnConfig?.[column]?.getter?.(element) ?? element[column] }}
-        </ng-container>
-      </ng-container>
-    </td>
-  </ng-container>
+    class="mat-elevation-z8 tw-w-full"
+    mat-table
+    matSort>
+  @for (column of columns;track column) {
+    <ng-container [matColumnDef]="column">
+      <th *matHeaderCellDef
+          mat-header-cell
+          mat-sort-header
+          [class]="columnConfig?.[column]?.cssClass">{{ (translateKey + column | lowercase) | translate }}
+      </th>
+      <td *matCellDef="let element" mat-cell>
+        @switch (columnConfig?.[column]?.type) {
+          @case (ColumnType.Date) {
+            {{ element[column] | date }}
+          }
+          @case (ColumnType.Enum) {
+            {{ (translateKey + column + '.' + (element[column] | enumKey : columnConfig ![column].args !)) | lowercase | translate }}
+          }
+          @default {
+            {{ columnConfig?.[column]?.getter?.(element) ?? element[column] }}
+          }
+        }
+      </td>
+    </ng-container>
+  }
 
   <ng-container matColumnDef="actions">
     <th *matHeaderCellDef mat-header-cell style="text-align: center; width: 1px;">
@@ -30,10 +33,10 @@
     </th>
     <td *matCellDef="let element" mat-cell style="text-align: center">
       <button
-          mat-icon-button
-          [matMenuTriggerFor]="menu"
           [matMenuTriggerData]="{ element: element }"
-          aria-label="Actions">
+          [matMenuTriggerFor]="menu"
+          aria-label="Actions"
+          mat-icon-button>
         <fa-icon icon="ellipsis-vertical"></fa-icon>
       </button>
     </td>
@@ -41,7 +44,9 @@
 
   <ng-container matColumnDef="loading">
     <th *matHeaderCellDef [colSpan]="displayedColumns.length + 1" style="padding: 0">
-      <mat-progress-bar *ngIf="progress" [mode]="loading ? 'indeterminate' : 'determinate'"></mat-progress-bar>
+      @if (progress) {
+        <mat-progress-bar [mode]="loading ? 'indeterminate' : 'determinate'"></mat-progress-bar>
+      }
     </th>
   </ng-container>
 
@@ -50,22 +55,27 @@
 
   <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
 </table>
-<mat-paginator
-    *ngIf="paging && dataset"
-    [showFirstLastButtons]="true"
-    [pageSizeOptions]="pageSizeOptions"
-    class="tw-sticky tw-bottom-0">
-</mat-paginator>
+@if (paging && dataset) {
+  <mat-paginator
+      [showFirstLastButtons]="true"
+      [pageSizeOptions]="pageSizeOptions"
+      class="tw-sticky tw-bottom-0">
+  </mat-paginator>
+}
 
 <mat-menu #menu="matMenu">
-  <ng-template matMenuContent let-element="element">
-    <button *ngIf="delete" mat-menu-item (click)="deleteAction(element)">
-      <fa-icon [icon]="deleteIcon"></fa-icon>
-      <span>&nbsp;&nbsp;{{ (translateKey + 'action.delete') | translate }}</span>
-    </button>
-    <button *ngIf="edit" mat-menu-item (click)="editAction(element)">
-      <fa-icon [icon]="editIcon"></fa-icon>
-      <span>&nbsp;&nbsp;{{ (translateKey + 'action.edit') | translate }}</span>
-    </button>
+  <ng-template let-element="element" matMenuContent>
+    @if (delete) {
+      <button mat-menu-item (click)="deleteAction(element)">
+        <fa-icon [icon]="deleteIcon"></fa-icon>
+        <span>&nbsp;&nbsp;{{ (translateKey + 'action.delete') | translate }}</span>
+      </button>
+    }
+    @if (edit) {
+      <button mat-menu-item (click)="editAction(element)">
+        <fa-icon [icon]="editIcon"></fa-icon>
+        <span>&nbsp;&nbsp;{{ (translateKey + 'action.edit') | translate }}</span>
+      </button>
+    }
   </ng-template>
 </mat-menu>
