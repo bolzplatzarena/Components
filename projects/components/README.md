@@ -1,7 +1,6 @@
 # Components
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.0. It includes
-components for angular.
+This library includes components for angular.
 
 ## Get started
 
