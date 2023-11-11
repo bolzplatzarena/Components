@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "bolzplatzarena-components:build:production"
+              "buildTarget": "bolzplatzarena-components:build:production"
             },
             "development": {
-              "browserTarget": "bolzplatzarena-components:build:development"
+              "buildTarget": "bolzplatzarena-components:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bolzplatzarena-components:build"
+            "buildTarget": "bolzplatzarena-components:build"
           }
         },
         "lint": {
