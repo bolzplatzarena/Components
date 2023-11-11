@@ -1,5 +1,6 @@
+@if (innerData && displayedColumns) {
 <bpa-inner-table
-    *ngIf="innerData && displayedColumns"
+   
     [columnConfig]="columnConfig"
     [columns]="columns"
     [sortable]="sortable"
@@ -16,3 +17,4 @@
     (editEvent)="editAction($event)">
   <ng-content></ng-content>
 </bpa-inner-table>
+}

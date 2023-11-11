@@ -5,9 +5,11 @@
 <mat-form-field>
   <mat-label>Hero Type</mat-label>
   <mat-select>
-    <mat-option *ngFor="let item of items" [value]="item.value">
+    @for (item of items; track item) {
+  <mat-option [value]="item.value">
       {{ item.label ?? (item.labelTranslateKey ! | translate) }}
     </mat-option>
+}
   </mat-select>
 </mat-form-field>
 <h3 class="tw-p-4" translate>content.headline.pipe</h3>
