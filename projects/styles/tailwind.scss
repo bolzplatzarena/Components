@@ -106,6 +106,18 @@
   bottom: 0px
 }
 
+.tw-flex {
+  display: flex
+}
+
 .tw-w-full {
   width: 100%
+}
+
+.tw-flex-1 {
+  flex: 1 1 0%
+}
+
+.tw-flex-col {
+  flex-direction: column
 }

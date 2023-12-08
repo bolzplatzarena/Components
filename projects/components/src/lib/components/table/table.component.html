@@ -13,7 +13,8 @@
       [loading]="loading"
       [pageSizeOptions]="pageSizeOptions"
       (deleteEvent)="deleteAction($event)"
-      (editEvent)="editAction($event)">
+      (editEvent)="editAction($event)"
+      class="tw-flex tw-flex-col tw-flex-1">
     <ng-content></ng-content>
   </bpa-inner-table>
 }

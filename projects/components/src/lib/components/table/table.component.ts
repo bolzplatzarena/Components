@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnChanges, Output } from '@angular/core';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { ColumnConfig, InnerTableComponent } from './inner-table/inner-table.component';
 
@@ -11,6 +11,8 @@ import { ColumnConfig, InnerTableComponent } from './inner-table/inner-table.com
   imports: [NgIf, InnerTableComponent],
 })
 export class TableComponent<T> implements OnChanges {
+  @HostBinding() protected readonly class = 'tw-flex tw-flex-1 tw-flex-col';
+
   @Input() columns !: string[];
   @Input() dataset: T[] | undefined | null = [];
   @Input() translateKey = 'core.components.table.';
