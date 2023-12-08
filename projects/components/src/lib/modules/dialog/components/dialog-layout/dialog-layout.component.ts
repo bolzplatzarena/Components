@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TranslateModule } from '@ngx-translate/core';
-import { map, Observable, startWith } from 'rxjs';
+import { map, Observable, of, startWith } from 'rxjs';
 import { DialogComponent } from '../dialog.component';
 import { FormDialogComponent } from '../form-dialog.component';
 
@@ -33,11 +33,15 @@ export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnIn
       throw new Error('DialogLayoutComponent requires a dialog input');
     }
 
-    const form = (this.dialog as FormDialogComponent<unknown>).form;
-    this.valid$ = form.statusChanges.pipe(
-      startWith(form.valid),
-      map(() => form.valid),
-    );
+    if (isFormDialogComponent(this.dialog)) {
+      const form = (this.dialog as FormDialogComponent<unknown>).form;
+      this.valid$ = form.statusChanges.pipe(
+        startWith(form.valid),
+        map(() => form.valid),
+      );
+    } else {
+      this.valid$ = of(true);
+    }
   }
 
   override close(): void {
@@ -47,4 +51,8 @@ export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnIn
   submit(): void | Promise<void> {
     return this.dialog?.submit();
   }
+}
+
+function isFormDialogComponent(component: unknown): component is FormDialogComponent<unknown> {
+  return (component as FormDialogComponent<unknown>).form !== undefined;
 }
