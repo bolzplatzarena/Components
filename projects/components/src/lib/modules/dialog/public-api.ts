@@ -1,7 +1,6 @@
-
 // services
-export * from './services/dialog.service';
+export { DialogService } from './services/dialog.service';
 // components
-export * from './components/dialog.component';
-export * from './components/form-dialog.component';
-export * from './components/dialog-layout/dialog-layout.component';
+export { DialogComponent } from './components/dialog.component';
+export { FormDialogComponent } from './components/form-dialog.component';
+export { DialogLayoutComponent } from './components/dialog-layout/dialog-layout.component';
