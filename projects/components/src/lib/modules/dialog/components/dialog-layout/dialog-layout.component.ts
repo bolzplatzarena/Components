@@ -54,5 +54,5 @@ export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnIn
 }
 
 function isFormDialogComponent(component: unknown): component is FormDialogComponent<unknown> {
-  return (component as FormDialogComponent<unknown>).form !== undefined;
+  return (component as any).form !== undefined;
 }
