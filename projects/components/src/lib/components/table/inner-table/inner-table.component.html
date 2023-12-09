@@ -66,16 +66,16 @@
 
 <mat-menu #menu="matMenu">
   <ng-template let-element="element" matMenuContent>
-    @if (delete) {
-      <button mat-menu-item (click)="deleteAction(element)">
-        <fa-icon [icon]="deleteIcon"></fa-icon>
-        <span>&nbsp;&nbsp;{{ (translateKey + 'action.delete') | translate }}</span>
-      </button>
-    }
     @if (edit) {
       <button mat-menu-item (click)="editAction(element)">
         <fa-icon [icon]="editIcon"></fa-icon>
         <span>&nbsp;&nbsp;{{ (translateKey + 'action.edit') | translate }}</span>
+      </button>
+    }
+    @if (delete) {
+      <button mat-menu-item (click)="deleteAction(element)">
+        <fa-icon [icon]="deleteIcon"></fa-icon>
+        <span>&nbsp;&nbsp;{{ (translateKey + 'action.delete') | translate }}</span>
       </button>
     }
   </ng-template>
