@@ -24,13 +24,14 @@ export class TableComponent<T> implements OnChanges {
   @Input() editIcon: IconName = 'address-card';
   @Input() pageSizeOptions = [10, 20, 50];
 
+  @Output() readonly rowClicked = new EventEmitter<T>();
   @Output() readonly deleteEvent = new EventEmitter<T>();
   @Output() readonly editEvent = new EventEmitter<T>();
 
   protected loading = true;
   protected edit = false;
   protected delete = false;
-
+  protected rowClickedObserved = false;
   protected displayedColumns!: string[];
   protected innerData: T[] | undefined | null = [];
 
@@ -42,6 +43,7 @@ export class TableComponent<T> implements OnChanges {
   ngOnChanges(): void {
     this.delete = this.deleteEvent.observed;
     this.edit = this.editEvent.observed;
+    this.rowClickedObserved = this.rowClicked.observed;
 
     this.displayedColumns = [...this.columns];
     if (this.delete || this.edit) {

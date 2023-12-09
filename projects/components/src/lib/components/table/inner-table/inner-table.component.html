@@ -53,7 +53,12 @@
   <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
   <tr *matHeaderRowDef="['loading']; sticky: true" mat-header-row style="height: auto;"></tr>
 
-  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  <tr
+      *matRowDef="let row; columns: displayedColumns;"
+      [style]="rowClickedObserved ? 'cursor: pointer' : ''"
+      (click)="rowClickedObserved && rowClicked.emit(row)"
+      mat-row>
+  </tr>
 </table>
 <div class="tw-flex-1"></div>
 @if (paging && dataset) {

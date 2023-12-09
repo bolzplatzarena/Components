@@ -72,12 +72,14 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   @Input() editIcon: IconName = 'address-card';
   @Input() edit = false;
   @Input() delete = false;
+  @Input() rowClickedObserved = false;
   @Input() progress = false;
   @Input() loading = true;
   @Input() pageSizeOptions = [10, 20, 50];
 
   @Output() readonly deleteEvent = new EventEmitter<T>();
   @Output() readonly editEvent = new EventEmitter<T>();
+  @Output() readonly rowClicked = new EventEmitter<T>();
 
   @ViewChild(MatPaginator) private readonly paginator !: MatPaginator;
   @ViewChild(MatSort) private readonly sort !: MatSort;
