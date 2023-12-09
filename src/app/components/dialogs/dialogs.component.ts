@@ -33,9 +33,12 @@ export class DialogsComponent {
   }
 
   protected openForm(): void {
-    this.dialog.open<SimpleFormDialogComponent, { email: string, name: string }, { info: string }>(
+    this.dialog.open<
       SimpleFormDialogComponent,
-      { info: 'Hello' },
+      { email: string, name: string },
+      { item: { email: string, name: string } }>(
+      SimpleFormDialogComponent,
+      { item: { email: 'Meine Email', name: 'Mein Name' } },
     ).subscribe(value => {
       alert(JSON.stringify(value) + ' returned from the dialog');
     });
