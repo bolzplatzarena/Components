@@ -1,18 +1,18 @@
 import { Directive, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-interface DialogData {
+export interface DialogData {
   translateKey: string;
 }
 
 @Directive()
-export abstract class DialogComponent<R> {
+export abstract class DialogComponent<R, D extends DialogData = DialogData> {
   protected registerEnterKey = false;
   protected registerEscKey = true;
 
   constructor(
     protected readonly dialogRef: MatDialogRef<unknown, R>,
-    @Inject(MAT_DIALOG_DATA) readonly data: DialogData,
+    @Inject(MAT_DIALOG_DATA) readonly data: D,
   ) {
     const subscription = this.dialogRef.keydownEvents().subscribe(event => {
       if (this.registerEscKey && (event.key === 'Escape')) {
