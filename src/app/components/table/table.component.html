@@ -13,6 +13,7 @@
       [dataset]="data"
       [pageSizeOptions]="[7, 14, 21]"
       (deleteEvent)="die($event)"
+      (rowClicked)="view($event)"
       (editEvent)="view($event)"
       translateKey="hero.components.hero-list.">
   </bpa-table>
