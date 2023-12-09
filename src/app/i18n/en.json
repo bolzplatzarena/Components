@@ -84,7 +84,8 @@
     },
     "layout": {
       "title": "Use layout",
-      "content": "Wll, all the dialogs should look like the others. So you can use a simple component which provides the layout with headline, okay and cancel button."
+      "content": "Well, all the dialogs should look like the others. So you can use a simple component which provides the layout with headline, okay and cancel button.",
+      "form": "Here you can find a simple form, it is displayed in the dialog, the form is validated and the submit button is disabled until the form is valid."
     }
   }
 }
