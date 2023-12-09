@@ -1,19 +1,19 @@
 import { Directive, Inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DialogComponent } from './dialog.component';
+import { DialogComponent, DialogData } from './dialog.component';
 
-interface DialogData {
-  translateKey: string;
+export interface FormDialogData<D = unknown> extends DialogData {
+  item?: D;
 }
 
 @Directive()
-export abstract class FormDialogComponent<R> extends DialogComponent<R> {
+export abstract class FormDialogComponent<R, D = unknown> extends DialogComponent<R, FormDialogData<D>> {
   abstract readonly form: FormGroup;
 
   protected constructor(
     dialogRef: MatDialogRef<unknown, R>,
-    @Inject(MAT_DIALOG_DATA) data: DialogData,
+    @Inject(MAT_DIALOG_DATA) data: FormDialogData<D>,
   ) {
     super(dialogRef, data);
   }

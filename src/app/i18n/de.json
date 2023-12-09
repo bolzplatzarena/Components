@@ -83,7 +83,8 @@
     },
     "layout": {
       "title": "Layout gleich mitliefern lassen",
-      "content": "Keine Lust Überschrift und Buttons jedesmal zu schreiben? Dann kann man einfach eine Basis-Componente nutzen, welche die Überschrift und die Headline direkt mitliefern."
+      "content": "Keine Lust Überschrift und Buttons jedesmal zu schreiben? Dann kann man einfach eine Basis-Componente nutzen, welche die Überschrift und die Headline direkt mitliefern.",
+      "form": "Hier gibt es ein Beispiel mit einem Formular. Dieses Formular wird in einem Dialog angezeigt und kann auch direkt validiert werden."
     }
   }
 }
