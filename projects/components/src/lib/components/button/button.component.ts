@@ -15,15 +15,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 })
 export class ButtonComponent {
   @Input({ required: true }) type!: 'raised' | 'stroked';
-  @Input({ required: false }) color: 'primary' | 'accent' | 'warn' = 'primary';
-  @Input({ required: false }) loading = false;
+  @Input({ required: true }) function!: () => Promise<void> | void;
 
-  @Input({ required: false }) function: () => Promise<void> | void = () => {
-  };
+  @Input({ required: false }) color: 'primary' | 'accent' | 'warn' = 'primary';
+
+  protected loading = false;
 
   protected async click(): Promise<void> {
     this.loading = true;
-    await (this.function ? this.function() : Promise.resolve());
+    await this.function();
     this.loading = false;
   }
 }
