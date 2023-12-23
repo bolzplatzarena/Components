@@ -1,7 +1,16 @@
-<bpa-button [text]="text" [loading]="datasource()" type="raised" (click)="click()"></bpa-button>
+<bpa-button type="raised" color="accent" [function]="click">
+  {{ text }}
+</bpa-button>
 <br><br>
-<bpa-button [text]="longText" [loading]="datasource()" type="stroked" (click)="click()"></bpa-button>
+<bpa-button type="raised" color="warn" [function]="click">
+  {{ longText }}
+</bpa-button>
 <br><br>
-<bpa-button [text]="longText" [loading]="datasource()" type="stroked" color="warn" (click)="click()"></bpa-button>
+<bpa-button type="stroked" color="accent" [function]="click">
+  {{ text }}
+</bpa-button>
 <br><br>
-<bpa-button [text]="text" [loading]="datasource()" type="raised" (click)="click()" color="accent"></bpa-button>
+<bpa-button type="raised" color="primary" [function]="click">
+  {{ longText }}
+</bpa-button>
+<br><br>

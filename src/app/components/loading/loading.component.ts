@@ -18,8 +18,7 @@ export class LoadingComponent {
   protected readonly longText = 'Speichern & Save & Other words';
   protected readonly datasource = signal<boolean>(false);
 
-  click() {
-    this.datasource.set(true);
-    setTimeout(() => this.datasource.set(false), 2000);
+  async click(): Promise<void> {
+    await new Promise((resolve) => setTimeout(resolve, 4000));
   }
 }

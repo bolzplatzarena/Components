@@ -16,6 +16,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 export class ButtonComponent {
   @Input({ required: true }) type!: 'raised' | 'stroked';
   @Input({ required: false }) color: 'primary' | 'accent' | 'warn' = 'primary';
-  @Input({ required: true }) text!: string;
-  @Input({ required: true }) loading = false;
+  @Input({ required: false }) loading = false;
+
+  @Input({ required: false }) function: () => Promise<void> | void = () => {
+  };
+
+  protected async click(): Promise<void> {
+    this.loading = true;
+    await (this.function ? this.function() : Promise.resolve());
+    this.loading = false;
+  }
 }
