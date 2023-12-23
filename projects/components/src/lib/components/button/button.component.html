@@ -1,4 +1,17 @@
-<button mat-stroked-button style="position: relative" [disabled]="loading">
+@switch (type) {
+  @case ('raised') {
+    <button mat-raised-button [disabled]="loading" [color]="color">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </button>
+  }
+  @case ('stroked') {
+    <button mat-stroked-button [disabled]="loading" [color]="color">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </button>
+  }
+}
+
+<ng-template #content>
   {{ text }}
   @if (loading) {
     <mat-spinner
@@ -8,4 +21,4 @@
         style="position: absolute; left: 50%; top: 0; margin-left: -10px;">
     </mat-spinner>
   }
-</button>
+</ng-template>

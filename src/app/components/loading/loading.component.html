@@ -1,4 +1,7 @@
-<bpa-button [text]="text" [loading]="datasource()" (click)="click()"></bpa-button>
-
-<bpa-button [text]="longText" [loading]="datasource()" (click)="click()"></bpa-button>
-
+<bpa-button [text]="text" [loading]="datasource()" type="raised" (click)="click()"></bpa-button>
+<br><br>
+<bpa-button [text]="longText" [loading]="datasource()" type="stroked" (click)="click()"></bpa-button>
+<br><br>
+<bpa-button [text]="longText" [loading]="datasource()" type="stroked" color="warn" (click)="click()"></bpa-button>
+<br><br>
+<bpa-button [text]="text" [loading]="datasource()" type="raised" (click)="click()" color="accent"></bpa-button>
