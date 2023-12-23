@@ -10,6 +10,7 @@ import { DialogsComponent } from './components/dialogs/dialogs.component';
 import { EnumComponent } from './components/enum/enum.component';
 import { FileListComponent } from './components/file-list/file-list.component';
 import { FullTableComponent } from './components/full-table/full-table.component';
+import { LoadingComponent } from './components/loading/loading.component';
 import { TableComponent } from './components/table/table.component';
 import * as de from './i18n/de.json';
 import * as en from './i18n/en.json';
@@ -28,6 +29,7 @@ import * as en from './i18n/en.json';
     FileListComponent,
     TranslateModule,
     FullTableComponent,
+    LoadingComponent,
   ],
 })
 export class AppComponent {

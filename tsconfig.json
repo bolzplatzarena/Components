@@ -6,6 +6,9 @@
     "paths": {
       "@bolzplatzarena/components": [
         "dist/@bolzplatzarena/components"
+      ],
+      "@bolzplatzarena/components/button": [
+        "dist/@bolzplatzarena/components/button"
       ]
     },
     "outDir": "./dist/out-tsc",
