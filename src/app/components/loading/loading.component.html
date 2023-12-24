@@ -1,3 +1,4 @@
+<p translate>content.text.loading_button</p>
 <bpa-button type="raised" color="accent" [function]="click">
   {{ text }}
 </bpa-button>
@@ -11,6 +12,10 @@
 </bpa-button>
 <br><br>
 <bpa-button type="raised" color="primary" [function]="click">
+  {{ longText }}
+</bpa-button>
+<br><br>
+<bpa-button type="raised" color="primary" [disabled]="true" [function]="click">
   {{ longText }}
 </bpa-button>
 <br><br>

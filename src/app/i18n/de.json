@@ -9,7 +9,8 @@
       "enum": "Enums sind toll, Enums sind wichtig. Aber manchmal sind sie schwer zu nutzen, vor allem in Tempülates.<br>Hier findet ihr Tools die euch unterstützen.",
       "enum_options": "Dies ist eine Methode um aus einem Enum eine Datenquelle für ein Dropdown zu machen und dabei die Werte auch noch zu übersetzen.",
       "pipe": "Die Pipe gibt euch die Möglichkeit den Enum-Schlüssel in einer View zu nutzen. Dies ist vor allem dann wichtig, wenn das Enum nicht auf einem String basiert.",
-      "dialogs": "Diese Bibliothek gibt einige Möglichkeiten, einfach Dialoge zu erstellen und vorgefertigte Dialoge zu nutzen."
+      "dialogs": "Diese Bibliothek gibt einige Möglichkeiten, einfach Dialoge zu erstellen und vorgefertigte Dialoge zu nutzen.",
+      "loading_button": "Unterschiedliche Varianten für die Loading-Button."
     },
     "headline": {
       "first": "Bolzplatzarena Components",
