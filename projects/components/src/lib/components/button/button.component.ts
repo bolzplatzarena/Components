@@ -17,6 +17,7 @@ export class ButtonComponent {
   @Input({ required: true }) type!: 'raised' | 'stroked';
   @Input({ required: true }) function!: () => Promise<void> | void;
 
+  @Input({ required: false }) disabled: boolean = false;
   @Input({ required: false }) color: 'primary' | 'accent' | 'warn' = 'primary';
 
   protected loading = false;
