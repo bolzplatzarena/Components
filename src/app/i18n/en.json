@@ -9,7 +9,8 @@
       "enum": "Sometimes it is hard to handle enums, but it is important to use an enum instead of just using a number or a string.\n    <br>Here you can find some little helpers, which enable you to use enum for material select or in the tempalte as a\n    string very easily.",
       "enum_options": "Easy way to use a typescript enum as source of the material select.",
       "pipe": "The pipe provides an easy way to get the selected key of an enumeration in the template.",
-      "dialogs": "This library provides a way to use dialogs in your application."
+      "dialogs": "This library provides a way to use dialogs in your application.",
+      "loading_button": "Unterschiedliche Varianten für die Loading-Button."
     },
     "headline": {
       "first": "Bolzplatzarena Components",
