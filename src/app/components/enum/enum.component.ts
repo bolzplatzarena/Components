@@ -8,18 +8,17 @@ import { TranslateModule } from '@ngx-translate/core';
 import { HeroType } from '../../models/hero-type';
 
 @Component({
-  selector: 'app-enum',
-  templateUrl: './enum.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    EnumKeyPipe,
-    MatFormFieldModule,
-    MatOptionModule,
-    MatSelectModule,
-    NgFor,
-    TranslateModule,
-  ],
+    selector: 'app-enum',
+    templateUrl: './enum.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        EnumKeyPipe,
+        MatFormFieldModule,
+        MatOptionModule,
+        MatSelectModule,
+        NgFor,
+        TranslateModule,
+    ]
 })
 export class EnumComponent {
   protected readonly items = getTranslatableFrom(HeroType, 'hero.types');

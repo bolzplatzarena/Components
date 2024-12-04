@@ -8,17 +8,16 @@ import { DialogComponent } from '../dialog.component';
 import { FormDialogComponent } from '../form-dialog.component';
 
 @Component({
-  selector: 'bpa-dialog-layout',
-  templateUrl: './dialog-layout.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    AsyncPipe,
-    MatButtonModule,
-    MatDialogModule,
-    NgIf,
-    TranslateModule,
-  ],
+    selector: 'bpa-dialog-layout',
+    templateUrl: './dialog-layout.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        AsyncPipe,
+        MatButtonModule,
+        MatDialogModule,
+        NgIf,
+        TranslateModule,
+    ]
 })
 export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnInit {
   @Input() dialog?: DialogComponent<T>;

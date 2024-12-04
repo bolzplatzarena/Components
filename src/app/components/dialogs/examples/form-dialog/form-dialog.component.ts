@@ -15,16 +15,15 @@ interface ItemData extends FormData {
 }
 
 @Component({
-  selector: 'app-form-dialog',
-  templateUrl: './form-dialog.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    DialogLayoutComponent,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-  ],
+    selector: 'app-form-dialog',
+    templateUrl: './form-dialog.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        DialogLayoutComponent,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+    ]
 })
 export class SimpleFormDialogComponent extends FormDialogComponent<FormData, ItemData> {
   form = this.fb.nonNullable.group({

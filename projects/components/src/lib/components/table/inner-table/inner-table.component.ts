@@ -36,29 +36,28 @@ export interface ColumnConfig<T> {
 }
 
 @Component({
-  selector: 'bpa-inner-table',
-  templateUrl: './inner-table.component.html',
-  styleUrls: ['../../../../../../styles/tailwind.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    DatePipe,
-    EnumKeyPipe,
-    FontAwesomeModule,
-    LowerCasePipe,
-    MatButtonModule,
-    MatMenuModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatSortModule,
-    MatTableModule,
-    NgIf,
-    NgSwitch,
-    NgSwitchCase,
-    NgSwitchDefault,
-    TranslateModule,
-    NgForOf,
-  ],
+    selector: 'bpa-inner-table',
+    templateUrl: './inner-table.component.html',
+    styleUrls: ['../../../../../../styles/tailwind.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        DatePipe,
+        EnumKeyPipe,
+        FontAwesomeModule,
+        LowerCasePipe,
+        MatButtonModule,
+        MatMenuModule,
+        MatPaginatorModule,
+        MatProgressBarModule,
+        MatSortModule,
+        MatTableModule,
+        NgIf,
+        NgSwitch,
+        NgSwitchCase,
+        NgSwitchDefault,
+        TranslateModule,
+        NgForOf,
+    ]
 })
 export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   @Input() columns !: string[];

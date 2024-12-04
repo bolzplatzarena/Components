@@ -7,11 +7,10 @@ import { SimpleFormDialogComponent } from './examples/form-dialog/form-dialog.co
 import { SimpleComponent } from './examples/simple/simple.component';
 
 @Component({
-  selector: 'app-dialogs',
-  templateUrl: './dialogs.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [MatButtonModule, TranslateModule],
+    selector: 'app-dialogs',
+    templateUrl: './dialogs.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [MatButtonModule, TranslateModule]
 })
 export class DialogsComponent {
   constructor(private readonly dialog: DialogService) {

@@ -6,15 +6,14 @@ import { Hero } from '../../models/hero';
 import { HeroType } from '../../models/hero-type';
 
 @Component({
-  selector: 'app-full-table',
-  templateUrl: './full-table.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    AsyncPipe,
-    TableComponentFromLib,
-    TranslateModule,
-  ],
+    selector: 'app-full-table',
+    templateUrl: './full-table.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        AsyncPipe,
+        TableComponentFromLib,
+        TranslateModule,
+    ]
 })
 export class FullTableComponent {
   protected readonly data: Hero[] = [

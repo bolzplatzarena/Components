@@ -16,21 +16,20 @@ import * as de from './i18n/de.json';
 import * as en from './i18n/en.json';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    MatButtonToggleModule,
-    MatTabsModule,
-    TableComponent,
-    DialogsComponent,
-    EnumComponent,
-    FileListComponent,
-    TranslateModule,
-    FullTableComponent,
-    LoadingComponent,
-  ],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        MatButtonToggleModule,
+        MatTabsModule,
+        TableComponent,
+        DialogsComponent,
+        EnumComponent,
+        FileListComponent,
+        TranslateModule,
+        FullTableComponent,
+        LoadingComponent,
+    ]
 })
 export class AppComponent {
   constructor(library: FaIconLibrary, private readonly translate: TranslateService) {
