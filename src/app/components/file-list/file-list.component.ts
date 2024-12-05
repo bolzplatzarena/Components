@@ -6,19 +6,18 @@ import { MatListModule } from '@angular/material/list';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
-  selector: 'app-file-list',
-  templateUrl: './file-list.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    DatePipe,
-    FontAwesomeModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatListModule,
-    NgFor,
-    NgIf,
-  ],
+    selector: 'app-file-list',
+    templateUrl: './file-list.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        DatePipe,
+        FontAwesomeModule,
+        MatButtonModule,
+        MatDividerModule,
+        MatListModule,
+        NgFor,
+        NgIf,
+    ]
 })
 export class FileListComponent {
   protected readonly folders = [

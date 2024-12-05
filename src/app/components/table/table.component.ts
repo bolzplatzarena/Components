@@ -8,15 +8,14 @@ import { Hero } from '../../models/hero';
 import { HeroType } from '../../models/hero-type';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    AsyncPipe,
-    TableComponentFromLib,
-    TranslateModule,
-  ],
+    selector: 'app-table',
+    templateUrl: './table.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        AsyncPipe,
+        TableComponentFromLib,
+        TranslateModule,
+    ]
 })
 export class TableComponent {
   protected readonly data: Hero[] = [
