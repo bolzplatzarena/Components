@@ -1,11 +1,11 @@
-@switch (type) {
+@switch (type()) {
   @case ('raised') {
-    <button mat-raised-button [disabled]="disabled || loading" [color]="color" (click)="click()">
+    <button mat-raised-button [disabled]="disabled() || loading" [color]="color()" (click)="click()">
       <ng-container *ngTemplateOutlet="content"></ng-container>
     </button>
   }
   @case ('stroked') {
-    <button mat-stroked-button [disabled]="disabled || loading" [color]="color" (click)="click()">
+    <button mat-stroked-button [disabled]="disabled() || loading" [color]="color()" (click)="click()">
       <ng-container *ngTemplateOutlet="content"></ng-container>
     </button>
   }

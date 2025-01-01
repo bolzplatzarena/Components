@@ -1,10 +1,10 @@
 {
   "name": "@bolzplatzarena/components",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "author": "Thomas Renger",
   "repository": {
     "type": "git",
-    "url": "https://bolzplatzarena.github.io/Components/browser"
+    "url": "https://github.com/bolzplatzarena/Components"
   },
   "bugs": {
     "url": "https://github.com/bolzplatzarena/Components/issues"

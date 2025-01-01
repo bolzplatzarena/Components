@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +20,9 @@ import { PaginatorTexts } from './paginator-texts';
   ],
 })
 export class ComponentsModule {
-  constructor(library: FaIconLibrary) {
+  constructor() {
+    const library = inject(FaIconLibrary);
+
     library.addIcons(faAddressCard);
     library.addIcons(faSkullCrossbones);
     library.addIcons(faEllipsisVertical);
