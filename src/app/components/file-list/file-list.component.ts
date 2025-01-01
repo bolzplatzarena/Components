@@ -1,23 +1,21 @@
-import { DatePipe, NgFor, NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatListModule } from '@angular/material/list';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {DatePipe} from '@angular/common';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @Component({
-    selector: 'app-file-list',
-    templateUrl: './file-list.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        DatePipe,
-        FontAwesomeModule,
-        MatButtonModule,
-        MatDividerModule,
-        MatListModule,
-        NgFor,
-        NgIf,
-    ]
+  selector: 'app-file-list',
+  templateUrl: './file-list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    DatePipe,
+    FontAwesomeModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatListModule,
+  ]
 })
 export class FileListComponent {
   protected readonly folders = [

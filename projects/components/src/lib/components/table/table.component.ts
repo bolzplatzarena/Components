@@ -1,13 +1,12 @@
-import { NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnChanges, Output } from '@angular/core';
-import { IconName } from '@fortawesome/fontawesome-svg-core';
-import { ColumnConfig, InnerTableComponent } from './inner-table/inner-table.component';
+import {ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnChanges, Output} from '@angular/core';
+import {IconName} from '@fortawesome/fontawesome-svg-core';
+import {ColumnConfig, InnerTableComponent} from './inner-table/inner-table.component';
 
 @Component({
-    selector: 'bpa-table',
-    templateUrl: './table.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgIf, InnerTableComponent]
+  selector: 'bpa-table',
+  templateUrl: './table.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [InnerTableComponent]
 })
 export class TableComponent<T> implements OnChanges {
   @HostBinding() protected readonly class = 'tw-flex tw-flex-1 tw-flex-col';
