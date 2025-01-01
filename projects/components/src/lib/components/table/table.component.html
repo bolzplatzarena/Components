@@ -1,22 +1,22 @@
 @if (innerData && displayedColumns) {
   <bpa-inner-table
-      [columnConfig]="columnConfig"
-      [columns]="columns"
-      [sortable]="sortable"
-      [paging]="paging"
-      [edit]="edit"
-      [delete]="delete"
-      [rowClickedObserved]="rowClickedObserved"
-      [translateKey]="translateKey"
-      [dataset]="innerData"
-      [displayedColumns]="displayedColumns"
-      [progress]="progress"
-      [loading]="loading"
-      [pageSizeOptions]="pageSizeOptions"
-      (deleteEvent)="deleteAction($event)"
-      (editEvent)="editAction($event)"
-      (rowClicked)="rowClicked.emit($event)"
-      class="tw-flex tw-flex-col tw-flex-1">
+    [columnConfig]="columnConfig()"
+    [columns]="columns()"
+    [sortable]="sortable()"
+    [paging]="paging()"
+    [edit]="actions().edit"
+    [delete]="actions().delete"
+    [rowClickedObserved]="actions().rowClicked"
+    [translateKey]="translateKey()"
+    [dataset]="innerData"
+    [displayedColumns]="displayedColumns"
+    [progress]="progress"
+    [loading]="loading"
+    [pageSizeOptions]="pageSizeOptions()"
+    (deleteEvent)="deleteAction($event)"
+    (editEvent)="editAction($event)"
+    (rowClicked)="rowClicked.emit($event)"
+    class="tw-flex tw-flex-col tw-flex-1">
     <ng-content></ng-content>
   </bpa-inner-table>
 }

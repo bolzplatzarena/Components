@@ -1,26 +1,26 @@
 <table
     [dataSource]="dataSource"
-    [matSortDisabled]="!sortable"
+    [matSortDisabled]="!sortable()"
     class="mat-elevation-z8 tw-w-full"
     mat-table
     matSort>
-  @for (column of columns;track column) {
+  @for (column of columns();track column) {
     <ng-container [matColumnDef]="column">
       <th *matHeaderCellDef
           mat-header-cell
           mat-sort-header
-          [class]="columnConfig?.[column]?.cssClass">{{ (translateKey + column | lowercase) | translate }}
+          [class]="columnConfig()?.[column]?.cssClass">{{ (translateKey() + column | lowercase) | translate }}
       </th>
       <td *matCellDef="let element" mat-cell>
-        @switch (columnConfig?.[column]?.type) {
+        @switch (columnConfig()?.[column]?.type) {
           @case (ColumnType.Date) {
             {{ element[column] | date }}
           }
           @case (ColumnType.Enum) {
-            {{ (translateKey + column + '.' + (element[column] | enumKey : columnConfig ![column].args !)) | lowercase | translate }}
+            {{ (translateKey() + column + '.' + (element[column] | enumKey : columnConfig() ![column].args !)) | lowercase | translate }}
           }
           @default {
-            {{ columnConfig?.[column]?.getter?.(element) ?? element[column] }}
+            {{ columnConfig()?.[column]?.getter?.(element) ?? element[column] }}
           }
         }
       </td>
@@ -29,7 +29,7 @@
 
   <ng-container matColumnDef="actions">
     <th *matHeaderCellDef mat-header-cell style="text-align: center; width: 1px;">
-      {{ (translateKey + 'actions' | lowercase) | translate }}
+      {{ (translateKey() + 'actions' | lowercase) | translate }}
     </th>
     <td *matCellDef="let element" mat-cell style="text-align: center">
       <button
@@ -44,44 +44,44 @@
   </ng-container>
 
   <ng-container matColumnDef="loading">
-    <th *matHeaderCellDef [colSpan]="displayedColumns.length + 1" style="padding: 0">
-      @if (progress) {
-        <mat-progress-bar [mode]="loading ? 'indeterminate' : 'determinate'"></mat-progress-bar>
+    <th *matHeaderCellDef [colSpan]="displayedColumns().length + 1" style="padding: 0">
+      @if (progress()) {
+        <mat-progress-bar [mode]="loading() ? 'indeterminate' : 'determinate'"></mat-progress-bar>
       }
     </th>
   </ng-container>
 
-  <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+  <tr *matHeaderRowDef="displayedColumns(); sticky: true" mat-header-row></tr>
   <tr *matHeaderRowDef="['loading']; sticky: true" mat-header-row style="height: auto;"></tr>
 
   <tr
-      *matRowDef="let row; columns: displayedColumns;"
-      [style]="rowClickedObserved ? 'cursor: pointer' : ''"
-      (click)="rowClickedObserved && rowClicked.emit(row)"
+      *matRowDef="let row; columns: displayedColumns();"
+      [style]="rowClickedObserved() ? 'cursor: pointer' : ''"
+      (click)="rowClickedObserved() && rowClicked.emit(row)"
       mat-row>
   </tr>
 </table>
 <div class="tw-flex-1"></div>
-@if (paging && dataset) {
+@if (paging() && dataset()) {
   <mat-paginator
       [showFirstLastButtons]="true"
-      [pageSizeOptions]="pageSizeOptions"
+      [pageSizeOptions]="pageSizeOptions()"
       class="tw-sticky tw-bottom-0">
   </mat-paginator>
 }
 
 <mat-menu #menu="matMenu">
   <ng-template let-element="element" matMenuContent>
-    @if (edit) {
+    @if (edit()) {
       <button mat-menu-item (click)="editAction(element)">
-        <fa-icon [icon]="editIcon"></fa-icon>
-        <span>&nbsp;&nbsp;{{ (translateKey + 'action.edit') | translate }}</span>
+        <fa-icon [icon]="editIcon()"></fa-icon>
+        <span>&nbsp;&nbsp;{{ (translateKey() + 'action.edit') | translate }}</span>
       </button>
     }
-    @if (delete) {
+    @if (delete()) {
       <button mat-menu-item (click)="deleteAction(element)">
-        <fa-icon [icon]="deleteIcon"></fa-icon>
-        <span>&nbsp;&nbsp;{{ (translateKey + 'action.delete') | translate }}</span>
+        <fa-icon [icon]="deleteIcon()"></fa-icon>
+        <span>&nbsp;&nbsp;{{ (translateKey() + 'action.delete') | translate }}</span>
       </button>
     }
   </ng-template>

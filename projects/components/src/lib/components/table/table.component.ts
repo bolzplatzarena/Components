@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnChanges, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostBinding, input, OnChanges, output} from '@angular/core';
 import {IconName} from '@fortawesome/fontawesome-svg-core';
 import {ColumnConfig, InnerTableComponent} from './inner-table/inner-table.component';
 
@@ -11,46 +11,48 @@ import {ColumnConfig, InnerTableComponent} from './inner-table/inner-table.compo
 export class TableComponent<T> implements OnChanges {
   @HostBinding() protected readonly class = 'tw-flex tw-flex-1 tw-flex-col';
 
-  @Input() columns !: string[];
-  @Input() dataset: T[] | undefined | null = [];
-  @Input() translateKey = 'core.components.table.';
-  @Input() columnConfig: { [key: string]: ColumnConfig<T> } | undefined;
-  @Input() progressBar: 'always' | 'never' | 'auto' = 'always';
-  @Input() sortable = true;
-  @Input() paging = true;
-  @Input() deleteIcon: IconName = 'skull-crossbones';
-  @Input() editIcon: IconName = 'address-card';
-  @Input() pageSizeOptions = [10, 20, 50];
+  readonly columns = input.required<string[]>();
+  readonly dataset = input<T[] | undefined | null>([]);
+  readonly translateKey = input('core.components.table.');
+  readonly columnConfig = input<{
+    [key: string]: ColumnConfig<T>;
+  }>();
+  readonly progressBar = input<'always' | 'never' | 'auto'>('always');
+  readonly sortable = input(true);
+  readonly paging = input(true);
+  readonly deleteIcon = input<IconName>('skull-crossbones');
+  readonly editIcon = input<IconName>('address-card');
+  readonly pageSizeOptions = input([10, 20, 50]);
 
-  @Output() readonly rowClicked = new EventEmitter<T>();
-  @Output() readonly deleteEvent = new EventEmitter<T>();
-  @Output() readonly editEvent = new EventEmitter<T>();
+  readonly actions = input<{ delete: boolean, edit: boolean, rowClicked: boolean }>({
+    delete: false,
+    edit: false,
+    rowClicked: false
+  });
+
+  readonly rowClicked = output<T>();
+  readonly deleteEvent = output<T>();
+  readonly editEvent = output<T>();
 
   protected loading = true;
-  protected edit = false;
-  protected delete = false;
-  protected rowClickedObserved = false;
   protected displayedColumns!: string[];
   protected innerData: T[] | undefined | null = [];
 
   protected get progress(): boolean {
-    return (this.progressBar === 'always')
-      || ((this.progressBar === 'auto') && this.loading);
+    const progressBar = this.progressBar();
+    return (progressBar === 'always')
+      || ((progressBar === 'auto') && this.loading);
   }
 
   ngOnChanges(): void {
-    this.delete = this.deleteEvent.observed;
-    this.edit = this.editEvent.observed;
-    this.rowClickedObserved = this.rowClicked.observed;
-
-    this.displayedColumns = [...this.columns];
-    if (this.delete || this.edit) {
+    this.displayedColumns = [...this.columns()];
+    if (this.actions().delete || this.actions().edit) {
       this.displayedColumns.push('actions');
     }
 
-    this.loading = !this.dataset;
+    this.loading = !this.dataset();
     if (!this.loading) {
-      this.innerData = this.dataset;
+      this.innerData = this.dataset();
     }
   }
 
