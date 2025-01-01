@@ -1,12 +1,11 @@
 # Components
+
 angular components
 
-# Unit tests
+# Table
 
-To run unit tests please use the following command
+A table to simplify the creation of tables in Angular applications.
 
-```
-ng test components
-```
+## Migration from < 0.15 to > 0.15
 
-#
+As the signal outputs in angular do not have a possibility to check for observers, you need set it update manually using the `actions` input.
