@@ -1,13 +1,12 @@
-import { ComponentType } from '@angular/cdk/overlay';
-import { Injectable, TemplateRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { firstValueFrom, Observable, switchMap } from 'rxjs';
-import { SimpleDialogComponent } from '../components/simple-dialog/simple-dialog.component';
+import {ComponentType} from '@angular/cdk/overlay';
+import {inject, Injectable, TemplateRef} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {firstValueFrom, Observable, switchMap} from 'rxjs';
+import {SimpleDialogComponent} from '../components/simple-dialog/simple-dialog.component';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class DialogService {
-  constructor(private readonly dialog: MatDialog) {
-  }
+  private readonly dialog = inject(MatDialog);
 
   open<T, R, C = unknown>(component: ComponentType<T> | TemplateRef<T>, data?: C): Observable<R> {
     return this.dialog.open(component, {
@@ -22,7 +21,7 @@ export class DialogService {
     return firstValueFrom(
       this.open<SimpleDialogComponent, boolean>(
         SimpleDialogComponent,
-        { translateKey },
+        {translateKey},
       ).pipe(
         switchMap(async value => {
           if (value && action) {

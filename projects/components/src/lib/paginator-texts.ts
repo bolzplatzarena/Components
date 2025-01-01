@@ -1,14 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 
 @Injectable()
 export class PaginatorTexts implements MatPaginatorIntl {
-  readonly changes = new Subject<void>();
+  private readonly translate = inject(TranslateService);
 
-  constructor(private readonly translate: TranslateService) {
-  }
+  readonly changes = new Subject<void>();
 
   get itemsPerPageLabel(): string {
     return this.translate.instant('bpa.components.table.items-per-page');
