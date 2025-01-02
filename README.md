@@ -92,3 +92,36 @@ You need to configure the terms of pagination or you implement your own implemen
 ## Migration from < 0.15 to > 0.15
 
 As the signal outputs in angular do not have a possibility to check for observers, you need set it update manually using the `actions` input.
+
+## Strapi
+
+The library includes a component to display content of the wysiwyg editor of strapi.
+
+### Support
+
+The library is in experimental state and is not recommended for production use because it does not support all types of the strapi content.
+The component supports the following types:
+
+- paragraph
+- simple text (text content without formatting as child of paragraph)
+
+### How to use it
+
+Example data:
+
+```
+  protected readonly strapiContent: RootNode[] = [{
+    type: 'paragraph',
+    children: [{type: 'text', text: 'Hello World!'}, {type: 'text', text: 'This is a test.'}]
+  }, {
+    type: 'paragraph',
+    children: [{type: 'text', text: 'Hello World!'}, {type: 'text', text: 'This is a test.'}]
+  }];
+```
+
+Example template:
+
+```
+<bpa-strapi-content [content]="strapiContent"></bpa-strapi-content>
+```
+

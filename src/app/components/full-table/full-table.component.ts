@@ -1,19 +1,17 @@
-import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ColumnConfig, ColumnType, TableComponent as TableComponentFromLib } from '@bolzplatzarena/components';
-import { TranslateModule } from '@ngx-translate/core';
-import { Hero } from '../../models/hero';
-import { HeroType } from '../../models/hero-type';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ColumnConfig, ColumnType, TableComponent as TableComponentFromLib} from '@bolzplatzarena/components';
+import {TranslateModule} from '@ngx-translate/core';
+import {Hero} from '../../models/hero';
+import {HeroType} from '../../models/hero-type';
 
 @Component({
-    selector: 'app-full-table',
-    templateUrl: './full-table.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        AsyncPipe,
-        TableComponentFromLib,
-        TranslateModule,
-    ]
+  selector: 'app-full-table',
+  templateUrl: './full-table.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    TableComponentFromLib,
+    TranslateModule,
+  ]
 })
 export class FullTableComponent {
   protected readonly data: Hero[] = [
@@ -635,11 +633,11 @@ export class FullTableComponent {
     },
   ];
   protected readonly config: { [key: string]: ColumnConfig<Hero> } = {
-    'name': { type: ColumnType.Unknown, cssClass: 'tw-w-32' },
-    'birthday': { type: ColumnType.Date, cssClass: 'tw-w-32' },
-    'type': { type: ColumnType.Enum, args: HeroType, cssClass: 'tw-w-32' },
-    'level': { type: ColumnType.Number, cssClass: 'tw-w-32' },
-    'health': { type: ColumnType.Number, cssClass: 'tw-w-32' },
-    'custom': { type: ColumnType.Unknown, getter: (hero: Hero) => `${hero.name} ${hero.level}` },
+    'name': {type: ColumnType.Unknown, cssClass: 'tw-w-32'},
+    'birthday': {type: ColumnType.Date, cssClass: 'tw-w-32'},
+    'type': {type: ColumnType.Enum, args: HeroType, cssClass: 'tw-w-32'},
+    'level': {type: ColumnType.Number, cssClass: 'tw-w-32'},
+    'health': {type: ColumnType.Number, cssClass: 'tw-w-32'},
+    'custom': {type: ColumnType.Unknown, getter: (hero: Hero) => `${hero.name} ${hero.level}`},
   };
 }

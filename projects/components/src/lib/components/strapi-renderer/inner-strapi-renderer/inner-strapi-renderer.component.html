@@ -1,0 +1,11 @@
+@for (contentNode of content(); track $index) {
+  @if (isParagraph(contentNode)) {
+    <p>
+      <bpa-inner-strapi-renderer [content]="contentNode.children"></bpa-inner-strapi-renderer>
+    </p>
+  }
+
+  @if (isText(contentNode)) {
+    <bpa-text-renderer [content]="contentNode"></bpa-text-renderer>
+  }
+}

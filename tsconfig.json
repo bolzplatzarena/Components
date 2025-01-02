@@ -9,6 +9,9 @@
       ],
       "@bolzplatzarena/components/button": [
         "dist/@bolzplatzarena/components/button"
+      ],
+      "@bolzplatzarena/components/strapi": [
+        "dist/@bolzplatzarena/components/strapi"
       ]
     },
     "outDir": "./dist/out-tsc",

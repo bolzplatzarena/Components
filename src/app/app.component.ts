@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatTabsModule} from '@angular/material/tabs';
+import {RootNode, StrapiRendererComponent} from '@bolzplatzarena/components/strapi';
 import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
 import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons/faEllipsisVertical';
 import {faFile} from '@fortawesome/free-solid-svg-icons/faFile';
@@ -29,10 +30,18 @@ import * as en from './i18n/en.json';
     TranslateModule,
     FullTableComponent,
     LoadingComponent,
+    StrapiRendererComponent,
   ]
 })
 export class AppComponent {
   private readonly translate = inject(TranslateService);
+  protected readonly strapiContent: RootNode[] = [{
+    type: 'paragraph',
+    children: [{type: 'text', text: 'Hello World!'}, {type: 'text', text: 'This is a test.'}]
+  }, {
+    type: 'paragraph',
+    children: [{type: 'text', text: 'Hello World!'}, {type: 'text', text: 'This is a test.'}]
+  }]
 
   constructor() {
     const library = inject(FaIconLibrary);
