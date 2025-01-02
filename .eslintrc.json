@@ -1,15 +1,28 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*"],
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": [
+        "*.ts"
+      ],
       "parserOptions": {
-        "project": ["tsconfig.json"],
+        "project": [
+          "tsconfig.json"
+        ],
         "createDefaultProgram": true
       },
-      "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:@angular-eslint/recommended", "plugin:@angular-eslint/template/process-inline-templates"],
-      "plugins": ["function-name"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "plugins": [
+        "function-name"
+      ],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
@@ -28,14 +41,25 @@
           }
         ],
         "@typescript-eslint/no-extra-semi": "off",
-        "eqeqeq": ["error", "always"],
+        "eqeqeq": [
+          "error",
+          "always"
+        ],
         "function-name/starts-with-verb": [
           "error",
           {
-            "whitelist": ["ng", "by", "migrate", "die"]
+            "whitelist": [
+              "ng",
+              "by",
+              "migrate",
+              "die"
+            ]
           }
         ],
-        "max-params": ["error", 3],
+        "max-params": [
+          "error",
+          3
+        ],
         "no-console": "error",
         "no-nested-ternary": "error",
         "no-shadow": "off",
@@ -50,8 +74,12 @@
       }
     },
     {
-      "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
       "rules": {}
     }
   ]
