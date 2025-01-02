@@ -19,6 +19,7 @@ import {HeadingRendererComponent} from "../heading-renderer/heading-renderer.com
 })
 export class InnerStrapiRendererComponent {
   readonly content = input.required<(RootNode | DefaultInlineNode)[]>();
+  readonly debug = input.required<boolean>();
 
   protected readonly isParagraph = (node: RootNode | DefaultInlineNode): node is ParagraphBlockNode => node.type === 'paragraph';
   protected readonly isText = (node: RootNode | DefaultInlineNode): node is TextInlineNode => node.type === 'text';

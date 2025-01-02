@@ -1,6 +1,6 @@
-import { Component, input } from '@angular/core';
-import { RootNode } from '../../models/strapi-content.model';
-import { InnerStrapiRendererComponent } from './inner-strapi-renderer/inner-strapi-renderer.component';
+import {Component, input} from '@angular/core';
+import {RootNode} from '../../models/strapi-content.model';
+import {InnerStrapiRendererComponent} from './inner-strapi-renderer/inner-strapi-renderer.component';
 
 @Component({
   selector: 'bpa-strapi-renderer',
@@ -10,4 +10,5 @@ import { InnerStrapiRendererComponent } from './inner-strapi-renderer/inner-stra
 })
 export class StrapiRendererComponent {
   readonly content = input.required<RootNode[]>();
+  readonly debug = input<boolean>(false);
 }
