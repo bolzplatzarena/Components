@@ -35,7 +35,7 @@ export interface ParagraphBlockNode {
   children: DefaultInlineNode[];
 }
 
-interface QuoteBlockNode {
+export interface QuoteBlockNode {
   type: 'quote';
   children: DefaultInlineNode[];
 }

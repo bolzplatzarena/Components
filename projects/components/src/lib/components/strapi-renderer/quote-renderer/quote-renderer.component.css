@@ -1,0 +1,28 @@
+blockquote {
+  display: inline-block;
+  position: relative;
+  font-weight: 100;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin: 0;
+  padding: 1.5rem;
+}
+
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  color: #f1efe6;
+  font-size: 4rem;
+}
+
+blockquote:before {
+  content: '“';
+  left: 0;
+  top: 0;
+}
+
+blockquote:after {
+  content: '”';
+  right: 0;
+  bottom: -2rem;
+}

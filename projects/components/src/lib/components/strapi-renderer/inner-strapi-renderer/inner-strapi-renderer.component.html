@@ -9,6 +9,10 @@
     <bpa-link-renderer [content]="contentNode">
       <bpa-inner-strapi-renderer [content]="contentNode.children" [debug]="debug()"></bpa-inner-strapi-renderer>
     </bpa-link-renderer>
+  } @else if (isQuote(contentNode)) {
+    <bpa-quote-renderer>
+      <bpa-inner-strapi-renderer [content]="contentNode.children" [debug]="debug()"></bpa-inner-strapi-renderer>
+    </bpa-quote-renderer>
   } @else if (isCode(contentNode)) {
     <bpa-code-renderer>
       <bpa-inner-strapi-renderer [content]="contentNode.children" [debug]="debug()"></bpa-inner-strapi-renderer>
