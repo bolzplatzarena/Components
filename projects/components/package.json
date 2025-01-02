@@ -1,6 +1,6 @@
 {
   "name": "@bolzplatzarena/components",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "author": "Thomas Renger",
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
     "table",
     "enum",
     "dialog",
-    "button"
+    "button",
+    "strapi"
   ],
   "license": "MIT",
   "peerDependencies": {

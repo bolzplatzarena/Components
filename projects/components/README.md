@@ -97,6 +97,14 @@ As the signal outputs in angular do not have a possibility to check for observer
 
 The library includes a component to display content of the wysiwyg editor of strapi.
 
+### Support
+
+The library is in experimental state and is not recommended for production use because it does not support all types of the strapi content.
+The component supports the following types:
+
+- paragraph
+- simple text (text content without formatting as child of paragraph)
+
 ### How to use it
 
 Example data:
@@ -116,3 +124,4 @@ Example template:
 ```
 <bpa-strapi-content [content]="strapiContent"></bpa-strapi-content>
 ```
+
