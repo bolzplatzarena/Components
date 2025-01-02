@@ -1,37 +1,29 @@
-import {DatePipe, LowerCasePipe} from '@angular/common';
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  OnChanges,
-  input,
-  output,
-  viewChild
-} from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatSort, MatSortModule} from '@angular/material/sort';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {IconName} from '@fortawesome/fontawesome-svg-core';
-import {TranslateModule} from '@ngx-translate/core';
-import {Dictionary} from '../../../models/dictionary.model';
-import {EnumKeyPipe} from '../../../pipes/enum-key.pipe';
+import { DatePipe, LowerCasePipe } from '@angular/common';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnChanges, input, output, viewChild } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { TranslateModule } from '@ngx-translate/core';
+import { Dictionary } from '../../../models/dictionary.model';
+import { EnumKeyPipe } from '../../../pipes/enum-key.pipe';
 
 export enum ColumnType {
   Unknown = -1,
   Date = 0,
   Enum = 1,
-  Number = 2
+  Number = 2,
 }
 
 export interface ColumnConfig<T> {
-  type: ColumnType,
-  args?: Dictionary<unknown>,
-  getter?: (item: T) => string | number,
-  cssClass?: string,
+  type: ColumnType;
+  args?: Dictionary<unknown>;
+  getter?: (item: T) => string | number;
+  cssClass?: string;
 }
 
 @Component({
@@ -51,7 +43,7 @@ export interface ColumnConfig<T> {
     MatSortModule,
     MatTableModule,
     TranslateModule,
-  ]
+  ],
 })
 export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   readonly columns = input.required<string[]>();
@@ -62,7 +54,7 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   readonly displayedColumns = input<string[]>([]);
   readonly columnConfig = input<{
     [key: string]: ColumnConfig<T>;
-}>();
+  }>();
   readonly deleteIcon = input<IconName>('skull-crossbones');
   readonly editIcon = input<IconName>('address-card');
   readonly edit = input(false);
@@ -81,7 +73,7 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
 
   protected readonly ColumnType = ColumnType;
 
-  protected dataSource !: MatTableDataSource<T>;
+  protected dataSource!: MatTableDataSource<T>;
 
   ngOnChanges(): void {
     this.dataSource = new MatTableDataSource<T>(this.dataset());
@@ -106,7 +98,7 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   private getSortingAccessor(item: T, property: string): string | number {
     const columnConfig = this.columnConfig();
     if (columnConfig?.[property]?.getter) {
-      return columnConfig[property].getter !(item);
+      return columnConfig[property].getter!(item);
     }
     switch (columnConfig?.[property]?.type) {
       case ColumnType.Number:

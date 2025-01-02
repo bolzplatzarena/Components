@@ -1,15 +1,11 @@
-import {NgTemplateOutlet} from '@angular/common';
-import {Component, input} from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgTemplateOutlet } from '@angular/common';
+import { Component, input } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'bpa-button',
-  imports: [
-    MatButtonModule,
-    MatProgressSpinnerModule,
-    NgTemplateOutlet,
-  ],
+  imports: [MatButtonModule, MatProgressSpinnerModule, NgTemplateOutlet],
   templateUrl: './button.component.html',
 })
 export class ButtonComponent {

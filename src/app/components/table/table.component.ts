@@ -8,14 +8,10 @@ import { Hero } from '../../models/hero';
 import { HeroType } from '../../models/hero-type';
 
 @Component({
-    selector: 'app-table',
-    templateUrl: './table.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        AsyncPipe,
-        TableComponentFromLib,
-        TranslateModule,
-    ]
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [AsyncPipe, TableComponentFromLib, TranslateModule],
 })
 export class TableComponent {
   protected readonly data: Hero[] = [
@@ -98,18 +94,15 @@ export class TableComponent {
     },
   ];
   protected readonly config: { [key: string]: ColumnConfig<Hero> } = {
-    'name': { type: ColumnType.Unknown, cssClass: 'tw-w-32' },
-    'birthday': { type: ColumnType.Date, cssClass: 'tw-w-32' },
-    'type': { type: ColumnType.Enum, args: HeroType, cssClass: 'tw-w-32' },
-    'level': { type: ColumnType.Number, cssClass: 'tw-w-32' },
-    'health': { type: ColumnType.Number, cssClass: 'tw-w-32' },
-    'custom': { type: ColumnType.Unknown, getter: (hero: Hero) => `${hero.name} ${hero.level}` },
+    name: { type: ColumnType.Unknown, cssClass: 'tw-w-32' },
+    birthday: { type: ColumnType.Date, cssClass: 'tw-w-32' },
+    type: { type: ColumnType.Enum, args: HeroType, cssClass: 'tw-w-32' },
+    level: { type: ColumnType.Number, cssClass: 'tw-w-32' },
+    health: { type: ColumnType.Number, cssClass: 'tw-w-32' },
+    custom: { type: ColumnType.Unknown, getter: (hero: Hero) => `${hero.name} ${hero.level}` },
   };
   protected readonly data$ = interval(3000).pipe(
-    mergeMap(() => of(this.data).pipe(
-      delay(1500),
-      startWith(null),
-    )),
+    mergeMap(() => of(this.data).pipe(delay(1500), startWith(null))),
     takeUntilDestroyed(),
   );
 

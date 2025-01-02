@@ -15,10 +15,10 @@ export abstract class DialogComponent<R, D extends DialogData = DialogData> {
     @Inject(MAT_DIALOG_DATA) readonly data: D,
   ) {
     const subscription = this.dialogRef.keydownEvents().subscribe(event => {
-      if (this.registerEscKey && (event.key === 'Escape')) {
+      if (this.registerEscKey && event.key === 'Escape') {
         this.close();
       }
-      if (this.registerEnterKey && (event.key === 'Enter')) {
+      if (this.registerEnterKey && event.key === 'Enter') {
         void this.submit();
       }
     });

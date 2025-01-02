@@ -5,14 +5,9 @@ import { ButtonComponent } from '@bolzplatzarena/components/button';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-loading',
-    imports: [
-        ButtonComponent,
-        MatButtonModule,
-        MatProgressSpinnerModule,
-        TranslateModule,
-    ],
-    templateUrl: './loading.component.html'
+  selector: 'app-loading',
+  imports: [ButtonComponent, MatButtonModule, MatProgressSpinnerModule, TranslateModule],
+  templateUrl: './loading.component.html',
 })
 export class LoadingComponent {
   protected readonly text = 'Speichern';
@@ -20,6 +15,6 @@ export class LoadingComponent {
   protected readonly datasource = signal<boolean>(false);
 
   async click(): Promise<void> {
-    await new Promise((resolve) => setTimeout(resolve, 4000));
+    await new Promise(resolve => setTimeout(resolve, 4000));
   }
 }

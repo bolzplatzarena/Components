@@ -1,10 +1,10 @@
-import {Component, computed, input} from '@angular/core';
-import {TextInlineNode} from "../../../models/strapi-content.model";
+import { Component, computed, input } from '@angular/core';
+import { TextInlineNode } from '../../../models/strapi-content.model';
 
 @Component({
   selector: 'bpa-text-renderer',
   templateUrl: './text-renderer.component.html',
-  styleUrl: './text-renderer.component.css'
+  styleUrl: './text-renderer.component.css',
 })
 export class TextRendererComponent {
   readonly content = input.required<TextInlineNode>();
@@ -14,7 +14,9 @@ export class TextRendererComponent {
       this.content().bold ? 'font-weight: bold;' : undefined,
       this.content().italic ? 'font-style: italic;' : undefined,
       this.content().underline ? 'text-decoration: underline;' : undefined,
-    ].filter(isDefined).join(';');
+    ]
+      .filter(isDefined)
+      .join(';');
   });
 }
 

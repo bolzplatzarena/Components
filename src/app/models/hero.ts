@@ -1,4 +1,4 @@
-import { HeroType } from "./hero-type";
+import { HeroType } from './hero-type';
 
 export interface Hero {
   name: string;

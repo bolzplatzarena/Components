@@ -124,4 +124,3 @@ Example template:
 ```
 <bpa-strapi-content [content]="strapiContent"></bpa-strapi-content>
 ```
-

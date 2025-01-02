@@ -1,10 +1,4 @@
-export type RootNode =
-  ParagraphBlockNode
-  | QuoteBlockNode
-  | CodeBlockNode
-  | HeadingBlockNode
-  | ListBlockNode
-  | ImageBlockNode;
+export type RootNode = ParagraphBlockNode | QuoteBlockNode | CodeBlockNode | HeadingBlockNode | ListBlockNode | ImageBlockNode;
 
 export interface TextInlineNode {
   type: 'text';
@@ -78,8 +72,10 @@ interface ImageBlockNode {
     createdAt: string;
     updatedAt: string;
   };
-  children: [{
-    type: 'text';
-    text: '';
-  }];
+  children: [
+    {
+      type: 'text';
+      text: '';
+    },
+  ];
 }

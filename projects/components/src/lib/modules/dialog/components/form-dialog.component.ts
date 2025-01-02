@@ -11,10 +11,7 @@ export interface FormDialogData<D = unknown> extends DialogData {
 export abstract class FormDialogComponent<R, D = unknown> extends DialogComponent<R, FormDialogData<D>> {
   abstract readonly form: FormGroup;
 
-  protected constructor(
-    dialogRef: MatDialogRef<unknown, R>,
-    @Inject(MAT_DIALOG_DATA) data: FormDialogData<D>,
-  ) {
+  protected constructor(dialogRef: MatDialogRef<unknown, R>, @Inject(MAT_DIALOG_DATA) data: FormDialogData<D>) {
     super(dialogRef, data);
   }
 

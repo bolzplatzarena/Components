@@ -1,4 +1,6 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -49,7 +51,8 @@
   --tw-contain-size:  ;
   --tw-contain-layout:  ;
   --tw-contain-paint:  ;
-  --tw-contain-style:  
+  --tw-contain-style:   
+;
 }
 
 ::backdrop {
@@ -103,42 +106,43 @@
   --tw-contain-size:  ;
   --tw-contain-layout:  ;
   --tw-contain-paint:  ;
-  --tw-contain-style:  
+  --tw-contain-style:   
+;
 }
 
 .tw-block {
-  display: block !important
+  display: block !important;
 }
 
 .tw-flex {
-  display: flex !important
+  display: flex !important;
 }
 
 .tw-h-64 {
-  height: 16rem !important
+  height: 16rem !important;
 }
 
 .tw-w-32 {
-  width: 8rem !important
+  width: 8rem !important;
 }
 
 .tw-flex-1 {
-  flex: 1 1 0% !important
+  flex: 1 1 0% !important;
 }
 
 .tw-flex-col {
-  flex-direction: column !important
+  flex-direction: column !important;
 }
 
 .tw-overflow-auto {
-  overflow: auto !important
+  overflow: auto !important;
 }
 
 .tw-overflow-hidden {
-  overflow: hidden !important
+  overflow: hidden !important;
 }
 
 .tw-px-8 {
   padding-left: 2rem !important;
-  padding-right: 2rem !important
+  padding-right: 2rem !important;
 }
