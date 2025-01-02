@@ -1,6 +1,6 @@
 {
   "name": "@bolzplatzarena/components",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "author": "Thomas Renger",
   "repository": {
     "type": "git",
@@ -23,8 +23,8 @@
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0",
     "@angular/material": "^19.0.0",
-    "@fortawesome/angular-fontawesome": "^0.15.0",
-    "@fortawesome/free-solid-svg-icons": "^6.7.1",
+    "@fortawesome/angular-fontawesome": "^1.0.0",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@ngx-translate/core": "^16.0.0"
   },
   "dependencies": {
