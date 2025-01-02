@@ -14,4 +14,10 @@
       <bpa-inner-strapi-renderer [content]="contentNode.children"></bpa-inner-strapi-renderer>
     </bpa-link-renderer>
   }
+
+  @if (isHeading(contentNode)) {
+    <bpa-heading-renderer [content]="contentNode">
+      <bpa-inner-strapi-renderer [content]="contentNode.children"></bpa-inner-strapi-renderer>
+    </bpa-heading-renderer>
+  }
 }

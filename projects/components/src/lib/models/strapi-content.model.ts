@@ -1,4 +1,10 @@
-export type RootNode = ParagraphBlockNode | QuoteBlockNode | CodeBlockNode | HeadingBlockNode | ListBlockNode | ImageBlockNode;
+export type RootNode =
+  ParagraphBlockNode
+  | QuoteBlockNode
+  | CodeBlockNode
+  | HeadingBlockNode
+  | ListBlockNode
+  | ImageBlockNode;
 
 export interface TextInlineNode {
   type: 'text';
@@ -40,7 +46,7 @@ interface CodeBlockNode {
   language: 'plaintext';
 }
 
-interface HeadingBlockNode {
+export interface HeadingBlockNode {
   type: 'heading';
   level: 1 | 2 | 3 | 4 | 5 | 6;
   children: DefaultInlineNode[];
