@@ -35,14 +35,188 @@ import * as en from './i18n/en.json';
 })
 export class AppComponent {
   private readonly translate = inject(TranslateService);
-  protected readonly strapiContent: RootNode[] = [{
-    type: 'paragraph',
-    children: [{type: 'text', text: 'Hello World!'}, {type: 'text', text: 'This is a test.'}]
-  }, {
-    type: 'paragraph',
-    children: [{type: 'text', text: 'Hello World!'}, {type: 'text', text: 'This is a test.'}]
-  },
-
+  protected readonly strapiContent: RootNode[] = [
+    {
+      "type": "heading",
+      "children": [
+        {
+          "type": "text",
+          "text": "Headline 1"
+        }
+      ],
+      "level": 1
+    },
+    {
+      "type": "heading",
+      "children": [
+        {
+          "type": "text",
+          "text": "Headline 2"
+        }
+      ],
+      "level": 2
+    },
+    {
+      "type": "heading",
+      "children": [
+        {
+          "type": "text",
+          "text": "Headline 3"
+        }
+      ],
+      "level": 3
+    },
+    {
+      "type": "heading",
+      "children": [
+        {
+          "type": "text",
+          "text": "Headline 4"
+        }
+      ],
+      "level": 4
+    },
+    {
+      "type": "heading",
+      "children": [
+        {
+          "type": "text",
+          "text": "Headline 5"
+        }
+      ],
+      "level": 5
+    },
+    {
+      "type": "heading",
+      "children": [
+        {
+          "type": "text",
+          "text": "Headline 6"
+        }
+      ],
+      "level": 6
+    },
+    {
+      "type": "list",
+      "format": "ordered",
+      "children": [
+        {
+          "type": "list-item",
+          "children": [
+            {
+              "type": "text",
+              "text": "Test"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "children": [
+            {
+              "type": "text",
+              "text": "Test 2"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "children": [
+            {
+              "type": "text",
+              "text": "Test 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "format": "unordered",
+      "children": [
+        {
+          "type": "list-item",
+          "children": [
+            {
+              "type": "text",
+              "text": "Bullet 1"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "children": [
+            {
+              "type": "text",
+              "text": "Bullet 2"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "children": [
+            {
+              "type": "text",
+              "text": "Bullet 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "children": [
+        {
+          "type": "text",
+          "text": "Mein cooles Zitat"
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "children": [
+        {
+          "type": "text",
+          "text": "var test = '';"
+        }
+      ],
+      "language": "plaintext"
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ]
+    },
     {
       "type": "paragraph",
       "children": [

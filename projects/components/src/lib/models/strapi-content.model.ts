@@ -43,6 +43,7 @@ interface QuoteBlockNode {
 interface CodeBlockNode {
   type: 'code';
   children: DefaultInlineNode[];
+  language: 'plaintext';
 }
 
 interface HeadingBlockNode {
