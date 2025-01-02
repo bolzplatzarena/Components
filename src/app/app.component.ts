@@ -41,7 +41,150 @@ export class AppComponent {
   }, {
     type: 'paragraph',
     children: [{type: 'text', text: 'Hello World!'}, {type: 'text', text: 'This is a test.'}]
-  }]
+  },
+
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": "Seit einigen Wochen nutze ich Matomo für die Analyse der Nutzung von Webseiten. Nach dem letzten Update wollte ich die Tutorials zu Ende machen, welche man als Administrator angezeigt bekommt. Man hat das Gefühl, dass man so das System näher kennen lernt. Allerdings kann man im System etwas einstellen, was man nun so nicht erwartet hat. Vor allem wenn man vielleicht eine Sache nicht ganz zu Ende gebracht hat."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": "Wie bemerkt man den \"Fehler\": Sowohl in der App als auch im Dashboard der Webanwendung fallen die Zahlen im Graph der letzten Besuche auf 0. Dabei bleiben die \""
+        },
+        {
+          "type": "text",
+          "text": "alten",
+          "underline": true
+        },
+        {
+          "type": "text",
+          "text": "\" Daten erhalten. Die Daten des aktuellen Tages - also das Besucher-Log - war aber weiterhin gefüllt."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": "Matomo schlug vor, die Art der Archivierung von Daten zu ändern. Leichtgläubig bin ich davon ausgegangen, dass es sich um alte Daten handelt, welche ich mir nicht mehr ansehen will, weil diese eben veraltet sind. Aber es handelte sich um die Umwandlung von Daten des aktuellen Tages in die historische Daten. "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": "Was ich also eingestellt hatte, war dass diese Umwandlung nicht mehr ständig passiert. Stattdessen sollte man eine Cronjob einrichtigen oder eine Alternativ dazu. Das hatte ich aber schlichtweg vergessen."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": "Was man also tun kann, ist auf folgender Seite beschrieben: "
+        },
+        {
+          "type": "link",
+          "url": "https://matomo.org/docs/setup-auto-archiving/#web-cron-when-your-web-host-does-not-support-cron-tasks",
+          "children": [
+            {
+              "type": "text",
+              "text": "https://matomo.org/docs/setup-auto-archiving/#web-cron-when-your-web-host-does-not-support-cron-tasks"
+            }
+          ]
+        },
+        {
+          "text": "",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": "Wer schneller Unterstützung bzw. eine kleine Lösung benötigt. Ruft die Archivierung unter Nutzung des Auth Tokenes einfach selber auf:"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": "https://DOMAIN/PFAD/matomo/misc/cron/archive.php?token_auth=TOKEN"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": "Man muss nur "
+        },
+        {
+          "type": "text",
+          "text": "DOMAIN",
+          "italic": true
+        },
+        {
+          "type": "text",
+          "text": ", "
+        },
+        {
+          "type": "text",
+          "text": "PFAD",
+          "italic": true
+        },
+        {
+          "type": "text",
+          "text": " und "
+        },
+        {
+          "type": "text",
+          "text": "TOKEN",
+          "italic": true
+        },
+        {
+          "type": "text",
+          "text": " adäquat ersetzen. "
+        },
+        {
+          "type": "text",
+          "text": "DOMAIN",
+          "italic": true
+        },
+        {
+          "type": "text",
+          "text": " und "
+        },
+        {
+          "type": "text",
+          "text": "PFAD",
+          "italic": true
+        },
+        {
+          "type": "text",
+          "text": " sollte man kennen und den Token findet man in den Einstellungen."
+        }
+      ]
+    }
+  ];
+
 
   constructor() {
     const library = inject(FaIconLibrary);

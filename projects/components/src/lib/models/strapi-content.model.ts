@@ -16,7 +16,7 @@ export interface TextInlineNode {
   code?: boolean;
 }
 
-interface LinkInlineNode {
+export interface LinkInlineNode {
   type: 'link';
   url: string;
   children: TextInlineNode[];

@@ -8,4 +8,10 @@
   @if (isText(contentNode)) {
     <bpa-text-renderer [content]="contentNode"></bpa-text-renderer>
   }
+
+  @if (isLink(contentNode)) {
+    <bpa-link-renderer [content]="contentNode">
+      <bpa-inner-strapi-renderer [content]="contentNode.children"></bpa-inner-strapi-renderer>
+    </bpa-link-renderer>
+  }
 }
