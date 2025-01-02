@@ -9,6 +9,10 @@
     <bpa-link-renderer [content]="contentNode">
       <bpa-inner-strapi-renderer [content]="contentNode.children" [debug]="debug()"></bpa-inner-strapi-renderer>
     </bpa-link-renderer>
+  } @else if (isCode(contentNode)) {
+    <bpa-code-renderer>
+      <bpa-inner-strapi-renderer [content]="contentNode.children" [debug]="debug()"></bpa-inner-strapi-renderer>
+    </bpa-code-renderer>
   } @else if (isHeading(contentNode)) {
     <bpa-heading-renderer [content]="contentNode">
       <bpa-inner-strapi-renderer [content]="contentNode.children" [debug]="debug()"></bpa-inner-strapi-renderer>

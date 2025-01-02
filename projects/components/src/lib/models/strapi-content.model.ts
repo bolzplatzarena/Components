@@ -40,7 +40,7 @@ interface QuoteBlockNode {
   children: DefaultInlineNode[];
 }
 
-interface CodeBlockNode {
+export interface CodeBlockNode {
   type: 'code';
   children: DefaultInlineNode[];
   language: 'plaintext';
