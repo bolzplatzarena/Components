@@ -118,6 +118,7 @@ The component supports the following types:
   - ordered
 - quote
 - code (no syntax highlighting)
+- image (url, width, height, alt)
 
 ### How to use it
 
