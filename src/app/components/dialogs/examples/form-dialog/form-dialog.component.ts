@@ -1,9 +1,9 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {DialogLayoutComponent, FormDialogComponent} from '@bolzplatzarena/components';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { DialogLayoutComponent, FormDialogComponent } from '@bolzplatzarena/components';
 
 interface FormData {
   email: string;
@@ -18,12 +18,7 @@ interface ItemData extends FormData {
   selector: 'app-form-dialog',
   templateUrl: './form-dialog.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    DialogLayoutComponent,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-  ]
+  imports: [DialogLayoutComponent, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
 })
 export class SimpleFormDialogComponent extends FormDialogComponent<FormData, ItemData> {
   private readonly fb = inject(FormBuilder);
@@ -34,9 +29,11 @@ export class SimpleFormDialogComponent extends FormDialogComponent<FormData, Ite
   });
 
   constructor() {
-    const dialogRef = inject<MatDialogRef<{
-      result: string;
-    }>>(MatDialogRef);
+    const dialogRef = inject<
+      MatDialogRef<{
+        result: string;
+      }>
+    >(MatDialogRef);
     const data = inject<{
       item: {
         email: string;

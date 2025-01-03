@@ -5,10 +5,6 @@
   <ng-content></ng-content>
 </div>
 <mat-dialog-actions align="end">
-  <button mat-button (click)="close()">
-    {{ 'bpa.global.no' | translate }} (Esc)
-  </button>
-  <button mat-button [disabled]="(valid$ | async) !== true" (click)="submit()" cdkFocusInitial>
-    {{ 'bpa.global.okay' | translate }} (Enter)
-  </button>
+  <button mat-button (click)="close()">{{ 'bpa.global.no' | translate }} (Esc)</button>
+  <button mat-button [disabled]="(valid$ | async) !== true" (click)="submit()" cdkFocusInitial>{{ 'bpa.global.okay' | translate }} (Enter)</button>
 </mat-dialog-actions>

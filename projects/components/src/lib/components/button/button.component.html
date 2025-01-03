@@ -14,11 +14,6 @@
 <ng-template #content>
   <ng-content></ng-content>
   @if (loading) {
-    <mat-spinner
-        color="primary"
-        [strokeWidth]="2"
-        [diameter]="20"
-        style="position: absolute; left: 50%; top: 0; margin-left: -10px;">
-    </mat-spinner>
+    <mat-spinner color="primary" [strokeWidth]="2" [diameter]="20" style="position: absolute; left: 50%; top: 0; margin-left: -10px"> </mat-spinner>
   }
 </ng-template>

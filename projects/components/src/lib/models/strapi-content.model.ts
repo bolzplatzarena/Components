@@ -16,48 +16,48 @@ export interface TextInlineNode {
   code?: boolean;
 }
 
-interface LinkInlineNode {
+export interface LinkInlineNode {
   type: 'link';
   url: string;
   children: TextInlineNode[];
 }
 
-interface ListItemInlineNode {
+export interface ListItemInlineNode {
   type: 'list-item';
   children: DefaultInlineNode[];
 }
 
 export type DefaultInlineNode = TextInlineNode | LinkInlineNode;
-export type NonTextInlineNode = Exclude<DefaultInlineNode, TextInlineNode> | ListItemInlineNode;
 
 export interface ParagraphBlockNode {
   type: 'paragraph';
   children: DefaultInlineNode[];
 }
 
-interface QuoteBlockNode {
+export interface QuoteBlockNode {
   type: 'quote';
   children: DefaultInlineNode[];
 }
 
-interface CodeBlockNode {
+export interface CodeBlockNode {
   type: 'code';
   children: DefaultInlineNode[];
+  language: 'plaintext';
 }
 
-interface HeadingBlockNode {
+export interface HeadingBlockNode {
   type: 'heading';
   level: 1 | 2 | 3 | 4 | 5 | 6;
   children: DefaultInlineNode[];
 }
 
-interface ListBlockNode {
+export interface ListBlockNode {
   type: 'list';
   format: 'ordered' | 'unordered';
   children: (ListItemInlineNode | ListBlockNode)[];
 }
 
-interface ImageBlockNode {
+export interface ImageBlockNode {
   type: 'image';
   image: {
     name: string;
@@ -77,8 +77,10 @@ interface ImageBlockNode {
     createdAt: string;
     updatedAt: string;
   };
-  children: [{
-    type: 'text';
-    text: '';
-  }];
+  children: [
+    {
+      type: 'text';
+      text: '';
+    },
+  ];
 }

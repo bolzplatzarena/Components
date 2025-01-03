@@ -1,23 +1,14 @@
-<table
-    [dataSource]="dataSource"
-    [matSortDisabled]="!sortable()"
-    class="mat-elevation-z8 tw-w-full"
-    mat-table
-    matSort>
-  @for (column of columns();track column) {
+<table [dataSource]="dataSource" [matSortDisabled]="!sortable()" class="mat-elevation-z8 tw-w-full" mat-table matSort>
+  @for (column of columns(); track column) {
     <ng-container [matColumnDef]="column">
-      <th *matHeaderCellDef
-          mat-header-cell
-          mat-sort-header
-          [class]="columnConfig()?.[column]?.cssClass">{{ (translateKey() + column | lowercase) | translate }}
-      </th>
+      <th *matHeaderCellDef mat-header-cell mat-sort-header [class]="columnConfig()?.[column]?.cssClass">{{ translateKey() + column | lowercase | translate }}</th>
       <td *matCellDef="let element" mat-cell>
         @switch (columnConfig()?.[column]?.type) {
           @case (ColumnType.Date) {
             {{ element[column] | date }}
           }
           @case (ColumnType.Enum) {
-            {{ (translateKey() + column + '.' + (element[column] | enumKey : columnConfig() ![column].args !)) | lowercase | translate }}
+            {{ translateKey() + column + '.' + (element[column] | enumKey: columnConfig()![column].args!) | lowercase | translate }}
           }
           @default {
             {{ columnConfig()?.[column]?.getter?.(element) ?? element[column] }}
@@ -28,16 +19,11 @@
   }
 
   <ng-container matColumnDef="actions">
-    <th *matHeaderCellDef mat-header-cell style="text-align: center; width: 1px;">
-      {{ (translateKey() + 'actions' | lowercase) | translate }}
+    <th *matHeaderCellDef mat-header-cell style="text-align: center; width: 1px">
+      {{ translateKey() + 'actions' | lowercase | translate }}
     </th>
     <td *matCellDef="let element" mat-cell style="text-align: center">
-      <button
-          [matMenuTriggerData]="{ element: element }"
-          [matMenuTriggerFor]="menu"
-          (click)="$event.stopPropagation()"
-          aria-label="Actions"
-          mat-icon-button>
+      <button [matMenuTriggerData]="{ element: element }" [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()" aria-label="Actions" mat-icon-button>
         <fa-icon icon="ellipsis-vertical"></fa-icon>
       </button>
     </td>
@@ -52,22 +38,13 @@
   </ng-container>
 
   <tr *matHeaderRowDef="displayedColumns(); sticky: true" mat-header-row></tr>
-  <tr *matHeaderRowDef="['loading']; sticky: true" mat-header-row style="height: auto;"></tr>
+  <tr *matHeaderRowDef="['loading']; sticky: true" mat-header-row style="height: auto"></tr>
 
-  <tr
-      *matRowDef="let row; columns: displayedColumns();"
-      [style]="rowClickedObserved() ? 'cursor: pointer' : ''"
-      (click)="rowClickedObserved() && rowClicked.emit(row)"
-      mat-row>
-  </tr>
+  <tr *matRowDef="let row; columns: displayedColumns()" [style]="rowClickedObserved() ? 'cursor: pointer' : ''" (click)="rowClickedObserved() && rowClicked.emit(row)" mat-row></tr>
 </table>
 <div class="tw-flex-1"></div>
 @if (paging() && dataset()) {
-  <mat-paginator
-      [showFirstLastButtons]="true"
-      [pageSizeOptions]="pageSizeOptions()"
-      class="tw-sticky tw-bottom-0">
-  </mat-paginator>
+  <mat-paginator [showFirstLastButtons]="true" [pageSizeOptions]="pageSizeOptions()" class="tw-sticky tw-bottom-0"> </mat-paginator>
 }
 
 <mat-menu #menu="matMenu">
@@ -75,13 +52,13 @@
     @if (edit()) {
       <button mat-menu-item (click)="editAction(element)">
         <fa-icon [icon]="editIcon()"></fa-icon>
-        <span>&nbsp;&nbsp;{{ (translateKey() + 'action.edit') | translate }}</span>
+        <span>&nbsp;&nbsp;{{ translateKey() + 'action.edit' | translate }}</span>
       </button>
     }
     @if (delete()) {
       <button mat-menu-item (click)="deleteAction(element)">
         <fa-icon [icon]="deleteIcon()"></fa-icon>
-        <span>&nbsp;&nbsp;{{ (translateKey() + 'action.delete') | translate }}</span>
+        <span>&nbsp;&nbsp;{{ translateKey() + 'action.delete' | translate }}</span>
       </button>
     }
   </ng-template>

@@ -4,9 +4,9 @@ import { DialogLayoutComponent } from '../dialog-layout/dialog-layout.component'
 import { DialogComponent } from '../dialog.component';
 
 @Component({
-    templateUrl: './simple-dialog.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [DialogLayoutComponent, TranslateModule]
+  templateUrl: './simple-dialog.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [DialogLayoutComponent, TranslateModule],
 })
 export class SimpleDialogComponent extends DialogComponent<boolean> {
   override close(): void {

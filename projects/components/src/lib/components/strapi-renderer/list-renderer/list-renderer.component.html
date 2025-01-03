@@ -1,0 +1,15 @@
+@if (content().format === 'ordered') {
+  <ol>
+    <ng-template [ngTemplateOutlet]="ngContent"></ng-template>
+  </ol>
+} @else if (content().format === 'unordered') {
+  <ul>
+    <ng-template [ngTemplateOutlet]="ngContent"></ng-template>
+  </ul>
+} @else {
+  <ng-template [ngTemplateOutlet]="ngContent"></ng-template>
+}
+
+<ng-template #ngContent>
+  <ng-content></ng-content>
+</ng-template>

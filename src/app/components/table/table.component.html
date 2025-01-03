@@ -8,39 +8,39 @@
 <h3 translate>content.headline.static_data</h3>
 <section class="tw-h-64 tw-overflow-auto">
   <bpa-table
-      [columnConfig]="config"
-      [columns]="['name', 'level', 'type', 'health', 'birthday']"
-      [dataset]="data"
-      [pageSizeOptions]="[7, 14, 21]"
-      (deleteEvent)="die($event)"
-      (rowClicked)="view($event)"
-      (editEvent)="view($event)"
-      translateKey="hero.components.hero-list.">
+    [columnConfig]="config"
+    [columns]="['name', 'level', 'type', 'health', 'birthday']"
+    [dataset]="data"
+    [pageSizeOptions]="[7, 14, 21]"
+    (deleteEvent)="die($event)"
+    (rowClicked)="view($event)"
+    (editEvent)="view($event)"
+    translateKey="hero.components.hero-list.">
   </bpa-table>
 </section>
 
 <h3 translate>content.headline.no_paging</h3>
 <section class="tw-h-64 tw-overflow-auto">
   <bpa-table
-      [columnConfig]="config"
-      [columns]="['name', 'level', 'type', 'health', 'birthday']"
-      [dataset]="data"
-      [pageSizeOptions]="[7, 14, 21]"
-      [paging]="false"
-      (deleteEvent)="die($event)"
-      (editEvent)="view($event)"
-      translateKey="hero.components.hero-list.">
+    [columnConfig]="config"
+    [columns]="['name', 'level', 'type', 'health', 'birthday']"
+    [dataset]="data"
+    [pageSizeOptions]="[7, 14, 21]"
+    [paging]="false"
+    (deleteEvent)="die($event)"
+    (editEvent)="view($event)"
+    translateKey="hero.components.hero-list.">
   </bpa-table>
 </section>
 <h3 translate>content.headline.observables</h3>
 <bpa-table
-    [columnConfig]="config"
-    [columns]="['name', 'level', 'type', 'health', 'birthday', 'custom']"
-    [dataset]="data$ | async"
-    progressBar="always"
-    (deleteEvent)="die($event)"
-    (editEvent)="view($event)"
-    translateKey="hero.components.hero-list.">
+  [columnConfig]="config"
+  [columns]="['name', 'level', 'type', 'health', 'birthday', 'custom']"
+  [dataset]="data$ | async"
+  progressBar="always"
+  (deleteEvent)="die($event)"
+  (editEvent)="view($event)"
+  translateKey="hero.components.hero-list.">
 </bpa-table>
 <h3 translate>content.headline.options</h3>
 <p translate>content.text.options</p>

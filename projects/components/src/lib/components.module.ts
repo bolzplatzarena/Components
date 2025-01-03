@@ -9,15 +9,9 @@ import { faSkullCrossbones } from '@fortawesome/free-solid-svg-icons/faSkullCros
 import { PaginatorTexts } from './paginator-texts';
 
 @NgModule({
-  imports: [
-    BrowserAnimationsModule,
-  ],
-  exports: [
-    MatDialogModule,
-  ],
-  providers: [
-    { provide: MatPaginatorIntl, useClass: PaginatorTexts },
-  ],
+  imports: [BrowserAnimationsModule],
+  exports: [MatDialogModule],
+  providers: [{ provide: MatPaginatorIntl, useClass: PaginatorTexts }],
 })
 export class ComponentsModule {
   constructor() {

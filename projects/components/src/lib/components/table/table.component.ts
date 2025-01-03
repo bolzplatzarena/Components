@@ -1,12 +1,12 @@
-import {ChangeDetectionStrategy, Component, HostBinding, input, OnChanges, output} from '@angular/core';
-import {IconName} from '@fortawesome/fontawesome-svg-core';
-import {ColumnConfig, InnerTableComponent} from './inner-table/inner-table.component';
+import { ChangeDetectionStrategy, Component, HostBinding, input, OnChanges, output } from '@angular/core';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { ColumnConfig, InnerTableComponent } from './inner-table/inner-table.component';
 
 @Component({
   selector: 'bpa-table',
   templateUrl: './table.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [InnerTableComponent]
+  imports: [InnerTableComponent],
 })
 export class TableComponent<T> implements OnChanges {
   @HostBinding() protected readonly class = 'tw-flex tw-flex-1 tw-flex-col';
@@ -24,10 +24,10 @@ export class TableComponent<T> implements OnChanges {
   readonly editIcon = input<IconName>('address-card');
   readonly pageSizeOptions = input([10, 20, 50]);
 
-  readonly actions = input<{ delete: boolean, edit: boolean, rowClicked: boolean }>({
+  readonly actions = input<{ delete: boolean; edit: boolean; rowClicked: boolean }>({
     delete: false,
     edit: false,
-    rowClicked: false
+    rowClicked: false,
   });
 
   readonly rowClicked = output<T>();
@@ -40,8 +40,7 @@ export class TableComponent<T> implements OnChanges {
 
   protected get progress(): boolean {
     const progressBar = this.progressBar();
-    return (progressBar === 'always')
-      || ((progressBar === 'auto') && this.loading);
+    return progressBar === 'always' || (progressBar === 'auto' && this.loading);
   }
 
   ngOnChanges(): void {
