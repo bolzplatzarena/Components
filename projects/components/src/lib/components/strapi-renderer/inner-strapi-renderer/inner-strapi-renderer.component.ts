@@ -3,6 +3,7 @@ import {
   CodeBlockNode,
   DefaultInlineNode,
   HeadingBlockNode,
+  ImageBlockNode,
   LinkInlineNode,
   ListBlockNode,
   ListItemInlineNode,
@@ -18,12 +19,14 @@ import {CodeRendererComponent} from "../code-renderer/code-renderer.component";
 import {QuoteRendererComponent} from "../quote-renderer/quote-renderer.component";
 import {ListRendererComponent} from "../list-renderer/list-renderer.component";
 import {ListItemRendererComponent} from "../list-renderer/list-item-renderer/list-item-renderer.component";
+import {ImageRendererComponent} from "../image-renderer/image-renderer.component";
+import {JsonPipe} from "@angular/common";
 
 type SupportedNodes = RootNode | DefaultInlineNode | ListItemInlineNode;
 
 @Component({
   selector: 'bpa-inner-strapi-renderer',
-  imports: [TextRendererComponent, LinkRendererComponent, HeadingRendererComponent, CodeRendererComponent, QuoteRendererComponent, ListRendererComponent, ListItemRendererComponent],
+  imports: [TextRendererComponent, LinkRendererComponent, HeadingRendererComponent, CodeRendererComponent, QuoteRendererComponent, ListRendererComponent, ListItemRendererComponent, ImageRendererComponent, JsonPipe],
   templateUrl: './inner-strapi-renderer.component.html',
   styleUrl: './inner-strapi-renderer.component.css',
 })
@@ -39,4 +42,5 @@ export class InnerStrapiRendererComponent {
   protected readonly isQuote = (node: SupportedNodes): node is QuoteBlockNode => node.type === 'quote';
   protected readonly isList = (node: SupportedNodes): node is ListBlockNode => node.type === 'list';
   protected readonly isListItem = (node: SupportedNodes): node is ListItemInlineNode => node.type === 'list-item';
+  protected readonly isImage = (node: SupportedNodes): node is ImageBlockNode => node.type === 'image';
 }

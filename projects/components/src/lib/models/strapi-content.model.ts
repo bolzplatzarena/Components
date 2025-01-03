@@ -28,7 +28,6 @@ export interface ListItemInlineNode {
 }
 
 export type DefaultInlineNode = TextInlineNode | LinkInlineNode;
-export type NonTextInlineNode = Exclude<DefaultInlineNode, TextInlineNode> | ListItemInlineNode;
 
 export interface ParagraphBlockNode {
   type: 'paragraph';
@@ -58,7 +57,7 @@ export interface ListBlockNode {
   children: (ListItemInlineNode | ListBlockNode)[];
 }
 
-interface ImageBlockNode {
+export interface ImageBlockNode {
   type: 'image';
   image: {
     name: string;

@@ -1,18 +1,18 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatTabsModule } from '@angular/material/tabs';
-import { RootNode, StrapiRendererComponent } from '@bolzplatzarena/components/strapi';
-import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons/faEllipsisVertical';
-import { faFile } from '@fortawesome/free-solid-svg-icons/faFile';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { DialogsComponent } from './components/dialogs/dialogs.component';
-import { EnumComponent } from './components/enum/enum.component';
-import { FileListComponent } from './components/file-list/file-list.component';
-import { FullTableComponent } from './components/full-table/full-table.component';
-import { LoadingComponent } from './components/loading/loading.component';
-import { TableComponent } from './components/table/table.component';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatTabsModule} from '@angular/material/tabs';
+import {RootNode, StrapiRendererComponent} from '@bolzplatzarena/components/strapi';
+import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
+import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons/faEllipsisVertical';
+import {faFile} from '@fortawesome/free-solid-svg-icons/faFile';
+import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {DialogsComponent} from './components/dialogs/dialogs.component';
+import {EnumComponent} from './components/enum/enum.component';
+import {FileListComponent} from './components/file-list/file-list.component';
+import {FullTableComponent} from './components/full-table/full-table.component';
+import {LoadingComponent} from './components/loading/loading.component';
+import {TableComponent} from './components/table/table.component';
 import * as de from './i18n/de.json';
 import * as en from './i18n/en.json';
 
@@ -36,6 +36,82 @@ import * as en from './i18n/en.json';
 export class AppComponent {
   private readonly translate = inject(TranslateService);
   protected readonly strapiContent: RootNode[] = [
+    {
+      "type": "image",
+      "image": {
+        "name": "0870ac59-5bf8-4a95-b08c-6eed753b9c9d-technical-system-update.jpeg",
+        "alternativeText": "Ein Roboterarm hantiert an einem Chip. Das Bild ist im Comic-Stil.",
+        "url": "https://cms.bolzplatzarena.net/uploads/0870ac59_5bf8_4a95_b08c_6eed753b9c9d_technical_system_update_fc62b44794.jpeg",
+        "caption": "Ein Roboterarm hantiert an einem Chip. Das Bild ist im Comic-Stil.",
+        "width": 1024,
+        "height": 1024,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_0870ac59-5bf8-4a95-b08c-6eed753b9c9d-technical-system-update.jpeg",
+            "hash": "thumbnail_0870ac59_5bf8_4a95_b08c_6eed753b9c9d_technical_system_update_fc62b44794",
+            "ext": ".jpeg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 156,
+            "height": 156,
+            "size": 9.83,
+            "sizeInBytes": 9829,
+            "url": "/uploads/thumbnail_0870ac59_5bf8_4a95_b08c_6eed753b9c9d_technical_system_update_fc62b44794.jpeg"
+          },
+          "small": {
+            "name": "small_0870ac59-5bf8-4a95-b08c-6eed753b9c9d-technical-system-update.jpeg",
+            "hash": "small_0870ac59_5bf8_4a95_b08c_6eed753b9c9d_technical_system_update_fc62b44794",
+            "ext": ".jpeg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 500,
+            "height": 500,
+            "size": 81.62,
+            "sizeInBytes": 81619,
+            "url": "/uploads/small_0870ac59_5bf8_4a95_b08c_6eed753b9c9d_technical_system_update_fc62b44794.jpeg"
+          },
+          "medium": {
+            "name": "medium_0870ac59-5bf8-4a95-b08c-6eed753b9c9d-technical-system-update.jpeg",
+            "hash": "medium_0870ac59_5bf8_4a95_b08c_6eed753b9c9d_technical_system_update_fc62b44794",
+            "ext": ".jpeg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 750,
+            "height": 750,
+            "size": 170.59,
+            "sizeInBytes": 170594,
+            "url": "/uploads/medium_0870ac59_5bf8_4a95_b08c_6eed753b9c9d_technical_system_update_fc62b44794.jpeg"
+          },
+          "large": {
+            "name": "large_0870ac59-5bf8-4a95-b08c-6eed753b9c9d-technical-system-update.jpeg",
+            "hash": "large_0870ac59_5bf8_4a95_b08c_6eed753b9c9d_technical_system_update_fc62b44794",
+            "ext": ".jpeg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1000,
+            "height": 1000,
+            "size": 283.43,
+            "sizeInBytes": 283431,
+            "url": "/uploads/large_0870ac59_5bf8_4a95_b08c_6eed753b9c9d_technical_system_update_fc62b44794.jpeg"
+          }
+        },
+        "hash": "0870ac59_5bf8_4a95_b08c_6eed753b9c9d_technical_system_update_fc62b44794",
+        "ext": ".jpeg",
+        "mime": "image/jpeg",
+        "size": 270.14,
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2024-12-29T10:10:21.272Z",
+        "updatedAt": "2024-12-29T10:15:22.733Z"
+      },
+      "children": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ]
+    },
     {
       type: 'heading',
       children: [
