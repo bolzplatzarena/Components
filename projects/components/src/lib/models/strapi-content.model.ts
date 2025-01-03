@@ -22,7 +22,7 @@ export interface LinkInlineNode {
   children: TextInlineNode[];
 }
 
-interface ListItemInlineNode {
+export interface ListItemInlineNode {
   type: 'list-item';
   children: DefaultInlineNode[];
 }
@@ -52,7 +52,7 @@ export interface HeadingBlockNode {
   children: DefaultInlineNode[];
 }
 
-interface ListBlockNode {
+export interface ListBlockNode {
   type: 'list';
   format: 'ordered' | 'unordered';
   children: (ListItemInlineNode | ListBlockNode)[];

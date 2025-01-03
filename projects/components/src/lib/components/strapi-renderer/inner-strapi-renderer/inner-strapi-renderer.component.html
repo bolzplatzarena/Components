@@ -21,6 +21,14 @@
     <bpa-heading-renderer [content]="contentNode">
       <bpa-inner-strapi-renderer [content]="contentNode.children" [debug]="debug()"></bpa-inner-strapi-renderer>
     </bpa-heading-renderer>
+  } @else if (isList(contentNode)) {
+    <bpa-list-renderer [content]="contentNode">
+      <bpa-inner-strapi-renderer [content]="contentNode.children" [debug]="debug()"></bpa-inner-strapi-renderer>
+    </bpa-list-renderer>
+  } @else if (isListItem(contentNode)) {
+    <bpa-list-item-renderer [content]="contentNode">
+      <bpa-inner-strapi-renderer [content]="contentNode.children" [debug]="debug()"></bpa-inner-strapi-renderer>
+    </bpa-list-item-renderer>
   } @else if (debug()) {
     <p>
       Not supported type: {{ contentNode.type }}
