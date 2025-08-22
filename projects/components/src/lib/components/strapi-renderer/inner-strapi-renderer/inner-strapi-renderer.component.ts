@@ -1,4 +1,5 @@
-import {Component, input} from '@angular/core';
+import { JsonPipe } from '@angular/common';
+import { Component, input } from '@angular/core';
 import {
   CodeBlockNode,
   DefaultInlineNode,
@@ -10,25 +11,33 @@ import {
   ParagraphBlockNode,
   QuoteBlockNode,
   RootNode,
-  TextInlineNode
+  TextInlineNode,
 } from '../../../models/strapi-content.model';
-import {TextRendererComponent} from '../text-renderer/text-renderer.component';
-import {LinkRendererComponent} from '../link-renderer/link-renderer.component';
-import {HeadingRendererComponent} from "../heading-renderer/heading-renderer.component";
-import {CodeRendererComponent} from "../code-renderer/code-renderer.component";
-import {QuoteRendererComponent} from "../quote-renderer/quote-renderer.component";
-import {ListRendererComponent} from "../list-renderer/list-renderer.component";
-import {ListItemRendererComponent} from "../list-renderer/list-item-renderer/list-item-renderer.component";
-import {ImageRendererComponent} from "../image-renderer/image-renderer.component";
-import {JsonPipe} from "@angular/common";
+import { CodeRendererComponent } from '../code-renderer/code-renderer.component';
+import { HeadingRendererComponent } from '../heading-renderer/heading-renderer.component';
+import { ImageRendererComponent } from '../image-renderer/image-renderer.component';
+import { LinkRendererComponent } from '../link-renderer/link-renderer.component';
+import { ListItemRendererComponent } from '../list-renderer/list-item-renderer/list-item-renderer.component';
+import { ListRendererComponent } from '../list-renderer/list-renderer.component';
+import { QuoteRendererComponent } from '../quote-renderer/quote-renderer.component';
+import { TextRendererComponent } from '../text-renderer/text-renderer.component';
 
 type SupportedNodes = RootNode | DefaultInlineNode | ListItemInlineNode;
 
 @Component({
   selector: 'bpa-inner-strapi-renderer',
-  imports: [TextRendererComponent, LinkRendererComponent, HeadingRendererComponent, CodeRendererComponent, QuoteRendererComponent, ListRendererComponent, ListItemRendererComponent, ImageRendererComponent, JsonPipe],
+  imports: [
+    TextRendererComponent,
+    LinkRendererComponent,
+    HeadingRendererComponent,
+    CodeRendererComponent,
+    QuoteRendererComponent,
+    ListRendererComponent,
+    ListItemRendererComponent,
+    ImageRendererComponent,
+    JsonPipe,
+  ],
   templateUrl: './inner-strapi-renderer.component.html',
-  styleUrl: './inner-strapi-renderer.component.css',
 })
 export class InnerStrapiRendererComponent {
   readonly content = input.required<SupportedNodes[]>();

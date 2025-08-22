@@ -1,14 +1,11 @@
-import {Component, input} from '@angular/core';
-import {HeadingBlockNode} from "../../../models/strapi-content.model";
-import {NgTemplateOutlet} from "@angular/common";
+import { NgTemplateOutlet } from '@angular/common';
+import { Component, input } from '@angular/core';
+import { HeadingBlockNode } from '../../../models/strapi-content.model';
 
 @Component({
   selector: 'bpa-heading-renderer',
-  imports: [
-    NgTemplateOutlet
-  ],
+  imports: [NgTemplateOutlet],
   templateUrl: './heading-renderer.component.html',
-  styleUrl: './heading-renderer.component.css'
 })
 export class HeadingRendererComponent {
   readonly content = input.required<HeadingBlockNode>();

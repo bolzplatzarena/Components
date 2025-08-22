@@ -1,10 +1,10 @@
 import { Component, computed, input } from '@angular/core';
 import { TextInlineNode } from '../../../models/strapi-content.model';
+import { isDefined } from '../../../utils/utils';
 
 @Component({
   selector: 'bpa-text-renderer',
   templateUrl: './text-renderer.component.html',
-  styleUrl: './text-renderer.component.css',
 })
 export class TextRendererComponent {
   readonly content = input.required<TextInlineNode>();
@@ -18,8 +18,4 @@ export class TextRendererComponent {
       .filter(isDefined)
       .join(';');
   });
-}
-
-function isDefined<T>(value: T | undefined | null): value is T {
-  return value !== undefined && value !== null;
 }
