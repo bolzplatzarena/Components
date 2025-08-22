@@ -15,3 +15,7 @@ export function getTranslatableFrom<T>(types: Dictionary<unknown>, translateKey:
       value: value as T,
     }));
 }
+
+export function isDefined<T>(value: T | undefined | null): value is T {
+  return value !== undefined && value !== null;
+}
