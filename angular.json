@@ -114,7 +114,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["projects/components/**/*.ts", "projects/components/**/*.html"]
+            "lintFilePatterns": ["projects/components/src/**/*.ts", "projects/components/src/**/*.html"]
           }
         }
       }
