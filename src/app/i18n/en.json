@@ -37,9 +37,9 @@
         "items-per-page": "Items per page",
         "page": "Page {{ page }} of {{ amountPages }}",
         "next-page": "Next page",
-        "last-page": "Previous page",
+        "last-page": "Last page",
         "first-page": "First page",
-        "previous-page": "Last page"
+        "previous-page": "Previous page"
       }
     }
   },
