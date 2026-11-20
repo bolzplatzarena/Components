@@ -2,16 +2,21 @@
 <p>{{ 'content.text.table' | translate }}</p>
 <p>{{ 'content.text.column' | translate }}</p>
 <ul>
-  <li>Date</li>
-  <li>Enumeration</li>
+  <li>{{ 'content.text.columns_doc.date' | translate }}</li>
+  <li>{{ 'content.text.columns_doc.enum' | translate }}</li>
+  <li>{{ 'content.text.columns_doc.number' | translate }}</li>
+  <li>{{ 'content.text.columns_doc.getter' | translate }}</li>
+  <li>{{ 'content.text.columns_doc.css' | translate }}</li>
 </ul>
 <h3>{{ 'content.headline.static_data' | translate }}</h3>
+<p>{{ 'content.text.actions_example' | translate }}</p>
 <section class="tw-h-64 tw-overflow-auto">
   <bpa-table
     [columnConfig]="config"
     [columns]="['name', 'level', 'type', 'health', 'birthday']"
     [dataset]="data"
     [pageSizeOptions]="[7, 14, 21]"
+    [actions]="{ delete: true, edit: true, rowClicked: true }"
     (deleteEvent)="die($event)"
     (rowClicked)="view($event)"
     (editEvent)="view($event)"
@@ -44,3 +49,22 @@
 </bpa-table>
 <h3>{{ 'content.headline.options' | translate }}</h3>
 <p>{{ 'content.text.options' | translate }}</p>
+<ul>
+  <li>{{ 'content.text.options_doc.columns' | translate }}</li>
+  <li>{{ 'content.text.options_doc.dataset' | translate }}</li>
+  <li>{{ 'content.text.options_doc.translate_key' | translate }}</li>
+  <li>{{ 'content.text.options_doc.column_config' | translate }}</li>
+  <li>{{ 'content.text.options_doc.sortable' | translate }}</li>
+  <li>{{ 'content.text.options_doc.paging' | translate }}</li>
+  <li>{{ 'content.text.options_doc.page_size_options' | translate }}</li>
+  <li>{{ 'content.text.options_doc.progress_bar' | translate }}</li>
+  <li>{{ 'content.text.options_doc.actions' | translate }}</li>
+  <li>{{ 'content.text.options_doc.icons' | translate }}</li>
+</ul>
+<h3>{{ 'content.headline.outputs' | translate }}</h3>
+<p>{{ 'content.text.outputs' | translate }}</p>
+<ul>
+  <li>{{ 'content.text.outputs_doc.row_clicked' | translate }}</li>
+  <li>{{ 'content.text.outputs_doc.edit' | translate }}</li>
+  <li>{{ 'content.text.outputs_doc.delete' | translate }}</li>
+</ul>
