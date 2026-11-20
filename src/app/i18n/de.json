@@ -10,7 +10,11 @@
       "enum_options": "Dies ist eine Methode um aus einem Enum eine Datenquelle für ein Dropdown zu machen und dabei die Werte auch noch zu übersetzen.",
       "pipe": "Die Pipe gibt euch die Möglichkeit den Enum-Schlüssel in einer View zu nutzen. Dies ist vor allem dann wichtig, wenn das Enum nicht auf einem String basiert.",
       "dialogs": "Diese Bibliothek gibt einige Möglichkeiten, einfach Dialoge zu erstellen und vorgefertigte Dialoge zu nutzen.",
-      "loading_button": "Unterschiedliche Varianten für die Loading-Button."
+      "loading_button": "Unterschiedliche Varianten für die Loading-Button.",
+      "install": "Installiere die Bibliothek zusammen mit ihren Peer Dependencies.",
+      "providers": "Importiere das ComponentsModule einmal in deiner Anwendung. Es registriert die Icons und die übersetzten Texte des Paginators. Zusätzlich muss ngx-translate bereitgestellt werden.",
+      "entry_points": "Der Button und der Strapi-Renderer liegen in eigenen Entry Points, damit nur gebündelt wird, was auch genutzt wird.",
+      "translations": "Alle Texte der Komponenten werden über ngx-translate übersetzt. Diese Schlüssel müssen in den Übersetzungsdateien vorhanden sein (oder man stellt einen eigenen MatPaginatorIntl bereit)."
     },
     "headline": {
       "first": "Bolzplatzarena Components",
@@ -23,7 +27,12 @@
       "static_data": "Verwendung von statischen Daten",
       "no_paging": "Verwendung ohne Paging (nur erste Seite wird gezeigt)",
       "observables": "Verwendung von Observables",
-      "dialogs": "Verwendung von Dialogen"
+      "dialogs": "Verwendung von Dialogen",
+      "getting_started": "Einrichtung",
+      "install": "Installation",
+      "providers": "Provider",
+      "entry_points": "Entry Points",
+      "translations": "Benötigte Übersetzungen"
     }
   },
   "bpa": {

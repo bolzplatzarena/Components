@@ -10,7 +10,11 @@
       "enum_options": "Easy way to use a typescript enum as source of the material select.",
       "pipe": "The pipe provides an easy way to get the selected key of an enumeration in the template.",
       "dialogs": "This library provides a way to use dialogs in your application.",
-      "loading_button": "Unterschiedliche Varianten für die Loading-Button."
+      "loading_button": "Unterschiedliche Varianten für die Loading-Button.",
+      "install": "Install the library together with its peer dependencies.",
+      "providers": "Import the ComponentsModule once in your application. It registers the icons and the translated paginator texts. ngx-translate must be provided as well.",
+      "entry_points": "The button and the Strapi renderer are available as separate entry points, so you only bundle what you use.",
+      "translations": "All texts of the components are translated with ngx-translate. Add these keys to your translation files (or provide your own MatPaginatorIntl)."
     },
     "headline": {
       "first": "Bolzplatzarena Components",
@@ -24,7 +28,12 @@
       "static_data": "Using of static data",
       "no_paging": "No paging (only first page is shown)",
       "observables": "Using of observables",
-      "dialogs": "Usage of dialogs"
+      "dialogs": "Usage of dialogs",
+      "getting_started": "Getting started",
+      "install": "Installation",
+      "providers": "Providers",
+      "entry_points": "Entry points",
+      "translations": "Required translations"
     }
   },
   "bpa": {
