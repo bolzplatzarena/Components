@@ -2,11 +2,11 @@ import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ButtonComponent } from '@bolzplatzarena/components/button';
-import { TranslateDirective } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-loading',
-  imports: [ButtonComponent, MatButtonModule, MatProgressSpinnerModule, TranslateDirective],
+  imports: [ButtonComponent, MatButtonModule, MatProgressSpinnerModule, TranslatePipe],
   changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './loading.component.html',
 })

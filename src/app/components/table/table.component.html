@@ -1,11 +1,11 @@
-<h2 translate>content.headline.table</h2>
-<p translate>content.text.table</p>
-<p translate>content.text.column</p>
+<h2>{{ 'content.headline.table' | translate }}</h2>
+<p>{{ 'content.text.table' | translate }}</p>
+<p>{{ 'content.text.column' | translate }}</p>
 <ul>
   <li>Date</li>
   <li>Enumeration</li>
 </ul>
-<h3 translate>content.headline.static_data</h3>
+<h3>{{ 'content.headline.static_data' | translate }}</h3>
 <section class="tw-h-64 tw-overflow-auto">
   <bpa-table
     [columnConfig]="config"
@@ -19,7 +19,7 @@
   </bpa-table>
 </section>
 
-<h3 translate>content.headline.no_paging</h3>
+<h3>{{ 'content.headline.no_paging' | translate }}</h3>
 <section class="tw-h-64 tw-overflow-auto">
   <bpa-table
     [columnConfig]="config"
@@ -32,7 +32,7 @@
     translateKey="hero.components.hero-list.">
   </bpa-table>
 </section>
-<h3 translate>content.headline.observables</h3>
+<h3>{{ 'content.headline.observables' | translate }}</h3>
 <bpa-table
   [columnConfig]="config"
   [columns]="['name', 'level', 'type', 'health', 'birthday', 'custom']"
@@ -42,5 +42,5 @@
   (editEvent)="view($event)"
   translateKey="hero.components.hero-list.">
 </bpa-table>
-<h3 translate>content.headline.options</h3>
-<p translate>content.text.options</p>
+<h3>{{ 'content.headline.options' | translate }}</h3>
+<p>{{ 'content.text.options' | translate }}</p>
