@@ -1,9 +1,10 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, input, ChangeDetectionStrategy } from '@angular/core';
 import { TextInlineNode } from '../../../models/strapi-content.model';
 import { isDefined } from '../../../utils/utils';
 
 @Component({
   selector: 'bpa-text-renderer',
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './text-renderer.component.html',
 })
 export class TextRendererComponent {

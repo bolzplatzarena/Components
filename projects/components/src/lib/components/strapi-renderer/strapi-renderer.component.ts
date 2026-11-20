@@ -1,10 +1,11 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { RootNode } from '../../models/strapi-content.model';
 import { InnerStrapiRendererComponent } from './inner-strapi-renderer/inner-strapi-renderer.component';
 
 @Component({
   selector: 'bpa-strapi-renderer',
   imports: [InnerStrapiRendererComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './strapi-renderer.component.html',
 })
 export class StrapiRendererComponent {

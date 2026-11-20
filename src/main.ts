@@ -11,7 +11,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { ComponentsModule } from '@bolzplatzarena/components';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TranslateModule } from '@ngx-translate/core';
+import { provideTranslateService } from '@ngx-translate/core';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 
@@ -23,7 +23,6 @@ bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(
       ComponentsModule,
-      TranslateModule.forRoot(),
       FontAwesomeModule,
       MatButtonToggleModule,
       MatIconModule,
@@ -36,6 +35,7 @@ bootstrapApplication(AppComponent, {
       MatButtonModule,
     ),
     provideAnimations(),
+    provideTranslateService(),
   ],
 })
   // eslint-disable-next-line no-console

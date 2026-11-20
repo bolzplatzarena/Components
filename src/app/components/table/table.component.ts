@@ -2,7 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ColumnConfig, ColumnType, TableComponent as TableComponentFromLib } from '@bolzplatzarena/components';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateDirective } from '@ngx-translate/core';
 import { delay, interval, mergeMap, of, startWith } from 'rxjs';
 import { Hero } from '../../models/hero';
 import { HeroType } from '../../models/hero-type';
@@ -11,7 +11,7 @@ import { HeroType } from '../../models/hero-type';
   selector: 'app-table',
   templateUrl: './table.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AsyncPipe, TableComponentFromLib, TranslateModule],
+  imports: [AsyncPipe, TableComponentFromLib, TranslateDirective],
 })
 export class TableComponent {
   protected readonly data: Hero[] = [
