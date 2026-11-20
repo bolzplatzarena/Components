@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { DialogLayoutComponent } from '../dialog-layout/dialog-layout.component';
 import { DialogComponent } from '../dialog.component';
 
 @Component({
   templateUrl: './simple-dialog.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [DialogLayoutComponent, TranslateModule],
+  imports: [DialogLayoutComponent, TranslatePipe],
 })
 export class SimpleDialogComponent extends DialogComponent<boolean> {
   override close(): void {

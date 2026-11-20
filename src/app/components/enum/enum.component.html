@@ -1,7 +1,7 @@
-<h2 translate>content.headline.enum</h2>
+<h2>{{ 'content.headline.enum' | translate }}</h2>
 <p [innerHtml]="'content.text.enum' | translate"></p>
-<h3 translate>content.headline.enum_options</h3>
-<p translate>content.text.enum_options</p>
+<h3>{{ 'content.headline.enum_options' | translate }}</h3>
+<p>{{ 'content.text.enum_options' | translate }}</p>
 <mat-form-field>
   <mat-label>Hero Type</mat-label>
   <mat-select>
@@ -12,8 +12,8 @@
     }
   </mat-select>
 </mat-form-field>
-<h3 translate>content.headline.pipe</h3>
-<p translate>content.text.pipe</p>
+<h3>{{ 'content.headline.pipe' | translate }}</h3>
+<p>{{ 'content.text.pipe' | translate }}</p>
 Original value: {{ HeroType.Scientist }}
 <code class="tw-block"> Original value: {{ '&#123;&#123; HeroType.Scientist &#125;&#125;' }} </code>
 <br />As String: {{ HeroType.Scientist | enumKey: HeroType }}

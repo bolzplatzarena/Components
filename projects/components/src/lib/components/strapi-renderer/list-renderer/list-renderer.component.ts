@@ -1,10 +1,11 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { ListBlockNode } from '../../../models/strapi-content.model';
 
 @Component({
   selector: 'bpa-list-renderer',
   imports: [NgTemplateOutlet],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './list-renderer.component.html',
 })
 export class ListRendererComponent {

@@ -6,7 +6,7 @@ import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
 import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons/faEllipsisVertical';
 import {faFile} from '@fortawesome/free-solid-svg-icons/faFile';
 import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {DialogsComponent} from './components/dialogs/dialogs.component';
 import {EnumComponent} from './components/enum/enum.component';
 import {FileListComponent} from './components/file-list/file-list.component';
@@ -27,7 +27,7 @@ import * as en from './i18n/en.json';
     DialogsComponent,
     EnumComponent,
     FileListComponent,
-    TranslateModule,
+    TranslatePipe,
     FullTableComponent,
     LoadingComponent,
     StrapiRendererComponent,

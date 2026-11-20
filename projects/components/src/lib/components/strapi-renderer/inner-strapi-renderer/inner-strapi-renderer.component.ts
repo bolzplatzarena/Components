@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import {
   CodeBlockNode,
   DefaultInlineNode,
@@ -37,6 +37,7 @@ type SupportedNodes = RootNode | DefaultInlineNode | ListItemInlineNode;
     ImageRendererComponent,
     JsonPipe,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './inner-strapi-renderer.component.html',
 })
 export class InnerStrapiRendererComponent {

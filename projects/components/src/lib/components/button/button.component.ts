@@ -1,11 +1,12 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'bpa-button',
   imports: [MatButtonModule, MatProgressSpinnerModule, NgTemplateOutlet],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './button.component.html',
 })
 export class ButtonComponent {
@@ -19,7 +20,10 @@ export class ButtonComponent {
 
   protected async click(): Promise<void> {
     this.loading = true;
-    await this.function()();
-    this.loading = false;
+    try {
+      await this.function()();
+    } finally {
+      this.loading = false;
+    }
   }
 }

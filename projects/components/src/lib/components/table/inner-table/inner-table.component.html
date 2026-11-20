@@ -3,7 +3,7 @@
     <ng-container [matColumnDef]="column">
       <th *matHeaderCellDef mat-header-cell mat-sort-header [class]="columnConfig()?.[column]?.cssClass">{{ translateKey() + column | lowercase | translate }}</th>
       <td *matCellDef="let element" mat-cell>
-        @switch (columnConfig()?.[column]?.type) {
+        @switch ($safeNavigationMigration(columnConfig()?.[column]?.type)) {
           @case (ColumnType.Date) {
             {{ element[column] | date }}
           }

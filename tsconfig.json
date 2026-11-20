@@ -2,16 +2,15 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "paths": {
       "@bolzplatzarena/components": [
-        "dist/@bolzplatzarena/components"
+        "./dist/@bolzplatzarena/components"
       ],
       "@bolzplatzarena/components/button": [
-        "dist/@bolzplatzarena/components/button"
+        "./dist/@bolzplatzarena/components/button"
       ],
       "@bolzplatzarena/components/strapi": [
-        "dist/@bolzplatzarena/components/strapi"
+        "./dist/@bolzplatzarena/components/strapi"
       ]
     },
     "outDir": "./dist/out-tsc",

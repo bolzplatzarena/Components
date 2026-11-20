@@ -15,6 +15,10 @@ export abstract class FormDialogComponent<R, D = unknown> extends DialogComponen
   }
 
   submit(): void {
+    if (!this.form.valid) {
+      this.form.markAllAsTouched();
+      return;
+    }
     this.dialogRef.close(this.form.getRawValue());
   }
 }
