@@ -20,7 +20,10 @@ export class ButtonComponent {
 
   protected async click(): Promise<void> {
     this.loading = true;
-    await this.function()();
-    this.loading = false;
+    try {
+      await this.function()();
+    } finally {
+      this.loading = false;
+    }
   }
 }
