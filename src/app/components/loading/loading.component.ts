@@ -13,6 +13,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class LoadingComponent {
   protected readonly text = 'Speichern';
   protected readonly longText = 'Speichern & Save & Other words';
+  protected readonly example = `<bpa-button type="raised" color="accent" [function]="save">Save</bpa-button>`;
   protected readonly datasource = signal<boolean>(false);
 
   async click(): Promise<void> {

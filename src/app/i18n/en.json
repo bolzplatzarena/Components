@@ -10,7 +10,7 @@
       "enum_options": "Easy way to use a typescript enum as source of the material select.",
       "pipe": "The pipe provides an easy way to get the selected key of an enumeration in the template.",
       "dialogs": "This library provides a way to use dialogs in your application.",
-      "loading_button": "Unterschiedliche Varianten für die Loading-Button.",
+      "loading_button": "Different variants of the loading button. The button calls the given function, shows a spinner and stays disabled until the returned promise is settled (also if it fails).",
       "install": "Install the library together with its peer dependencies.",
       "providers": "Import the ComponentsModule once in your application. It registers the icons and the translated paginator texts. ngx-translate must be provided as well.",
       "entry_points": "The button and the Strapi renderer are available as separate entry points, so you only bundle what you use.",
@@ -40,6 +40,12 @@
         "row_clicked": "rowClicked - a row was clicked (requires actions.rowClicked)",
         "edit": "editEvent - the edit action was chosen (requires actions.edit)",
         "delete": "deleteEvent - the delete action was chosen (requires actions.delete)"
+      },
+      "button_doc": {
+        "type": "type (required) - 'raised' or 'stroked'",
+        "function": "function (required) - () => Promise<void> | void, called on click; use an arrow function property if it needs this",
+        "color": "color (default: 'primary') - 'primary', 'accent' or 'warn'",
+        "disabled": "disabled (default: false) - disables the button"
       }
     },
     "headline": {
@@ -60,7 +66,8 @@
       "providers": "Providers",
       "entry_points": "Entry points",
       "translations": "Required translations",
-      "outputs": "Outputs"
+      "outputs": "Outputs",
+      "loading_button": "Loading button"
     }
   },
   "bpa": {

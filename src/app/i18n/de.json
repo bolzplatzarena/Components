@@ -10,7 +10,7 @@
       "enum_options": "Dies ist eine Methode um aus einem Enum eine Datenquelle für ein Dropdown zu machen und dabei die Werte auch noch zu übersetzen.",
       "pipe": "Die Pipe gibt euch die Möglichkeit den Enum-Schlüssel in einer View zu nutzen. Dies ist vor allem dann wichtig, wenn das Enum nicht auf einem String basiert.",
       "dialogs": "Diese Bibliothek gibt einige Möglichkeiten, einfach Dialoge zu erstellen und vorgefertigte Dialoge zu nutzen.",
-      "loading_button": "Unterschiedliche Varianten für die Loading-Button.",
+      "loading_button": "Unterschiedliche Varianten des Loading-Buttons. Der Button ruft die übergebene Funktion auf, zeigt einen Spinner und bleibt deaktiviert, bis das zurückgegebene Promise abgeschlossen ist (auch im Fehlerfall).",
       "install": "Installiere die Bibliothek zusammen mit ihren Peer Dependencies.",
       "providers": "Importiere das ComponentsModule einmal in deiner Anwendung. Es registriert die Icons und die übersetzten Texte des Paginators. Zusätzlich muss ngx-translate bereitgestellt werden.",
       "entry_points": "Der Button und der Strapi-Renderer liegen in eigenen Entry Points, damit nur gebündelt wird, was auch genutzt wird.",
@@ -40,6 +40,12 @@
         "row_clicked": "rowClicked - eine Zeile wurde angeklickt (benötigt actions.rowClicked)",
         "edit": "editEvent - die Aktion Bearbeiten wurde gewählt (benötigt actions.edit)",
         "delete": "deleteEvent - die Aktion Löschen wurde gewählt (benötigt actions.delete)"
+      },
+      "button_doc": {
+        "type": "type (Pflicht) - 'raised' oder 'stroked'",
+        "function": "function (Pflicht) - () => Promise<void> | void, wird beim Klick aufgerufen; als Arrow-Function-Property definieren, wenn this benötigt wird",
+        "color": "color (Standard: 'primary') - 'primary', 'accent' oder 'warn'",
+        "disabled": "disabled (Standard: false) - deaktiviert den Button"
       }
     },
     "headline": {
@@ -59,7 +65,8 @@
       "providers": "Provider",
       "entry_points": "Entry Points",
       "translations": "Benötigte Übersetzungen",
-      "outputs": "Outputs"
+      "outputs": "Outputs",
+      "loading_button": "Loading-Button"
     }
   },
   "bpa": {

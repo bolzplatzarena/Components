@@ -1,4 +1,12 @@
+<h2>{{ 'content.headline.loading_button' | translate }}</h2>
 <p>{{ 'content.text.loading_button' | translate }}</p>
+<ul>
+  <li>{{ 'content.text.button_doc.type' | translate }}</li>
+  <li>{{ 'content.text.button_doc.function' | translate }}</li>
+  <li>{{ 'content.text.button_doc.color' | translate }}</li>
+  <li>{{ 'content.text.button_doc.disabled' | translate }}</li>
+</ul>
+<pre><code>{{ example }}</code></pre>
 <bpa-button type="raised" color="accent" [function]="click">
   {{ text }}
 </bpa-button>
