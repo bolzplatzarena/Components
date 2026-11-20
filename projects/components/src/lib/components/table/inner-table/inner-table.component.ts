@@ -115,6 +115,8 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
     switch (columnConfig?.[property]?.type) {
       case ColumnType.Number:
         return Number(item[property as keyof T]);
+      case ColumnType.Date:
+        return new Date(item[property as keyof T] as Date | string | number).getTime();
     }
     return String(item[property as keyof T]);
   }
