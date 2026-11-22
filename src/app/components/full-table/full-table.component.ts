@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ColumnConfig, ColumnType, TableComponent as TableComponentFromLib } from '@bolzplatzarena/components';
-import { TranslateModule } from '@ngx-translate/core';
 import { Hero } from '../../models/hero';
 import { HeroType } from '../../models/hero-type';
 
@@ -8,7 +7,7 @@ import { HeroType } from '../../models/hero-type';
   selector: 'app-full-table',
   templateUrl: './full-table.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TableComponentFromLib, TranslateModule],
+  imports: [TableComponentFromLib],
 })
 export class FullTableComponent {
   protected readonly data: Hero[] = [

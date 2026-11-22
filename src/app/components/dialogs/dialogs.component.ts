@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogService } from '@bolzplatzarena/components';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { CommonDialogComponent } from './examples/common-dialog/common-dialog.component';
 import { SimpleFormDialogComponent } from './examples/form-dialog/form-dialog.component';
 import { SimpleComponent } from './examples/simple/simple.component';
@@ -10,7 +10,7 @@ import { SimpleComponent } from './examples/simple/simple.component';
   selector: 'app-dialogs',
   templateUrl: './dialogs.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatButtonModule, TranslateModule],
+  imports: [MatButtonModule, TranslatePipe],
 })
 export class DialogsComponent {
   private readonly dialog = inject(DialogService);

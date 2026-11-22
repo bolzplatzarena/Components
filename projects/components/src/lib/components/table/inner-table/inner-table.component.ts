@@ -8,7 +8,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Dictionary } from '../../../models/dictionary.model';
 import { EnumKeyPipe } from '../../../pipes/enum-key.pipe';
 
@@ -42,7 +42,7 @@ export interface ColumnConfig<T> {
     MatProgressBarModule,
     MatSortModule,
     MatTableModule,
-    TranslateModule,
+    TranslatePipe,
   ],
 })
 export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
@@ -115,6 +115,8 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
     switch (columnConfig?.[property]?.type) {
       case ColumnType.Number:
         return Number(item[property as keyof T]);
+      case ColumnType.Date:
+        return new Date(item[property as keyof T] as Date | string | number).getTime();
     }
     return String(item[property as keyof T]);
   }

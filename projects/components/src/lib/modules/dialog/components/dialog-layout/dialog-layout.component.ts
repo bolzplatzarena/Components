@@ -2,7 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { map, Observable, of, startWith } from 'rxjs';
 import { DialogComponent } from '../dialog.component';
 import { FormDialogComponent } from '../form-dialog.component';
@@ -11,7 +11,7 @@ import { FormDialogComponent } from '../form-dialog.component';
   selector: 'bpa-dialog-layout',
   templateUrl: './dialog-layout.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AsyncPipe, MatButtonModule, MatDialogModule, TranslateModule],
+  imports: [AsyncPipe, MatButtonModule, MatDialogModule, TranslatePipe],
 })
 export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnInit {
   readonly dialog = input<DialogComponent<T>>();

@@ -1,9 +1,7 @@
-@if (textStyle().length) {
+@if (content().code) {
+  <code [style]="textStyle()">{{ content().text }}</code>
+} @else if (textStyle().length) {
   <span [style]="textStyle()">{{ content().text }}</span>
-} @else if (content().bold) {
-  <strong>{{ content().text }}</strong>
-} @else if (content().code) {
-  <code>{{ content().text }}</code>
 } @else {
   {{ content().text }}
 }

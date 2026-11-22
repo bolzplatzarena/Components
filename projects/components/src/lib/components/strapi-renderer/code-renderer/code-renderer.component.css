@@ -1,4 +1,5 @@
-code {
+pre {
   padding: 1rem;
   background-color: #e1e1e1;
+  overflow-x: auto;
 }
