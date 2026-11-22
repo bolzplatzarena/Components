@@ -11,6 +11,32 @@ body {
   font-family: sans-serif;
 }
 
+/* demo documentation */
+
+.demo {
+  margin: 12px 0 24px;
+  padding: 24px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.doc-list {
+  padding-left: 20px;
+  line-height: 1.7;
+
+  li::marker {
+    color: #3f51b5;
+  }
+}
+
 /* import overrides */
 
 .mat-mdc-tab-body-wrapper {
