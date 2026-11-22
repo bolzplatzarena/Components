@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { provideTranslateService } from '@ngx-translate/core';
 import { Observable, of, Subject } from 'rxjs';
@@ -14,6 +14,19 @@ import { DialogService } from './services/dialog.service';
 })
 class NameDialogComponent extends FormDialogComponent<{ name: string }> {
   readonly form = inject(FormBuilder).nonNullable.group({ name: ['', Validators.required] });
+}
+
+// declares the form without initializer and creates it only in ngOnInit
+@Component({
+  template: '<bpa-dialog-layout [dialog]="this" translateKey="dialog"></bpa-dialog-layout>',
+  imports: [DialogLayoutComponent],
+})
+class LateFormDialogComponent extends FormDialogComponent<{ name: string }> implements OnInit {
+  form!: FormGroup;
+
+  ngOnInit(): void {
+    this.form = new FormBuilder().nonNullable.group({ name: ['', Validators.required] });
+  }
 }
 
 describe('FormDialogComponent', () => {
@@ -51,6 +64,13 @@ describe('FormDialogComponent', () => {
     fixture.detectChanges();
     await fixture.whenStable();
     expect(getOkButton().disabled).toBe(false);
+  });
+
+  it('recognizes a form that is only created in ngOnInit', () => {
+    const fixture = TestBed.createComponent(LateFormDialogComponent);
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelectorAll('button')[1].disabled).toBe(true);
   });
 
   it('closes with the form value when valid', () => {

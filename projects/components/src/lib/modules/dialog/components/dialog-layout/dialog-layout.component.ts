@@ -21,7 +21,7 @@ export class DialogLayoutComponent<T> implements OnInit {
 
   ngOnInit(): void {
     const dialog = this.dialog();
-    if (isFormDialogComponent(dialog)) {
+    if (dialog instanceof FormDialogComponent) {
       const form = dialog.form;
       this.valid$ = form.statusChanges.pipe(
         startWith(form.valid),
@@ -39,8 +39,4 @@ export class DialogLayoutComponent<T> implements OnInit {
   submit(): void | Promise<void> {
     return this.dialog().submit();
   }
-}
-
-function isFormDialogComponent(component: DialogComponent<unknown>): component is FormDialogComponent<unknown> {
-  return 'form' in component;
 }
