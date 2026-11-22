@@ -12,15 +12,14 @@ import { CodeBlockComponent } from '../code-block/code-block.component';
 export class GettingStartedComponent {
   private readonly install = `npm install @bolzplatzarena/components @angular/material @fortawesome/angular-fontawesome @fortawesome/free-solid-svg-icons @ngx-translate/core`;
 
-  private readonly providers = `import { importProvidersFrom } from '@angular/core';
-import { bootstrapApplication } from '@angular/platform-browser';
-import { ComponentsModule } from '@bolzplatzarena/components';
+  private readonly providers = `import { bootstrapApplication } from '@angular/platform-browser';
+import { providePaginatorTexts } from '@bolzplatzarena/components';
 import { provideTranslateService } from '@ngx-translate/core';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(ComponentsModule),
     provideTranslateService(),
+    providePaginatorTexts(), // optional: translated paginator labels
   ],
 });`;
 

@@ -14,7 +14,7 @@
       "strapi": "The Strapi renderer displays rich text blocks from Strapi (paragraphs, headings, lists, quotes, code, images and links). With debug = true unsupported nodes are printed as JSON.",
       "loading_button": "Different variants of the loading button. The button calls the given function, shows a spinner and stays disabled until the returned promise is settled (also if it fails).",
       "install": "Install the library together with its peer dependencies.",
-      "providers": "Import the ComponentsModule once in your application. It registers the icons and the translated paginator texts. ngx-translate must be provided as well.",
+      "providers": "No module is needed: components, pipes and the DialogService are imported or injected directly, and the table registers its own icons. Provide ngx-translate and optionally providePaginatorTexts() to translate the table paginator. For custom texts provide your own MatPaginatorIntl instead.",
       "entry_points": "The button and the Strapi renderer are available as separate entry points, so you only bundle what you use.",
       "translations": "All texts of the components are translated with ngx-translate. Add these keys to your translation files (or provide your own MatPaginatorIntl).",
       "outputs": "Outputs of bpa-table:",

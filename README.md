@@ -72,7 +72,16 @@ automatically, so you can use the translate config file to give the enum value a
 
 ### Paging
 
-You need to configure the terms of pagination or you implement your own implementation of `MatPaginatorIntl`.
+Add `providePaginatorTexts()` to the providers of your application to translate the paginator labels via ngx-translate,
+or provide your own implementation of `MatPaginatorIntl`. No module import is needed; the table registers its icons itself.
+
+```
+bootstrapApplication(AppComponent, {
+  providers: [provideTranslateService(), providePaginatorTexts()],
+});
+```
+
+The following translation keys are used:
 
 ```
   "bpa": {
