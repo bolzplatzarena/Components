@@ -2,11 +2,16 @@ import { Component, inject } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { provideTranslateService } from '@ngx-translate/core';
 import { Observable, of, Subject } from 'rxjs';
+import { DialogLayoutComponent } from './components/dialog-layout/dialog-layout.component';
 import { FormDialogComponent } from './components/form-dialog.component';
 import { DialogService } from './services/dialog.service';
 
-@Component({ template: '' })
+@Component({
+  template: '<bpa-dialog-layout [dialog]="this" translateKey="dialog"></bpa-dialog-layout>',
+  imports: [DialogLayoutComponent],
+})
 class NameDialogComponent extends FormDialogComponent<{ name: string }> {
   readonly form = inject(FormBuilder).nonNullable.group({ name: ['', Validators.required] });
 }
@@ -21,6 +26,7 @@ describe('FormDialogComponent', () => {
       providers: [
         { provide: MatDialogRef, useValue: { close, keydownEvents: (): Subject<KeyboardEvent> => keydown, afterClosed: (): Subject<void> => new Subject() } },
         { provide: MAT_DIALOG_DATA, useValue: { translateKey: 'dialog' } },
+        provideTranslateService(),
       ],
     });
   });
@@ -33,6 +39,18 @@ describe('FormDialogComponent', () => {
 
     expect(close).not.toHaveBeenCalled();
     expect(dialog.form.touched).toBe(true);
+  });
+
+  it('enables the OK button of the layout only for a valid form', async () => {
+    const fixture = TestBed.createComponent(NameDialogComponent);
+    const getOkButton = (): HTMLButtonElement => fixture.nativeElement.querySelectorAll('button')[1];
+    fixture.detectChanges();
+    expect(getOkButton().disabled).toBe(true);
+
+    fixture.componentInstance.form.setValue({ name: 'Thor' });
+    fixture.detectChanges();
+    await fixture.whenStable();
+    expect(getOkButton().disabled).toBe(false);
   });
 
   it('closes with the form value when valid', () => {
