@@ -1,20 +1,26 @@
 <h2>{{ 'content.headline.enum' | translate }}</h2>
 <p [innerHtml]="'content.text.enum' | translate"></p>
+
 <h3>{{ 'content.headline.enum_options' | translate }}</h3>
 <p>{{ 'content.text.enum_options' | translate }}</p>
-<mat-form-field>
-  <mat-label>Hero Type</mat-label>
-  <mat-select>
-    @for (item of items; track item) {
-      <mat-option [value]="item.value">
-        {{ item.label ?? (item.labelTranslateKey! | translate) }}
-      </mat-option>
-    }
-  </mat-select>
-</mat-form-field>
+<div class="demo">
+  <mat-form-field subscriptSizing="dynamic">
+    <mat-label>Hero Type</mat-label>
+    <mat-select>
+      @for (item of items; track item) {
+        <mat-option [value]="item.value">
+          {{ item.label ?? (item.labelTranslateKey! | translate) }}
+        </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>
+<app-code-block [code]="optionsExample" language="typescript"></app-code-block>
+
 <h3>{{ 'content.headline.pipe' | translate }}</h3>
 <p>{{ 'content.text.pipe' | translate }}</p>
-Original value: {{ HeroType.Scientist }}
-<code class="tw-block"> Original value: {{ '&#123;&#123; HeroType.Scientist &#125;&#125;' }} </code>
-<br />As String: {{ HeroType.Scientist | enumKey: HeroType }}
-<code class="tw-block"> As String: {{ '&#123;&#123; HeroType.Scientist | enumKey : HeroType &#125;&#125;' }} </code>
+<div class="demo">
+  <div>Original value: {{ HeroType.Scientist }}</div>
+  <div>As String: {{ HeroType.Scientist | enumKey: HeroType }}</div>
+</div>
+<app-code-block [code]="pipeExample" language="html"></app-code-block>

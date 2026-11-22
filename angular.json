@@ -63,6 +63,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "port": 4210
+          },
           "configurations": {
             "production": {
               "buildTarget": "bolzplatzarena-components:build:production"
@@ -97,9 +100,10 @@
       "prefix": "bpa",
       "architect": {
         "build": {
-          "builder": "@angular/build:ng-packagr",
+          "builder": "@angular/build:library",
           "options": {
-            "project": "projects/components/ng-package.json"
+            "tsConfig": "projects/components/tsconfig.lib.prod.json",
+            "outputPath": "dist/@bolzplatzarena/components"
           },
           "configurations": {
             "production": {

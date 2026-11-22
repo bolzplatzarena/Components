@@ -1,13 +1,16 @@
 import { DatePipe, LowerCasePipe } from '@angular/common';
-import { AfterViewInit, ChangeDetectionStrategy, Component, input, OnChanges, output, viewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, inject, input, OnChanges, output, viewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { faAddressCard } from '@fortawesome/free-solid-svg-icons/faAddressCard';
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons/faEllipsisVertical';
+import { faSkullCrossbones } from '@fortawesome/free-solid-svg-icons/faSkullCrossbones';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Dictionary } from '../../../models/dictionary.model';
 import { EnumKeyPipe } from '../../../pipes/enum-key.pipe';
@@ -72,6 +75,11 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
   readonly sort = viewChild(MatSort);
 
   protected readonly ColumnType = ColumnType;
+
+  constructor() {
+    // default icons of the table; custom editIcon/deleteIcon must be registered by the app
+    inject(FaIconLibrary).addIcons(faAddressCard, faSkullCrossbones, faEllipsisVertical);
+  }
 
   protected dataSource!: MatTableDataSource<T>;
 

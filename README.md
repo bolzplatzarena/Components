@@ -72,7 +72,16 @@ automatically, so you can use the translate config file to give the enum value a
 
 ### Paging
 
-You need to configure the terms of pagination or you implement your own implementation of `MatPaginatorIntl`.
+Add `providePaginatorTexts()` to the providers of your application to translate the paginator labels via ngx-translate,
+or provide your own implementation of `MatPaginatorIntl`. No module import is needed; the table registers its icons itself.
+
+```
+bootstrapApplication(AppComponent, {
+  providers: [provideTranslateService(), providePaginatorTexts()],
+});
+```
+
+The following translation keys are used:
 
 ```
   "bpa": {
@@ -142,6 +151,21 @@ Example template:
 
 ```
 
-<bpa-strapi-content [content]="strapiContent"></bpa-strapi-content>
+<bpa-strapi-renderer [content]="strapiContent"></bpa-strapi-renderer>
 
+```
+
+### Images
+
+Images are rendered with `NgOptimizedImage` and loaded lazily. If the content starts with an image above the fold
+(LCP image), set `prioritizeFirstImage` to load the first image eagerly with high fetch priority. All other images stay lazy.
+
+```
+<bpa-strapi-renderer [content]="strapiContent" [prioritizeFirstImage]="true"></bpa-strapi-renderer>
+```
+
+Add a preconnect for the image host to the `<head>` of your `index.html`, otherwise Angular warns in development mode:
+
+```
+<link rel="preconnect" href="https://your-strapi-host" />
 ```

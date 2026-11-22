@@ -1,0 +1,15 @@
+<div class="header">
+  <span class="language">{{ language() }}</span>
+  <button
+    mat-icon-button
+    type="button"
+    class="copy"
+    [class.copied]="copied()"
+    [matTooltip]="(copied() ? 'content.code.copied' : 'content.code.copy') | translate"
+    [attr.aria-label]="'content.code.copy' | translate"
+    (click)="copy()">
+    <fa-icon [icon]="copied() ? faCheck : faCopy"></fa-icon>
+  </button>
+</div>
+<pre><code>{{ code() }}</code></pre>
+<span class="sr-only" aria-live="polite">{{ copied() ? ('content.code.copied' | translate) : '' }}</span>

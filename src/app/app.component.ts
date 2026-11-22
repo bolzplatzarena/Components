@@ -7,10 +7,12 @@ import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons/faEllipsisVe
 import {faFile} from '@fortawesome/free-solid-svg-icons/faFile';
 import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
+import {CodeBlockComponent} from './components/code-block/code-block.component';
 import {DialogsComponent} from './components/dialogs/dialogs.component';
 import {EnumComponent} from './components/enum/enum.component';
 import {FileListComponent} from './components/file-list/file-list.component';
 import {FullTableComponent} from './components/full-table/full-table.component';
+import {GettingStartedComponent} from './components/getting-started/getting-started.component';
 import {LoadingComponent} from './components/loading/loading.component';
 import {TableComponent} from './components/table/table.component';
 import * as de from './i18n/de.json';
@@ -29,12 +31,18 @@ import * as en from './i18n/en.json';
     FileListComponent,
     TranslatePipe,
     FullTableComponent,
+    GettingStartedComponent,
     LoadingComponent,
     StrapiRendererComponent,
+    CodeBlockComponent,
   ],
 })
 export class AppComponent {
   private readonly translate = inject(TranslateService);
+  protected readonly strapiExample = `<bpa-strapi-renderer [content]="content" [debug]="true"></bpa-strapi-renderer>
+
+<!-- content starts with an image above the fold -->
+<bpa-strapi-renderer [content]="content" [prioritizeFirstImage]="true"></bpa-strapi-renderer>`;
   protected readonly strapiContent: RootNode[] = [
     {
       "type": "image",

@@ -1,23 +1,25 @@
-<mat-list>
-  @for (folder of folders; track folder) {
-    <div mat-subheader>{{ folder.name }}</div>
-    @for (file of folder.files; track file; let last = $last) {
-      <mat-list-item>
-        <div matListItemMeta>
-          <button mat-icon-button>
-            <fa-icon icon="trash"></fa-icon>
-          </button>
-          <button mat-icon-button>
-            <fa-icon icon="ellipsis-v"></fa-icon>
-          </button>
-        </div>
-        <div matListItemLine>{{ file.updated | date }}</div>
-        <div matListItemTitle>{{ file.name }}</div>
-        <fa-icon matListItemIcon icon="file"></fa-icon>
-      </mat-list-item>
-      @if (last) {
-        <mat-divider></mat-divider>
+<div class="demo" style="max-width: 640px">
+  <mat-list>
+    @for (folder of folders; track folder) {
+      <div mat-subheader>{{ folder.name }}</div>
+      @for (file of folder.files; track file; let last = $last) {
+        <mat-list-item>
+          <div matListItemMeta>
+            <button mat-icon-button>
+              <fa-icon icon="trash"></fa-icon>
+            </button>
+            <button mat-icon-button>
+              <fa-icon icon="ellipsis-v"></fa-icon>
+            </button>
+          </div>
+          <div matListItemLine>{{ file.updated | date }}</div>
+          <div matListItemTitle>{{ file.name }}</div>
+          <fa-icon matListItemIcon icon="file"></fa-icon>
+        </mat-list-item>
+        @if (last) {
+          <mat-divider></mat-divider>
+        }
       }
     }
-  }
-</mat-list>
+  </mat-list>
+</div>

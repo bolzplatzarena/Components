@@ -1,16 +1,54 @@
 {
   "content": {
+    "code": { "copy": "Code kopieren", "copied": "Kopiert!" },
     "text": {
       "1": "Dies ist eine Sammlungen von Komponenten welche auf Basis von Angular Material gebaut wurden. Zudem finden sich hier noch diverse Helferlein, welche euch das Arbeiten möglichst vereinfachen sollen.",
       "examples": "Hier findet man viele praktische Beispiele.",
       "table": "Einfache Implementierung der Tabelle, welche viele Sachen abnimmt und es daher einfach machen die Material Table zu nutzen.",
-      "column": "Erweiterte Spaltenkonfiguration ist verfügbar für:",
-      "options": "sortable (default: true) - auf \"false\" setzen um zu deaktivieren",
+      "column": "Erweiterte Spaltenkonfiguration (columnConfig) ist verfügbar für:",
+      "options": "Inputs von bpa-table:",
       "enum": "Enums sind toll, Enums sind wichtig. Aber manchmal sind sie schwer zu nutzen, vor allem in Tempülates.<br>Hier findet ihr Tools die euch unterstützen.",
       "enum_options": "Dies ist eine Methode um aus einem Enum eine Datenquelle für ein Dropdown zu machen und dabei die Werte auch noch zu übersetzen.",
       "pipe": "Die Pipe gibt euch die Möglichkeit den Enum-Schlüssel in einer View zu nutzen. Dies ist vor allem dann wichtig, wenn das Enum nicht auf einem String basiert.",
       "dialogs": "Diese Bibliothek gibt einige Möglichkeiten, einfach Dialoge zu erstellen und vorgefertigte Dialoge zu nutzen.",
-      "loading_button": "Unterschiedliche Varianten für die Loading-Button."
+      "strapi": "Der Strapi-Renderer stellt Rich-Text-Blöcke aus Strapi (Absätze, Überschriften, Listen, Zitate, Code, Bilder und Links) dar. Mit debug = true werden nicht unterstützte Knoten als JSON ausgegeben. Bilder werden lazy geladen; steht oben ein Bild im sichtbaren Bereich, lädt prioritizeFirstImage = true das erste Bild sofort mit hoher Priorität (dazu ein preconnect zum Bildserver in index.html eintragen).",
+      "loading_button": "Unterschiedliche Varianten des Loading-Buttons. Der Button ruft die übergebene Funktion auf, zeigt einen Spinner und bleibt deaktiviert, bis das zurückgegebene Promise abgeschlossen ist (auch im Fehlerfall).",
+      "install": "Installiere die Bibliothek zusammen mit ihren Peer Dependencies.",
+      "providers": "Ein Modul ist nicht nötig: Komponenten, Pipes und der DialogService werden direkt importiert bzw. injiziert, die Tabelle registriert ihre Icons selbst. Stelle ngx-translate bereit und optional providePaginatorTexts(), damit der Paginator der Tabelle übersetzt wird. Wer eigene Texte möchte, stellt stattdessen einen eigenen MatPaginatorIntl bereit.",
+      "entry_points": "Der Button und der Strapi-Renderer liegen in eigenen Entry Points, damit nur gebündelt wird, was auch genutzt wird.",
+      "translations": "Alle Texte der Komponenten werden über ngx-translate übersetzt. Diese Schlüssel müssen in den Übersetzungsdateien vorhanden sein (oder man stellt einen eigenen MatPaginatorIntl bereit).",
+      "outputs": "Outputs von bpa-table:",
+      "actions_example": "Dieses Beispiel aktiviert über den Input actions das Aktionsmenü und den Klick auf eine Zeile.",
+      "columns_doc": {
+        "date": "type: ColumnType.Date - der Wert (Date, ISO-String oder Zeitstempel) wird mit der Date-Pipe formatiert und chronologisch sortiert",
+        "enum": "type: ColumnType.Enum, args: MyEnum - der Enum-Schlüssel wird über translateKey + Spalte + '.' + Schlüssel übersetzt",
+        "number": "type: ColumnType.Number - die Spalte wird numerisch sortiert",
+        "getter": "getter: (item) => Wert - eigener Wert zum Anzeigen und Sortieren",
+        "css": "cssClass - CSS-Klasse für die Kopfzelle, z. B. um die Breite festzulegen"
+      },
+      "options_doc": {
+        "columns": "columns (Pflicht) - die anzuzeigenden Eigenschaften in dieser Reihenfolge",
+        "dataset": "dataset - die Daten; null oder undefined zeigt den Ladezustand",
+        "translate_key": "translateKey (Standard: 'core.components.table.') - Präfix der Übersetzungsschlüssel für Spaltenköpfe, Enum-Werte und Aktionen",
+        "column_config": "columnConfig - Konfiguration pro Spalte, siehe oben",
+        "sortable": "sortable (Standard: true) - auf false setzen, um die Sortierung zu deaktivieren",
+        "paging": "paging (Standard: true) - auf false setzen, um den Paginator auszublenden",
+        "page_size_options": "pageSizeOptions (Standard: [10, 20, 50]) - wählbare Seitengrößen",
+        "progress_bar": "progressBar (Standard: 'always') - 'always', 'never' oder 'auto' (nur während des Ladens)",
+        "actions": "actions (Standard: alles false) - { delete, edit, rowClicked } aktiviert das Aktionsmenü und den Klick auf eine Zeile",
+        "icons": "editIcon / deleteIcon (Standard: 'address-card' / 'skull-crossbones') - Font-Awesome-Icons der Aktionen"
+      },
+      "outputs_doc": {
+        "row_clicked": "rowClicked - eine Zeile wurde angeklickt (benötigt actions.rowClicked)",
+        "edit": "editEvent - die Aktion Bearbeiten wurde gewählt (benötigt actions.edit)",
+        "delete": "deleteEvent - die Aktion Löschen wurde gewählt (benötigt actions.delete)"
+      },
+      "button_doc": {
+        "type": "type (Pflicht) - 'raised' oder 'stroked'",
+        "function": "function (Pflicht) - () => Promise<void> | void, wird beim Klick aufgerufen; als Arrow-Function-Property definieren, wenn this benötigt wird",
+        "color": "color (Standard: 'primary') - 'primary', 'accent' oder 'warn'",
+        "disabled": "disabled (Standard: false) - deaktiviert den Button"
+      }
     },
     "headline": {
       "first": "Bolzplatzarena Components",
@@ -23,7 +61,15 @@
       "static_data": "Verwendung von statischen Daten",
       "no_paging": "Verwendung ohne Paging (nur erste Seite wird gezeigt)",
       "observables": "Verwendung von Observables",
-      "dialogs": "Verwendung von Dialogen"
+      "dialogs": "Verwendung von Dialogen",
+      "strapi": "Strapi Renderer",
+      "getting_started": "Einrichtung",
+      "install": "Installation",
+      "providers": "Provider",
+      "entry_points": "Entry Points",
+      "translations": "Benötigte Übersetzungen",
+      "outputs": "Outputs",
+      "loading_button": "Loading-Button"
     }
   },
   "bpa": {
@@ -80,12 +126,18 @@
     },
     "confirmation": {
       "title": "Bestätigung",
-      "content": "Der Service bietet die Möglichkeit nach eine Bestätigung zu fragen. Dabei kann man das Ergebnis selbst auswerden oder die Methode, welche aufgerufen werden soll gleich mitliefern."
+      "content": "Der Service bietet die Möglichkeit nach eine Bestätigung zu fragen. Dabei kann man das Ergebnis selbst auswerden oder die Methode, welche aufgerufen werden soll gleich mitliefern.",
+      "result": "confirm(translateKey) liefert ein Promise mit true oder false:",
+      "action": "confirm(translateKey, action) ruft die Aktion nur bei Okay auf und wartet auf sie:"
     },
     "layout": {
       "title": "Layout gleich mitliefern lassen",
       "content": "Keine Lust Überschrift und Buttons jedesmal zu schreiben? Dann kann man einfach eine Basis-Componente nutzen, welche die Überschrift und die Headline direkt mitliefern.",
       "form": "Hier gibt es ein Beispiel mit einem Formular. Dieses Formular wird in einem Dialog angezeigt und kann auch direkt validiert werden."
+    },
+    "keyboard": {
+      "title": "Tastatur",
+      "content": "Dialoge, die von DialogComponent erben, schließen mit Escape (registerEscKey, Standard: true). Mit registerEnterKey = true wird mit Enter abgeschickt; ein FormDialogComponent schickt nur ein gültiges Formular ab."
     }
   }
 }

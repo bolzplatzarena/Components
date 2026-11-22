@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, input, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import {
   CodeBlockNode,
   DefaultInlineNode,
@@ -43,6 +43,9 @@ type SupportedNodes = RootNode | DefaultInlineNode | ListItemInlineNode;
 export class InnerStrapiRendererComponent {
   readonly content = input.required<SupportedNodes[]>();
   readonly debug = input.required<boolean>();
+  readonly prioritizeFirstImage = input(false);
+
+  protected readonly firstImageIndex = computed(() => this.content().findIndex(node => node.type === 'image'));
 
   protected readonly isParagraph = (node: SupportedNodes): node is ParagraphBlockNode => node.type === 'paragraph';
   protected readonly isText = (node: SupportedNodes): node is TextInlineNode => node.type === 'text';

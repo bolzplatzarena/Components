@@ -5,15 +5,36 @@ import { ColumnConfig, ColumnType, TableComponent as TableComponentFromLib } fro
 import { TranslatePipe } from '@ngx-translate/core';
 import { delay, interval, mergeMap, of, startWith } from 'rxjs';
 import { Hero } from '../../models/hero';
+import { CodeBlockComponent } from '../code-block/code-block.component';
 import { HeroType } from '../../models/hero-type';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AsyncPipe, TableComponentFromLib, TranslatePipe],
+  imports: [AsyncPipe, CodeBlockComponent, TableComponentFromLib, TranslatePipe],
 })
 export class TableComponent {
+  protected readonly configExample = `protected readonly config: { [key: string]: ColumnConfig<Hero> } = {
+  birthday: { type: ColumnType.Date },
+  type: { type: ColumnType.Enum, args: HeroType },
+  level: { type: ColumnType.Number, cssClass: 'tw-w-32' },
+  custom: { type: ColumnType.Unknown, getter: (hero: Hero) => \`\${hero.name} \${hero.level}\` },
+};`;
+  protected readonly staticExample = `<bpa-table
+  [columns]="['name', 'level', 'type', 'health', 'birthday']"
+  [columnConfig]="config"
+  [dataset]="data"
+  [pageSizeOptions]="[7, 14, 21]"
+  [actions]="{ delete: true, edit: true, rowClicked: true }"
+  (deleteEvent)="delete($event)"
+  (editEvent)="edit($event)"
+  (rowClicked)="view($event)"
+  translateKey="hero.components.hero-list.">
+</bpa-table>`;
+  protected readonly noPagingExample = `<bpa-table [columns]="columns" [dataset]="data" [paging]="false"></bpa-table>`;
+  protected readonly observableExample = `<bpa-table [columns]="columns" [dataset]="data$ | async" progressBar="always"></bpa-table>`;
+
   protected readonly data: Hero[] = [
     {
       name: 'Thor',

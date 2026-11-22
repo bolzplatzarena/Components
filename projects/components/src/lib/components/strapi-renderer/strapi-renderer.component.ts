@@ -11,4 +11,6 @@ import { InnerStrapiRendererComponent } from './inner-strapi-renderer/inner-stra
 export class StrapiRendererComponent {
   readonly content = input.required<RootNode[]>();
   readonly debug = input<boolean>(false);
+  /** Loads the first top-level image eagerly with high fetch priority (LCP image); all others stay lazy. */
+  readonly prioritizeFirstImage = input(false);
 }

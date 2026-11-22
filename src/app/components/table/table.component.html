@@ -1,46 +1,83 @@
 <h2>{{ 'content.headline.table' | translate }}</h2>
 <p>{{ 'content.text.table' | translate }}</p>
 <p>{{ 'content.text.column' | translate }}</p>
-<ul>
-  <li>Date</li>
-  <li>Enumeration</li>
+<ul class="doc-list">
+  <li>{{ 'content.text.columns_doc.date' | translate }}</li>
+  <li>{{ 'content.text.columns_doc.enum' | translate }}</li>
+  <li>{{ 'content.text.columns_doc.number' | translate }}</li>
+  <li>{{ 'content.text.columns_doc.getter' | translate }}</li>
+  <li>{{ 'content.text.columns_doc.css' | translate }}</li>
 </ul>
+<app-code-block [code]="configExample" language="typescript"></app-code-block>
+
 <h3>{{ 'content.headline.static_data' | translate }}</h3>
-<section class="tw-h-64 tw-overflow-auto">
-  <bpa-table
-    [columnConfig]="config"
-    [columns]="['name', 'level', 'type', 'health', 'birthday']"
-    [dataset]="data"
-    [pageSizeOptions]="[7, 14, 21]"
-    (deleteEvent)="die($event)"
-    (rowClicked)="view($event)"
-    (editEvent)="view($event)"
-    translateKey="hero.components.hero-list.">
-  </bpa-table>
-</section>
+<p>{{ 'content.text.actions_example' | translate }}</p>
+<div class="demo">
+  <section class="tw-h-64 tw-overflow-auto">
+    <bpa-table
+      [columnConfig]="config"
+      [columns]="['name', 'level', 'type', 'health', 'birthday']"
+      [dataset]="data"
+      [pageSizeOptions]="[7, 14, 21]"
+      [actions]="{ delete: true, edit: true, rowClicked: true }"
+      (deleteEvent)="die($event)"
+      (rowClicked)="view($event)"
+      (editEvent)="view($event)"
+      translateKey="hero.components.hero-list.">
+    </bpa-table>
+  </section>
+</div>
+<app-code-block [code]="staticExample" language="html"></app-code-block>
 
 <h3>{{ 'content.headline.no_paging' | translate }}</h3>
-<section class="tw-h-64 tw-overflow-auto">
+<div class="demo">
+  <section class="tw-h-64 tw-overflow-auto">
+    <bpa-table
+      [columnConfig]="config"
+      [columns]="['name', 'level', 'type', 'health', 'birthday']"
+      [dataset]="data"
+      [pageSizeOptions]="[7, 14, 21]"
+      [paging]="false"
+      (deleteEvent)="die($event)"
+      (editEvent)="view($event)"
+      translateKey="hero.components.hero-list.">
+    </bpa-table>
+  </section>
+</div>
+<app-code-block [code]="noPagingExample" language="html"></app-code-block>
+
+<h3>{{ 'content.headline.observables' | translate }}</h3>
+<div class="demo">
   <bpa-table
     [columnConfig]="config"
-    [columns]="['name', 'level', 'type', 'health', 'birthday']"
-    [dataset]="data"
-    [pageSizeOptions]="[7, 14, 21]"
-    [paging]="false"
+    [columns]="['name', 'level', 'type', 'health', 'birthday', 'custom']"
+    [dataset]="data$ | async"
+    progressBar="always"
     (deleteEvent)="die($event)"
     (editEvent)="view($event)"
     translateKey="hero.components.hero-list.">
   </bpa-table>
-</section>
-<h3>{{ 'content.headline.observables' | translate }}</h3>
-<bpa-table
-  [columnConfig]="config"
-  [columns]="['name', 'level', 'type', 'health', 'birthday', 'custom']"
-  [dataset]="data$ | async"
-  progressBar="always"
-  (deleteEvent)="die($event)"
-  (editEvent)="view($event)"
-  translateKey="hero.components.hero-list.">
-</bpa-table>
+</div>
+<app-code-block [code]="observableExample" language="html"></app-code-block>
+
 <h3>{{ 'content.headline.options' | translate }}</h3>
 <p>{{ 'content.text.options' | translate }}</p>
+<ul class="doc-list">
+  <li>{{ 'content.text.options_doc.columns' | translate }}</li>
+  <li>{{ 'content.text.options_doc.dataset' | translate }}</li>
+  <li>{{ 'content.text.options_doc.translate_key' | translate }}</li>
+  <li>{{ 'content.text.options_doc.column_config' | translate }}</li>
+  <li>{{ 'content.text.options_doc.sortable' | translate }}</li>
+  <li>{{ 'content.text.options_doc.paging' | translate }}</li>
+  <li>{{ 'content.text.options_doc.page_size_options' | translate }}</li>
+  <li>{{ 'content.text.options_doc.progress_bar' | translate }}</li>
+  <li>{{ 'content.text.options_doc.actions' | translate }}</li>
+  <li>{{ 'content.text.options_doc.icons' | translate }}</li>
+</ul>
+<h3>{{ 'content.headline.outputs' | translate }}</h3>
+<p>{{ 'content.text.outputs' | translate }}</p>
+<ul class="doc-list">
+  <li>{{ 'content.text.outputs_doc.row_clicked' | translate }}</li>
+  <li>{{ 'content.text.outputs_doc.edit' | translate }}</li>
+  <li>{{ 'content.text.outputs_doc.delete' | translate }}</li>
+</ul>

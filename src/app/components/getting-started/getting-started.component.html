@@ -1,0 +1,13 @@
+<h2>{{ 'content.headline.getting_started' | translate }}</h2>
+<ol class="steps">
+  @for (step of steps; track step.key; let i = $index) {
+    <li class="step">
+      <span class="number" aria-hidden="true">{{ i + 1 }}</span>
+      <div class="body">
+        <h3>{{ 'content.headline.' + step.key | translate }}</h3>
+        <p>{{ 'content.text.' + step.key | translate }}</p>
+        <app-code-block [code]="step.code" [language]="step.language"></app-code-block>
+      </div>
+    </li>
+  }
+</ol>

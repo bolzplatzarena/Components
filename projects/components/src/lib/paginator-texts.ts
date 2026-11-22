@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { EnvironmentProviders, Injectable, inject, makeEnvironmentProviders } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { TranslateService } from '@ngx-translate/core';
@@ -43,4 +43,9 @@ export class PaginatorTexts implements MatPaginatorIntl {
     const amountPages = Math.ceil(length / pageSize);
     return this.translate.instant('bpa.components.table.page', { page: page + 1, amountPages });
   }
+}
+
+/** Translates the paginator labels of all tables via ngx-translate (keys under `bpa.components.table`). */
+export function providePaginatorTexts(): EnvironmentProviders {
+  return makeEnvironmentProviders([{ provide: MatPaginatorIntl, useClass: PaginatorTexts }]);
 }

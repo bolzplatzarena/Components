@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { ComponentsModule } from '@bolzplatzarena/components';
+import { providePaginatorTexts } from '@bolzplatzarena/components';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { provideTranslateService } from '@ngx-translate/core';
 import { AppComponent } from './app/app.component';
@@ -22,7 +22,6 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(
-      ComponentsModule,
       FontAwesomeModule,
       MatButtonToggleModule,
       MatIconModule,
@@ -36,6 +35,7 @@ bootstrapApplication(AppComponent, {
     ),
     provideAnimations(),
     provideTranslateService(),
+    providePaginatorTexts(),
   ],
 })
   // eslint-disable-next-line no-console

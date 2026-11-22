@@ -1,16 +1,54 @@
 {
   "content": {
+    "code": { "copy": "Copy code", "copied": "Copied!" },
     "text": {
       "1": "This is a collection of components build on top of angular material to make it easier to use it. Additionally little helpers could be found.",
       "examples": "Collection of conmponents and utilities based on the angular material library.",
       "table": "Easy way to use a table, without the need to implement the headers and columns by your own.",
-      "column": "Custom column configuration available for:",
-      "options": "sortable (default: true) - set to false to disable sorting",
+      "column": "Custom column configuration (columnConfig) is available for:",
+      "options": "Inputs of bpa-table:",
       "enum": "Sometimes it is hard to handle enums, but it is important to use an enum instead of just using a number or a string.\n    <br>Here you can find some little helpers, which enable you to use enum for material select or in the tempalte as a\n    string very easily.",
       "enum_options": "Easy way to use a typescript enum as source of the material select.",
       "pipe": "The pipe provides an easy way to get the selected key of an enumeration in the template.",
       "dialogs": "This library provides a way to use dialogs in your application.",
-      "loading_button": "Unterschiedliche Varianten für die Loading-Button."
+      "strapi": "The Strapi renderer displays rich text blocks from Strapi (paragraphs, headings, lists, quotes, code, images and links). With debug = true unsupported nodes are printed as JSON. Images are loaded lazily; if the content starts with an image above the fold, prioritizeFirstImage = true loads the first image eagerly with high priority (add a preconnect to the image host in index.html).",
+      "loading_button": "Different variants of the loading button. The button calls the given function, shows a spinner and stays disabled until the returned promise is settled (also if it fails).",
+      "install": "Install the library together with its peer dependencies.",
+      "providers": "No module is needed: components, pipes and the DialogService are imported or injected directly, and the table registers its own icons. Provide ngx-translate and optionally providePaginatorTexts() to translate the table paginator. For custom texts provide your own MatPaginatorIntl instead.",
+      "entry_points": "The button and the Strapi renderer are available as separate entry points, so you only bundle what you use.",
+      "translations": "All texts of the components are translated with ngx-translate. Add these keys to your translation files (or provide your own MatPaginatorIntl).",
+      "outputs": "Outputs of bpa-table:",
+      "actions_example": "This example enables the actions menu and the row click via the actions input.",
+      "columns_doc": {
+        "date": "type: ColumnType.Date - the value (Date, ISO string or timestamp) is formatted with the date pipe and sorted chronologically",
+        "enum": "type: ColumnType.Enum, args: MyEnum - the enum key is translated with translateKey + column + '.' + key",
+        "number": "type: ColumnType.Number - the column is sorted numerically",
+        "getter": "getter: (item) => value - custom value to display and to sort by",
+        "css": "cssClass - CSS class for the header cell, e.g. to set the width"
+      },
+      "options_doc": {
+        "columns": "columns (required) - the properties to show, in this order",
+        "dataset": "dataset - the data; null or undefined shows the loading state",
+        "translate_key": "translateKey (default: 'core.components.table.') - prefix of the translation keys for headers, enum values and actions",
+        "column_config": "columnConfig - configuration per column, see above",
+        "sortable": "sortable (default: true) - set to false to disable sorting",
+        "paging": "paging (default: true) - set to false to hide the paginator",
+        "page_size_options": "pageSizeOptions (default: [10, 20, 50]) - selectable page sizes",
+        "progress_bar": "progressBar (default: 'always') - 'always', 'never' or 'auto' (only while loading)",
+        "actions": "actions (default: all false) - { delete, edit, rowClicked } enables the actions menu and the row click",
+        "icons": "editIcon / deleteIcon (default: 'address-card' / 'skull-crossbones') - Font Awesome icons of the actions"
+      },
+      "outputs_doc": {
+        "row_clicked": "rowClicked - a row was clicked (requires actions.rowClicked)",
+        "edit": "editEvent - the edit action was chosen (requires actions.edit)",
+        "delete": "deleteEvent - the delete action was chosen (requires actions.delete)"
+      },
+      "button_doc": {
+        "type": "type (required) - 'raised' or 'stroked'",
+        "function": "function (required) - () => Promise<void> | void, called on click; use an arrow function property if it needs this",
+        "color": "color (default: 'primary') - 'primary', 'accent' or 'warn'",
+        "disabled": "disabled (default: false) - disables the button"
+      }
     },
     "headline": {
       "first": "Bolzplatzarena Components",
@@ -24,7 +62,15 @@
       "static_data": "Using of static data",
       "no_paging": "No paging (only first page is shown)",
       "observables": "Using of observables",
-      "dialogs": "Usage of dialogs"
+      "dialogs": "Usage of dialogs",
+      "strapi": "Strapi renderer",
+      "getting_started": "Getting started",
+      "install": "Installation",
+      "providers": "Providers",
+      "entry_points": "Entry points",
+      "translations": "Required translations",
+      "outputs": "Outputs",
+      "loading_button": "Loading button"
     }
   },
   "bpa": {
@@ -37,9 +83,9 @@
         "items-per-page": "Items per page",
         "page": "Page {{ page }} of {{ amountPages }}",
         "next-page": "Next page",
-        "last-page": "Previous page",
+        "last-page": "Last page",
         "first-page": "First page",
-        "previous-page": "Last page"
+        "previous-page": "Previous page"
       }
     }
   },
@@ -81,12 +127,18 @@
     },
     "confirmation": {
       "title": "Confirmation Dialog",
-      "content": "The service provides several function to handle confirmation. Either you handle the result of the confirmation screen by you own or you give already the function which needs to be called (or not) if the okay button is clicked."
+      "content": "The service provides several function to handle confirmation. Either you handle the result of the confirmation screen by you own or you give already the function which needs to be called (or not) if the okay button is clicked.",
+      "result": "confirm(translateKey) returns a promise with true or false:",
+      "action": "confirm(translateKey, action) calls the action only if okay is clicked and waits for it:"
     },
     "layout": {
       "title": "Use layout",
       "content": "Well, all the dialogs should look like the others. So you can use a simple component which provides the layout with headline, okay and cancel button.",
       "form": "Here you can find a simple form, it is displayed in the dialog, the form is validated and the submit button is disabled until the form is valid."
+    },
+    "keyboard": {
+      "title": "Keyboard",
+      "content": "Dialogs extending DialogComponent close on Escape (registerEscKey, default: true). Set registerEnterKey to true to submit with Enter; a FormDialogComponent only submits a valid form."
     }
   }
 }

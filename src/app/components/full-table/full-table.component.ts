@@ -6,6 +6,7 @@ import { HeroType } from '../../models/hero-type';
 @Component({
   selector: 'app-full-table',
   templateUrl: './full-table.component.html',
+  styleUrl: './full-table.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TableComponentFromLib],
 })
