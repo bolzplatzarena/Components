@@ -1,29 +1,26 @@
 <h2>{{ 'content.headline.loading_button' | translate }}</h2>
 <p>{{ 'content.text.loading_button' | translate }}</p>
-<ul>
+<ul class="doc-list">
   <li>{{ 'content.text.button_doc.type' | translate }}</li>
   <li>{{ 'content.text.button_doc.function' | translate }}</li>
   <li>{{ 'content.text.button_doc.color' | translate }}</li>
   <li>{{ 'content.text.button_doc.disabled' | translate }}</li>
 </ul>
+<div class="demo demo-row">
+  <bpa-button type="raised" color="accent" [function]="click">
+    {{ text }}
+  </bpa-button>
+  <bpa-button type="raised" color="warn" [function]="click">
+    {{ longText }}
+  </bpa-button>
+  <bpa-button type="stroked" color="accent" [function]="click">
+    {{ text }}
+  </bpa-button>
+  <bpa-button type="raised" color="primary" [function]="click">
+    {{ longText }}
+  </bpa-button>
+  <bpa-button type="raised" color="primary" [disabled]="true" [function]="click">
+    {{ longText }}
+  </bpa-button>
+</div>
 <app-code-block [code]="example" language="html"></app-code-block>
-<bpa-button type="raised" color="accent" [function]="click">
-  {{ text }}
-</bpa-button>
-<br /><br />
-<bpa-button type="raised" color="warn" [function]="click">
-  {{ longText }}
-</bpa-button>
-<br /><br />
-<bpa-button type="stroked" color="accent" [function]="click">
-  {{ text }}
-</bpa-button>
-<br /><br />
-<bpa-button type="raised" color="primary" [function]="click">
-  {{ longText }}
-</bpa-button>
-<br /><br />
-<bpa-button type="raised" color="primary" [disabled]="true" [function]="click">
-  {{ longText }}
-</bpa-button>
-<br /><br />
