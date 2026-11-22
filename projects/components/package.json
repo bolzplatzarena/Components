@@ -19,6 +19,11 @@
     "strapi"
   ],
   "license": "MIT",
+  "exports": {
+    ".": "./src/public-api.ts",
+    "./button": "./src/public-api-button.ts",
+    "./strapi": "./src/public-api-strapi.ts"
+  },
   "peerDependencies": {
     "@angular/common": "^22.0.0",
     "@angular/core": "^22.0.0",
