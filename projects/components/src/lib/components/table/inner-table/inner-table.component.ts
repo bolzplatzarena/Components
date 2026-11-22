@@ -120,12 +120,17 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
     if (columnConfig?.[property]?.getter) {
       return columnConfig[property].getter!(item);
     }
+    const value = item[property as keyof T];
+    if (value === null || value === undefined) {
+      // MatTableDataSource sorts null consistently to one end, NaN or 'undefined' would not
+      return null as unknown as string;
+    }
     switch (columnConfig?.[property]?.type) {
       case ColumnType.Number:
-        return Number(item[property as keyof T]);
+        return Number(value);
       case ColumnType.Date:
-        return new Date(item[property as keyof T] as Date | string | number).getTime();
+        return new Date(value as Date | string | number).getTime();
     }
-    return String(item[property as keyof T]);
+    return String(value);
   }
 }
