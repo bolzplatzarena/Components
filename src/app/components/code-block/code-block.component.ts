@@ -3,8 +3,7 @@ import { ChangeDetectionStrategy, Component, inject, input, signal } from '@angu
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
-import { faCopy } from '@fortawesome/free-solid-svg-icons/faCopy';
+import { faCheck, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
