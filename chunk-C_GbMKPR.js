@@ -1,0 +1,1 @@
+var i;(function(t){t[t.Fighter=0]=`Fighter`,t[t.Hammer=1]=`Hammer`,t[t.Scientist=2]=`Scientist`,t[t.Spy=3]=`Spy`})(i||(i={}));export{i as t};
