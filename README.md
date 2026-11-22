@@ -151,6 +151,21 @@ Example template:
 
 ```
 
-<bpa-strapi-content [content]="strapiContent"></bpa-strapi-content>
+<bpa-strapi-renderer [content]="strapiContent"></bpa-strapi-renderer>
 
+```
+
+### Images
+
+Images are rendered with `NgOptimizedImage` and loaded lazily. If the content starts with an image above the fold
+(LCP image), set `prioritizeFirstImage` to load the first image eagerly with high fetch priority. All other images stay lazy.
+
+```
+<bpa-strapi-renderer [content]="strapiContent" [prioritizeFirstImage]="true"></bpa-strapi-renderer>
+```
+
+Add a preconnect for the image host to the `<head>` of your `index.html`, otherwise Angular warns in development mode:
+
+```
+<link rel="preconnect" href="https://your-strapi-host" />
 ```

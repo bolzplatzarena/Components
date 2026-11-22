@@ -39,7 +39,10 @@ import * as en from './i18n/en.json';
 })
 export class AppComponent {
   private readonly translate = inject(TranslateService);
-  protected readonly strapiExample = `<bpa-strapi-renderer [content]="content" [debug]="true"></bpa-strapi-renderer>`;
+  protected readonly strapiExample = `<bpa-strapi-renderer [content]="content" [debug]="true"></bpa-strapi-renderer>
+
+<!-- content starts with an image above the fold -->
+<bpa-strapi-renderer [content]="content" [prioritizeFirstImage]="true"></bpa-strapi-renderer>`;
   protected readonly strapiContent: RootNode[] = [
     {
       "type": "image",

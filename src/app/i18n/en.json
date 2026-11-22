@@ -11,7 +11,7 @@
       "enum_options": "Easy way to use a typescript enum as source of the material select.",
       "pipe": "The pipe provides an easy way to get the selected key of an enumeration in the template.",
       "dialogs": "This library provides a way to use dialogs in your application.",
-      "strapi": "The Strapi renderer displays rich text blocks from Strapi (paragraphs, headings, lists, quotes, code, images and links). With debug = true unsupported nodes are printed as JSON.",
+      "strapi": "The Strapi renderer displays rich text blocks from Strapi (paragraphs, headings, lists, quotes, code, images and links). With debug = true unsupported nodes are printed as JSON. Images are loaded lazily; if the content starts with an image above the fold, prioritizeFirstImage = true loads the first image eagerly with high priority (add a preconnect to the image host in index.html).",
       "loading_button": "Different variants of the loading button. The button calls the given function, shows a spinner and stays disabled until the returned promise is settled (also if it fails).",
       "install": "Install the library together with its peer dependencies.",
       "providers": "No module is needed: components, pipes and the DialogService are imported or injected directly, and the table registers its own icons. Provide ngx-translate and optionally providePaginatorTexts() to translate the table paginator. For custom texts provide your own MatPaginatorIntl instead.",
