@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  max-width: 960px;
+  padding-bottom: 32px;
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.step {
+  display: flex;
+  gap: 16px;
+  position: relative;
+
+  // vertical connector between the step numbers
+  &:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    left: 15px;
+    width: 2px;
+    background: #e0e0e0;
+  }
+}
+
+.number {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-top: 16px;
+  border-radius: 50%;
+  background: #3f51b5;
+  color: #fff;
+  font-weight: 600;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+
+  p {
+    color: #555;
+    line-height: 1.6;
+  }
+}
