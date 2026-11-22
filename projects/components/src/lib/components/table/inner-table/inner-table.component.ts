@@ -32,7 +32,7 @@ export interface ColumnConfig<T> {
 @Component({
   selector: 'bpa-inner-table',
   templateUrl: './inner-table.component.html',
-  styleUrls: ['../../../../../../styles/tailwind.scss'],
+  styleUrl: './inner-table.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     DatePipe,

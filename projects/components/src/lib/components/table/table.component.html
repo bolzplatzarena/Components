@@ -17,8 +17,7 @@
     [pageSizeOptions]="pageSizeOptions()"
     (deleteEvent)="deleteAction($event)"
     (editEvent)="editAction($event)"
-    (rowClicked)="rowClicked.emit($event)"
-    class="tw-flex tw-flex-col tw-flex-1">
+    (rowClicked)="rowClicked.emit($event)">
     <ng-content></ng-content>
   </bpa-inner-table>
 }

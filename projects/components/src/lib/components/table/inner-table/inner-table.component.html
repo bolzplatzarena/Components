@@ -1,4 +1,4 @@
-<table [dataSource]="dataSource" [matSortDisabled]="!sortable()" class="mat-elevation-z8 tw-w-full" mat-table matSort>
+<table [dataSource]="dataSource" [matSortDisabled]="!sortable()" class="mat-elevation-z8" mat-table matSort>
   @for (column of columns(); track column) {
     <ng-container [matColumnDef]="column">
       <th *matHeaderCellDef mat-header-cell mat-sort-header [class]="columnConfig()?.[column]?.cssClass">{{ translateKey() + column | lowercase | translate }}</th>
@@ -42,9 +42,9 @@
 
   <tr *matRowDef="let row; columns: displayedColumns()" [style]="rowClickedObserved() ? 'cursor: pointer' : ''" (click)="rowClickedObserved() && rowClicked.emit(row)" mat-row></tr>
 </table>
-<div class="tw-flex-1"></div>
+<div class="spacer"></div>
 @if (paging() && dataset()) {
-  <mat-paginator [showFirstLastButtons]="true" [pageSizeOptions]="pageSizeOptions()" class="tw-sticky tw-bottom-0"> </mat-paginator>
+  <mat-paginator [showFirstLastButtons]="true" [pageSizeOptions]="pageSizeOptions()"> </mat-paginator>
 }
 
 <mat-menu #menu="matMenu">
