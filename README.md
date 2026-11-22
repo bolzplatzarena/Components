@@ -25,6 +25,18 @@ export class AppModule {
 
 The example could be find in the repository.
 
+## Entry points
+
+Every feature has its own entry point, so you only bundle what you use. The primary entry point has no Angular Material dependency.
+
+| Entry point | Contents |
+|---|---|
+| `@bolzplatzarena/components` | `EnumKeyPipe`, `getTranslatableFrom`, `getKeyString`, `isDefined`, `SelectOption` |
+| `@bolzplatzarena/components/table` | `TableComponent`, `ColumnConfig`, `ColumnType`, `providePaginatorTexts`, `PaginatorTexts` |
+| `@bolzplatzarena/components/dialog` | `DialogService`, `DialogComponent`, `FormDialogComponent`, `DialogLayoutComponent` |
+| `@bolzplatzarena/components/button` | `ButtonComponent` |
+| `@bolzplatzarena/components/strapi` | `StrapiRendererComponent`, `RootNode` |
+
 ## Usage
 
 In the template of your components you can add the following
@@ -76,6 +88,8 @@ Add `providePaginatorTexts()` to the providers of your application to translate 
 or provide your own implementation of `MatPaginatorIntl`. No module import is needed; the table registers its icons itself.
 
 ```
+import { providePaginatorTexts } from '@bolzplatzarena/components/table';
+
 bootstrapApplication(AppComponent, {
   providers: [provideTranslateService(), providePaginatorTexts()],
 });

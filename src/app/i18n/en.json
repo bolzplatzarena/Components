@@ -15,7 +15,7 @@
       "loading_button": "Different variants of the loading button. The button calls the given function, shows a spinner and stays disabled until the returned promise is settled (also if it fails).",
       "install": "Install the library together with its peer dependencies.",
       "providers": "No module is needed: components, pipes and the DialogService are imported or injected directly, and the table registers its own icons. Provide ngx-translate and optionally providePaginatorTexts() to translate the table paginator. For custom texts provide your own MatPaginatorIntl instead.",
-      "entry_points": "The button and the Strapi renderer are available as separate entry points, so you only bundle what you use.",
+      "entry_points": "Every feature has its own entry point (table, dialog, button, strapi), so you only bundle what you use. The primary entry point only contains the enum helpers and has no Angular Material dependency.",
       "translations": "All texts of the components are translated with ngx-translate. Add these keys to your translation files (or provide your own MatPaginatorIntl).",
       "outputs": "Outputs of bpa-table:",
       "actions_example": "This example enables the actions menu and the row click via the actions input.",

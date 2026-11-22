@@ -13,7 +13,7 @@ export class GettingStartedComponent {
   private readonly install = `npm install @bolzplatzarena/components @angular/material @fortawesome/angular-fontawesome @fortawesome/free-solid-svg-icons @ngx-translate/core`;
 
   private readonly providers = `import { bootstrapApplication } from '@angular/platform-browser';
-import { providePaginatorTexts } from '@bolzplatzarena/components';
+import { providePaginatorTexts } from '@bolzplatzarena/components/table';
 import { provideTranslateService } from '@ngx-translate/core';
 
 bootstrapApplication(AppComponent, {
@@ -23,9 +23,12 @@ bootstrapApplication(AppComponent, {
   ],
 });`;
 
-  private readonly entryPoints = `import { TableComponent, DialogService } from '@bolzplatzarena/components';
+  private readonly entryPoints = `// enum helpers, no Material dependency
+import { EnumKeyPipe, getTranslatableFrom } from '@bolzplatzarena/components';
 import { ButtonComponent } from '@bolzplatzarena/components/button';
-import { StrapiRendererComponent } from '@bolzplatzarena/components/strapi';`;
+import { DialogComponent, DialogService, FormDialogComponent } from '@bolzplatzarena/components/dialog';
+import { StrapiRendererComponent } from '@bolzplatzarena/components/strapi';
+import { ColumnConfig, ColumnType, providePaginatorTexts, TableComponent } from '@bolzplatzarena/components/table';`;
 
   private readonly translations =`{
   "bpa": {
