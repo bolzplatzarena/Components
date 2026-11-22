@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ColumnConfig, ColumnType, TableComponent as TableComponentFromLib } from '@bolzplatzarena/components';
+import { ColumnConfig, ColumnType, TableComponent as TableComponentFromLib } from '@bolzplatzarena/components/table';
 import { Hero } from '../../models/hero';
 import { HEROES } from '../../models/heroes';
 import { HeroType } from '../../models/hero-type';

@@ -9,8 +9,14 @@
       "@bolzplatzarena/components/button": [
         "./dist/@bolzplatzarena/components/button"
       ],
+      "@bolzplatzarena/components/dialog": [
+        "./dist/@bolzplatzarena/components/dialog"
+      ],
       "@bolzplatzarena/components/strapi": [
         "./dist/@bolzplatzarena/components/strapi"
+      ],
+      "@bolzplatzarena/components/table": [
+        "./dist/@bolzplatzarena/components/table"
       ]
     },
     "outDir": "./dist/out-tsc",
