@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, input, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -16,14 +16,14 @@ export class ButtonComponent {
   readonly disabled = input<boolean>(false);
   readonly color = input<'primary' | 'accent' | 'warn'>('primary');
 
-  protected loading = false;
+  protected readonly loading = signal(false);
 
   protected async click(): Promise<void> {
-    this.loading = true;
+    this.loading.set(true);
     try {
       await this.function()();
     } finally {
-      this.loading = false;
+      this.loading.set(false);
     }
   }
 }
