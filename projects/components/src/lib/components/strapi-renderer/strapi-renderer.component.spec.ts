@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { RootNode } from '../../models/strapi-content.model';
 import { StrapiRendererComponent } from './strapi-renderer.component';
 
-const image = (url: string): RootNode =>
+const createImage = (url: string): RootNode =>
   ({
     type: 'image',
     image: { name: url, url, width: 100, height: 50, hash: url, ext: '.png', mime: 'image/png', size: 1, provider: 'local', createdAt: '', updatedAt: '' },
@@ -18,8 +18,8 @@ describe('StrapiRendererComponent', () => {
     const fixture = TestBed.createComponent(StrapiRendererComponent);
     fixture.componentRef.setInput('content', [
       { type: 'paragraph', children: [{ type: 'text', text: 'intro' }] },
-      image('https://example.com/a.png'),
-      image('https://example.com/b.png'),
+      createImage('https://example.com/a.png'),
+      createImage('https://example.com/b.png'),
     ]);
     fixture.componentRef.setInput('prioritizeFirstImage', prioritizeFirstImage);
     fixture.detectChanges();
