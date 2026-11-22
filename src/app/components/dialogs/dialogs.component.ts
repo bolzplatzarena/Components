@@ -24,6 +24,10 @@ export class DialogsComponent {
     alert(value);
   }
 
+  protected async openConfirmationWithAction(): Promise<void> {
+    await this.dialog.confirm('dialog.confirm_delete', () => alert('Item deleted'));
+  }
+
   protected openCommon(): void {
     this.dialog.open(CommonDialogComponent).subscribe(value => {
       alert(value);

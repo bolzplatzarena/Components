@@ -1,16 +1,18 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
+import { CodeBlockComponent } from '../code-block/code-block.component';
 
 @Component({
   selector: 'app-getting-started',
   templateUrl: './getting-started.component.html',
+  styleUrl: './getting-started.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, CodeBlockComponent],
 })
 export class GettingStartedComponent {
-  protected readonly install = `npm install @bolzplatzarena/components @angular/material @fortawesome/angular-fontawesome @fortawesome/free-solid-svg-icons @ngx-translate/core`;
+  private readonly install = `npm install @bolzplatzarena/components @angular/material @fortawesome/angular-fontawesome @fortawesome/free-solid-svg-icons @ngx-translate/core`;
 
-  protected readonly providers = `import { importProvidersFrom } from '@angular/core';
+  private readonly providers = `import { importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { ComponentsModule } from '@bolzplatzarena/components';
 import { provideTranslateService } from '@ngx-translate/core';
@@ -22,11 +24,11 @@ bootstrapApplication(AppComponent, {
   ],
 });`;
 
-  protected readonly entryPoints = `import { TableComponent, DialogService } from '@bolzplatzarena/components';
+  private readonly entryPoints = `import { TableComponent, DialogService } from '@bolzplatzarena/components';
 import { ButtonComponent } from '@bolzplatzarena/components/button';
 import { StrapiRendererComponent } from '@bolzplatzarena/components/strapi';`;
 
-  protected readonly translations = `{
+  private readonly translations =`{
   "bpa": {
     "global": { "no": "Cancel", "okay": "Okay" },
     "components": {
@@ -41,4 +43,11 @@ import { StrapiRendererComponent } from '@bolzplatzarena/components/strapi';`;
     }
   }
 }`;
+
+  protected readonly steps = [
+    { key: 'install', language: 'bash', code: this.install },
+    { key: 'providers', language: 'typescript', code: this.providers },
+    { key: 'entry_points', language: 'typescript', code: this.entryPoints },
+    { key: 'translations', language: 'json', code: this.translations },
+  ];
 }

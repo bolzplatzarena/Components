@@ -1,5 +1,6 @@
 {
   "content": {
+    "code": { "copy": "Copy code", "copied": "Copied!" },
     "text": {
       "1": "This is a collection of components build on top of angular material to make it easier to use it. Additionally little helpers could be found.",
       "examples": "Collection of conmponents and utilities based on the angular material library.",
@@ -124,12 +125,18 @@
     },
     "confirmation": {
       "title": "Confirmation Dialog",
-      "content": "The service provides several function to handle confirmation. Either you handle the result of the confirmation screen by you own or you give already the function which needs to be called (or not) if the okay button is clicked."
+      "content": "The service provides several function to handle confirmation. Either you handle the result of the confirmation screen by you own or you give already the function which needs to be called (or not) if the okay button is clicked.",
+      "result": "confirm(translateKey) returns a promise with true or false:",
+      "action": "confirm(translateKey, action) calls the action only if okay is clicked and waits for it:"
     },
     "layout": {
       "title": "Use layout",
       "content": "Well, all the dialogs should look like the others. So you can use a simple component which provides the layout with headline, okay and cancel button.",
       "form": "Here you can find a simple form, it is displayed in the dialog, the form is validated and the submit button is disabled until the form is valid."
+    },
+    "keyboard": {
+      "title": "Keyboard",
+      "content": "Dialogs extending DialogComponent close on Escape (registerEscKey, default: true). Set registerEnterKey to true to submit with Enter; a FormDialogComponent only submits a valid form."
     }
   }
 }

@@ -1,5 +1,6 @@
 {
   "content": {
+    "code": { "copy": "Code kopieren", "copied": "Kopiert!" },
     "text": {
       "1": "Dies ist eine Sammlungen von Komponenten welche auf Basis von Angular Material gebaut wurden. Zudem finden sich hier noch diverse Helferlein, welche euch das Arbeiten möglichst vereinfachen sollen.",
       "examples": "Hier findet man viele praktische Beispiele.",
@@ -123,12 +124,18 @@
     },
     "confirmation": {
       "title": "Bestätigung",
-      "content": "Der Service bietet die Möglichkeit nach eine Bestätigung zu fragen. Dabei kann man das Ergebnis selbst auswerden oder die Methode, welche aufgerufen werden soll gleich mitliefern."
+      "content": "Der Service bietet die Möglichkeit nach eine Bestätigung zu fragen. Dabei kann man das Ergebnis selbst auswerden oder die Methode, welche aufgerufen werden soll gleich mitliefern.",
+      "result": "confirm(translateKey) liefert ein Promise mit true oder false:",
+      "action": "confirm(translateKey, action) ruft die Aktion nur bei Okay auf und wartet auf sie:"
     },
     "layout": {
       "title": "Layout gleich mitliefern lassen",
       "content": "Keine Lust Überschrift und Buttons jedesmal zu schreiben? Dann kann man einfach eine Basis-Componente nutzen, welche die Überschrift und die Headline direkt mitliefern.",
       "form": "Hier gibt es ein Beispiel mit einem Formular. Dieses Formular wird in einem Dialog angezeigt und kann auch direkt validiert werden."
+    },
+    "keyboard": {
+      "title": "Tastatur",
+      "content": "Dialoge, die von DialogComponent erben, schließen mit Escape (registerEscKey, Standard: true). Mit registerEnterKey = true wird mit Enter abgeschickt; ein FormDialogComponent schickt nur ein gültiges Formular ab."
     }
   }
 }

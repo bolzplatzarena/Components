@@ -3,10 +3,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ButtonComponent } from '@bolzplatzarena/components/button';
 import { TranslatePipe } from '@ngx-translate/core';
+import { CodeBlockComponent } from '../code-block/code-block.component';
 
 @Component({
   selector: 'app-loading',
-  imports: [ButtonComponent, MatButtonModule, MatProgressSpinnerModule, TranslatePipe],
+  imports: [ButtonComponent, CodeBlockComponent, MatButtonModule, MatProgressSpinnerModule, TranslatePipe],
   changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './loading.component.html',
 })

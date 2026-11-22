@@ -1,13 +1,13 @@
 <h2>{{ 'content.headline.getting_started' | translate }}</h2>
-<h3>{{ 'content.headline.install' | translate }}</h3>
-<p>{{ 'content.text.install' | translate }}</p>
-<pre><code>{{ install }}</code></pre>
-<h3>{{ 'content.headline.providers' | translate }}</h3>
-<p>{{ 'content.text.providers' | translate }}</p>
-<pre><code>{{ providers }}</code></pre>
-<h3>{{ 'content.headline.entry_points' | translate }}</h3>
-<p>{{ 'content.text.entry_points' | translate }}</p>
-<pre><code>{{ entryPoints }}</code></pre>
-<h3>{{ 'content.headline.translations' | translate }}</h3>
-<p>{{ 'content.text.translations' | translate }}</p>
-<pre><code>{{ translations }}</code></pre>
+<ol class="steps">
+  @for (step of steps; track step.key; let i = $index) {
+    <li class="step">
+      <span class="number" aria-hidden="true">{{ i + 1 }}</span>
+      <div class="body">
+        <h3>{{ 'content.headline.' + step.key | translate }}</h3>
+        <p>{{ 'content.text.' + step.key | translate }}</p>
+        <app-code-block [code]="step.code" [language]="step.language"></app-code-block>
+      </div>
+    </li>
+  }
+</ol>
