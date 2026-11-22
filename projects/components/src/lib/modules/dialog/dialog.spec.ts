@@ -5,6 +5,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { provideTranslateService } from '@ngx-translate/core';
 import { Observable, of, Subject } from 'rxjs';
 import { DialogLayoutComponent } from './components/dialog-layout/dialog-layout.component';
+import { DialogComponent } from './components/dialog.component';
 import { FormDialogComponent } from './components/form-dialog.component';
 import { DialogService } from './services/dialog.service';
 
@@ -26,6 +27,19 @@ class LateFormDialogComponent extends FormDialogComponent<{ name: string }> impl
 
   ngOnInit(): void {
     this.form = new FormBuilder().nonNullable.group({ name: ['', Validators.required] });
+  }
+}
+
+// a plain dialog that happens to have a 'form' property must not be treated as a form dialog
+@Component({
+  template: '<bpa-dialog-layout [dialog]="this" translateKey="dialog"></bpa-dialog-layout>',
+  imports: [DialogLayoutComponent],
+})
+class PlainDialogWithFormPropertyComponent extends DialogComponent<boolean> {
+  readonly form = 'contact';
+
+  submit(): void {
+    this.close(true);
   }
 }
 
@@ -71,6 +85,14 @@ describe('FormDialogComponent', () => {
     fixture.detectChanges();
 
     expect(fixture.nativeElement.querySelectorAll('button')[1].disabled).toBe(true);
+  });
+
+  it('keeps the OK button enabled for a plain dialog with a form property', async () => {
+    const fixture = TestBed.createComponent(PlainDialogWithFormPropertyComponent);
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(fixture.nativeElement.querySelectorAll('button')[1].disabled).toBe(false);
   });
 
   it('closes with the form value when valid', () => {
