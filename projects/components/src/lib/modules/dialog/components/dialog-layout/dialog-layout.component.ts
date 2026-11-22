@@ -13,22 +13,16 @@ import { FormDialogComponent } from '../form-dialog.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [AsyncPipe, MatButtonModule, MatDialogModule, TranslatePipe],
 })
-export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnInit {
-  readonly dialog = input<DialogComponent<T>>();
+export class DialogLayoutComponent<T> implements OnInit {
+  readonly dialog = input.required<DialogComponent<T>>();
   readonly translateKey = input.required<string>();
 
   protected valid$!: Observable<boolean>;
-  protected override registerEnterKey = false;
-  protected override registerEscKey = false;
 
   ngOnInit(): void {
     const dialog = this.dialog();
-    if (!dialog) {
-      throw new Error('DialogLayoutComponent requires a dialog input');
-    }
-
     if (isFormDialogComponent(dialog)) {
-      const form = (dialog as FormDialogComponent<unknown>).form;
+      const form = dialog.form;
       this.valid$ = form.statusChanges.pipe(
         startWith(form.valid),
         map(() => form.valid),
@@ -38,15 +32,15 @@ export class DialogLayoutComponent<T> extends DialogComponent<T> implements OnIn
     }
   }
 
-  override close(): void {
-    return this.dialog()?.close();
+  close(): void {
+    this.dialog().close();
   }
 
   submit(): void | Promise<void> {
-    return this.dialog()?.submit();
+    return this.dialog().submit();
   }
 }
 
-function isFormDialogComponent(component: unknown): component is FormDialogComponent<unknown> {
-  return (component as any).form !== undefined;
+function isFormDialogComponent(component: DialogComponent<unknown>): component is FormDialogComponent<unknown> {
+  return 'form' in component;
 }

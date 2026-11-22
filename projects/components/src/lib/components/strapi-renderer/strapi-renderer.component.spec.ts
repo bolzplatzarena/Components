@@ -26,6 +26,17 @@ describe('StrapiRendererComponent', () => {
     return Array.from(fixture.nativeElement.querySelectorAll('img'));
   };
 
+  it('always renders an alt text, falling back to the caption', () => {
+    const fixture = TestBed.createComponent(StrapiRendererComponent);
+    const withCaption = createImage('https://example.com/c.png') as unknown as { image: { caption: string } };
+    withCaption.image.caption = 'Team photo';
+    fixture.componentRef.setInput('content', [withCaption, createImage('https://example.com/d.png')]);
+    fixture.detectChanges();
+
+    const alts = Array.from<HTMLImageElement>(fixture.nativeElement.querySelectorAll('img')).map(img => img.getAttribute('alt'));
+    expect(alts).toEqual(['Team photo', '']);
+  });
+
   it('loads all images lazily by default', () => {
     expect(render(false).map(img => img.getAttribute('loading'))).toEqual(['lazy', 'lazy']);
   });

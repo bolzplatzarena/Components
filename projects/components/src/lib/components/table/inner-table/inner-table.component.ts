@@ -8,9 +8,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
-import { faAddressCard } from '@fortawesome/free-solid-svg-icons/faAddressCard';
-import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons/faEllipsisVertical';
-import { faSkullCrossbones } from '@fortawesome/free-solid-svg-icons/faSkullCrossbones';
+import { faAddressCard, faEllipsisVertical, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Dictionary } from '../../../models/dictionary.model';
 import { EnumKeyPipe } from '../../../pipes/enum-key.pipe';
@@ -32,7 +30,7 @@ export interface ColumnConfig<T> {
 @Component({
   selector: 'bpa-inner-table',
   templateUrl: './inner-table.component.html',
-  styleUrls: ['../../../../../../styles/tailwind.scss'],
+  styleUrl: './inner-table.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     DatePipe,
@@ -120,12 +118,17 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
     if (columnConfig?.[property]?.getter) {
       return columnConfig[property].getter!(item);
     }
+    const value = item[property as keyof T];
+    if (value === null || value === undefined) {
+      // MatTableDataSource sorts null consistently to one end, NaN or 'undefined' would not
+      return null as unknown as string;
+    }
     switch (columnConfig?.[property]?.type) {
       case ColumnType.Number:
-        return Number(item[property as keyof T]);
+        return Number(value);
       case ColumnType.Date:
-        return new Date(item[property as keyof T] as Date | string | number).getTime();
+        return new Date(value as Date | string | number).getTime();
     }
-    return String(item[property as keyof T]);
+    return String(value);
   }
 }

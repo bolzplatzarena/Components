@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { DialogService } from '@bolzplatzarena/components';
+import { DialogService } from '@bolzplatzarena/components/dialog';
 import { TranslatePipe } from '@ngx-translate/core';
 import { CodeBlockComponent } from '../code-block/code-block.component';
 import { CommonDialogComponent } from './examples/common-dialog/common-dialog.component';

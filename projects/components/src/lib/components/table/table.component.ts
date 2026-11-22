@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, input, OnChanges, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnChanges, output } from '@angular/core';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { ColumnConfig, InnerTableComponent } from './inner-table/inner-table.component';
 
@@ -7,10 +7,9 @@ import { ColumnConfig, InnerTableComponent } from './inner-table/inner-table.com
   templateUrl: './table.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [InnerTableComponent],
+  styles: ':host { display: flex; flex-direction: column; flex: 1; }',
 })
 export class TableComponent<T> implements OnChanges {
-  @HostBinding() protected readonly class = 'tw-flex tw-flex-1 tw-flex-col';
-
   readonly columns = input.required<string[]>();
   readonly dataset = input<T[] | undefined | null>([]);
   readonly translateKey = input('core.components.table.');

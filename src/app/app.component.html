@@ -6,6 +6,7 @@
   <h1>{{ 'content.headline.first' | translate }}</h1>
   <p>{{ 'content.text.1' | translate }}</p>
 </section>
+<!-- all tabs but the first are loaded when opened (matTabContent + @defer) to keep the initial bundle small -->
 <mat-tab-group class="tw-flex-1 tw-overflow-hidden">
   <mat-tab label="Getting started">
     <section class="tw-px-8">
@@ -13,41 +14,69 @@
     </section>
   </mat-tab>
   <mat-tab label="Table">
-    <section class="tw-px-8">
-      <app-table></app-table>
-    </section>
+    <ng-template matTabContent>
+      @defer {
+        <section class="tw-px-8">
+          <app-table></app-table>
+        </section>
+      }
+    </ng-template>
   </mat-tab>
   <mat-tab label="Full table">
-    <app-full-table class="tw-flex tw-flex-col tw-flex-1"></app-full-table>
+    <ng-template matTabContent>
+      @defer {
+        <app-full-table class="tw-flex tw-flex-col tw-flex-1"></app-full-table>
+      }
+    </ng-template>
   </mat-tab>
   <mat-tab label="Dialogs">
-    <section class="tw-px-8">
-      <app-dialogs></app-dialogs>
-    </section>
+    <ng-template matTabContent>
+      @defer {
+        <section class="tw-px-8">
+          <app-dialogs></app-dialogs>
+        </section>
+      }
+    </ng-template>
   </mat-tab>
   <mat-tab label="Enums">
-    <section class="tw-px-8">
-      <app-enum></app-enum>
-    </section>
+    <ng-template matTabContent>
+      @defer {
+        <section class="tw-px-8">
+          <app-enum></app-enum>
+        </section>
+      }
+    </ng-template>
   </mat-tab>
   <mat-tab label="File List">
-    <section class="tw-px-8">
-      <app-file-list></app-file-list>
-    </section>
+    <ng-template matTabContent>
+      @defer {
+        <section class="tw-px-8">
+          <app-file-list></app-file-list>
+        </section>
+      }
+    </ng-template>
   </mat-tab>
   <mat-tab label="Loading">
-    <section class="tw-px-8">
-      <app-loading></app-loading>
-    </section>
+    <ng-template matTabContent>
+      @defer {
+        <section class="tw-px-8">
+          <app-loading></app-loading>
+        </section>
+      }
+    </ng-template>
   </mat-tab>
   <mat-tab label="Strapi">
-    <section class="tw-px-8">
-      <h2>{{ 'content.headline.strapi' | translate }}</h2>
-      <p>{{ 'content.text.strapi' | translate }}</p>
-      <div class="demo">
-        <bpa-strapi-renderer [content]="strapiContent" [debug]="true"></bpa-strapi-renderer>
-      </div>
-      <app-code-block [code]="strapiExample" language="html"></app-code-block>
-    </section>
+    <ng-template matTabContent>
+      @defer {
+        <section class="tw-px-8">
+          <h2>{{ 'content.headline.strapi' | translate }}</h2>
+          <p>{{ 'content.text.strapi' | translate }}</p>
+          <div class="demo">
+            <bpa-strapi-renderer [content]="strapiContent" [debug]="true"></bpa-strapi-renderer>
+          </div>
+          <app-code-block [code]="strapiExample" language="html"></app-code-block>
+        </section>
+      }
+    </ng-template>
   </mat-tab>
 </mat-tab-group>

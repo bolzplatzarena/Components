@@ -1,10 +1,11 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ColumnConfig, ColumnType, TableComponent as TableComponentFromLib } from '@bolzplatzarena/components';
+import { ColumnConfig, ColumnType, TableComponent as TableComponentFromLib } from '@bolzplatzarena/components/table';
 import { TranslatePipe } from '@ngx-translate/core';
 import { delay, interval, mergeMap, of, startWith } from 'rxjs';
 import { Hero } from '../../models/hero';
+import { HEROES } from '../../models/heroes';
 import { CodeBlockComponent } from '../code-block/code-block.component';
 import { HeroType } from '../../models/hero-type';
 
@@ -35,85 +36,7 @@ export class TableComponent {
   protected readonly noPagingExample = `<bpa-table [columns]="columns" [dataset]="data" [paging]="false"></bpa-table>`;
   protected readonly observableExample = `<bpa-table [columns]="columns" [dataset]="data$ | async" progressBar="always"></bpa-table>`;
 
-  protected readonly data: Hero[] = [
-    {
-      name: 'Thor',
-      level: 100,
-      type: HeroType.Hammer,
-      health: 1000,
-      birthday: new Date(1970, 11, 14),
-    },
-    {
-      name: 'Captain',
-      level: 100,
-      type: HeroType.Fighter,
-      health: 1000,
-      birthday: new Date(1930, 1, 1),
-    },
-    {
-      name: 'Captain America',
-      level: 100,
-      type: HeroType.Fighter,
-      health: 12000,
-      birthday: new Date(1934, 8, 18),
-    },
-    {
-      name: 'Nick Fury',
-      level: 100,
-      type: HeroType.Fighter,
-      health: 10400,
-      birthday: new Date(1932, 7, 1),
-    },
-    {
-      name: 'Black Window',
-      level: 120,
-      type: HeroType.Spy,
-      health: 2000,
-      birthday: new Date(1931, 1, 1),
-    },
-    {
-      name: 'Iron Man',
-      level: 80,
-      type: HeroType.Scientist,
-      health: 3000,
-      birthday: new Date(1931, 1, 1),
-    },
-    {
-      name: 'Hulk',
-      level: 120,
-      type: HeroType.Fighter,
-      health: 1000,
-      birthday: new Date(1931, 1, 23),
-    },
-    {
-      name: 'Doc Brown',
-      level: 120,
-      type: HeroType.Scientist,
-      health: 1000,
-      birthday: new Date(1931, 1, 12),
-    },
-    {
-      name: 'Spider Man',
-      level: 120,
-      type: HeroType.Fighter,
-      health: 4000,
-      birthday: new Date(1991, 3, 1),
-    },
-    {
-      name: 'Hawk Eye',
-      level: 110,
-      type: HeroType.Fighter,
-      health: 6000,
-      birthday: new Date(1991, 2, 1),
-    },
-    {
-      name: 'Loki',
-      level: 110,
-      type: HeroType.Fighter,
-      health: 1000,
-      birthday: new Date(1991, 1, 1),
-    },
-  ];
+  protected readonly data = HEROES;
   protected readonly config: { [key: string]: ColumnConfig<Hero> } = {
     name: { type: ColumnType.Unknown, cssClass: 'tw-w-32' },
     birthday: { type: ColumnType.Date, cssClass: 'tw-w-32' },

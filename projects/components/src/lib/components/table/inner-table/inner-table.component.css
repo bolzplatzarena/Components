@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+table {
+  width: 100%;
+}
+
+/* pushes the paginator to the bottom when the table is shorter than its container */
+.spacer {
+  flex: 1;
+}
+
+mat-paginator {
+  position: sticky;
+  bottom: 0;
+}

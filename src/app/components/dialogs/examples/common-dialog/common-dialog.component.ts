@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { DialogComponent, DialogLayoutComponent } from '@bolzplatzarena/components';
+import { DialogComponent, DialogLayoutComponent } from '@bolzplatzarena/components/dialog';
 
 @Component({
   selector: 'app-common-dialog',
