@@ -10,4 +10,6 @@ import { ImageBlockNode } from '../../../models/strapi-content.model';
 })
 export class ImageRendererComponent {
   readonly content = input.required<ImageBlockNode>();
+  /** Loads the image eagerly with high fetch priority, e.g. for the LCP image. */
+  readonly priority = input(false);
 }
