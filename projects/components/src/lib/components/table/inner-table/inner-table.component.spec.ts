@@ -48,4 +48,11 @@ describe('InnerTableComponent sorting', () => {
 
     expect(sortBy(rows, 'name')).toEqual([undefined, 'tom', 'zoe']);
   });
+
+  it('treats missing getter values like missing column values', () => {
+    const rows = [{ name: 'b', level: 2 }, { name: 'none' }, { name: 'a', level: 1 }];
+    const getLevel = (row: Row): number => row.level as number;
+
+    expect(sortBy(rows, 'level', { level: { type: ColumnType.Unknown, getter: getLevel } })).toEqual(['none', 'a', 'b']);
+  });
 });

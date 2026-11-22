@@ -87,7 +87,8 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
     if (sort) {
       this.dataSource.sort = sort;
     }
-    this.dataSource.sortingDataAccessor = (item: T, property: string): string | number => this.getSortingAccessor(item, property);
+    // Material types the accessor as string | number, but its sortData handles null explicitly
+    this.dataSource.sortingDataAccessor = (item: T, property: string): string | number => this.getSortingAccessor(item, property) as string | number;
     const paginator = this.paginator();
     if (paginator) {
       this.dataSource.paginator = paginator;
@@ -113,17 +114,17 @@ export class InnerTableComponent<T> implements OnChanges, AfterViewInit {
     this.editEvent.emit(item);
   }
 
-  private getSortingAccessor(item: T, property: string): string | number {
-    const columnConfig = this.columnConfig();
-    if (columnConfig?.[property]?.getter) {
-      return columnConfig[property].getter!(item);
-    }
-    const value = item[property as keyof T];
+  private getSortingAccessor(item: T, property: string): string | number | null {
+    const config = this.columnConfig()?.[property];
+    const value = config?.getter ? config.getter(item) : item[property as keyof T];
     if (value === null || value === undefined) {
       // MatTableDataSource sorts null consistently to one end, NaN or 'undefined' would not
-      return null as unknown as string;
+      return null;
     }
-    switch (columnConfig?.[property]?.type) {
+    if (config?.getter) {
+      return value as string | number;
+    }
+    switch (config?.type) {
       case ColumnType.Number:
         return Number(value);
       case ColumnType.Date:

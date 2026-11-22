@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { provideTranslateService } from '@ngx-translate/core';
 import { Observable, of, Subject } from 'rxjs';
 import { DialogLayoutComponent } from './components/dialog-layout/dialog-layout.component';
+import { DialogComponent } from './components/dialog.component';
 import { FormDialogComponent } from './components/form-dialog.component';
 import { DialogService } from './services/dialog.service';
 
@@ -14,6 +15,32 @@ import { DialogService } from './services/dialog.service';
 })
 class NameDialogComponent extends FormDialogComponent<{ name: string }> {
   readonly form = inject(FormBuilder).nonNullable.group({ name: ['', Validators.required] });
+}
+
+// declares the form without initializer and creates it only in ngOnInit
+@Component({
+  template: '<bpa-dialog-layout [dialog]="this" translateKey="dialog"></bpa-dialog-layout>',
+  imports: [DialogLayoutComponent],
+})
+class LateFormDialogComponent extends FormDialogComponent<{ name: string }> implements OnInit {
+  form!: FormGroup;
+
+  ngOnInit(): void {
+    this.form = new FormBuilder().nonNullable.group({ name: ['', Validators.required] });
+  }
+}
+
+// a plain dialog that happens to have a 'form' property must not be treated as a form dialog
+@Component({
+  template: '<bpa-dialog-layout [dialog]="this" translateKey="dialog"></bpa-dialog-layout>',
+  imports: [DialogLayoutComponent],
+})
+class PlainDialogWithFormPropertyComponent extends DialogComponent<boolean> {
+  readonly form = 'contact';
+
+  submit(): void {
+    this.close(true);
+  }
 }
 
 describe('FormDialogComponent', () => {
@@ -51,6 +78,21 @@ describe('FormDialogComponent', () => {
     fixture.detectChanges();
     await fixture.whenStable();
     expect(getOkButton().disabled).toBe(false);
+  });
+
+  it('recognizes a form that is only created in ngOnInit', () => {
+    const fixture = TestBed.createComponent(LateFormDialogComponent);
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelectorAll('button')[1].disabled).toBe(true);
+  });
+
+  it('keeps the OK button enabled for a plain dialog with a form property', async () => {
+    const fixture = TestBed.createComponent(PlainDialogWithFormPropertyComponent);
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(fixture.nativeElement.querySelectorAll('button')[1].disabled).toBe(false);
   });
 
   it('closes with the form value when valid', () => {
