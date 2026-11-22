@@ -7,6 +7,7 @@ import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons/faEllipsisVe
 import {faFile} from '@fortawesome/free-solid-svg-icons/faFile';
 import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
+import {CodeBlockComponent} from './components/code-block/code-block.component';
 import {DialogsComponent} from './components/dialogs/dialogs.component';
 import {EnumComponent} from './components/enum/enum.component';
 import {FileListComponent} from './components/file-list/file-list.component';
@@ -33,10 +34,12 @@ import * as en from './i18n/en.json';
     GettingStartedComponent,
     LoadingComponent,
     StrapiRendererComponent,
+    CodeBlockComponent,
   ],
 })
 export class AppComponent {
   private readonly translate = inject(TranslateService);
+  protected readonly strapiExample = `<bpa-strapi-renderer [content]="content" [debug]="true"></bpa-strapi-renderer>`;
   protected readonly strapiContent: RootNode[] = [
     {
       "type": "image",

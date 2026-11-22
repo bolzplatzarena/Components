@@ -42,7 +42,12 @@
   </mat-tab>
   <mat-tab label="Strapi">
     <section class="tw-px-8">
-      <bpa-strapi-renderer [content]="strapiContent" [debug]="true"></bpa-strapi-renderer>
+      <h2>{{ 'content.headline.strapi' | translate }}</h2>
+      <p>{{ 'content.text.strapi' | translate }}</p>
+      <div class="demo">
+        <bpa-strapi-renderer [content]="strapiContent" [debug]="true"></bpa-strapi-renderer>
+      </div>
+      <app-code-block [code]="strapiExample" language="html"></app-code-block>
     </section>
   </mat-tab>
 </mat-tab-group>
