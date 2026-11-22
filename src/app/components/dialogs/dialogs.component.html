@@ -1,18 +1,36 @@
 <h2>{{ 'content.headline.dialogs' | translate }}</h2>
 <p>{{ 'content.text.dialogs' | translate }}</p>
+
 <h3>{{ 'dialog.simple_dialog.title' | translate }}</h3>
 <p>{{ 'dialog.simple_dialog.content' | translate }}</p>
-<button mat-stroked-button type="button" (click)="openDialog()">Open dialog</button>
+<div class="demo demo-row">
+  <button mat-stroked-button type="button" (click)="openDialog()">Open dialog</button>
+</div>
+<app-code-block [code]="simpleExample" language="typescript"></app-code-block>
+
 <h3>{{ 'dialog.confirmation.title' | translate }}</h3>
 <p>{{ 'dialog.confirmation.content' | translate }}</p>
 <p>{{ 'dialog.confirmation.result' | translate }}</p>
-<button mat-stroked-button type="button" (click)="openConfirmation()">Open dialog</button>
+<div class="demo demo-row">
+  <button mat-stroked-button type="button" (click)="openConfirmation()">Open dialog</button>
+</div>
 <p>{{ 'dialog.confirmation.action' | translate }}</p>
-<button mat-stroked-button type="button" (click)="openConfirmationWithAction()">Open dialog</button>
+<div class="demo demo-row">
+  <button mat-stroked-button type="button" (click)="openConfirmationWithAction()">Open dialog</button>
+</div>
+<app-code-block [code]="confirmExample" language="typescript"></app-code-block>
+
 <h3>{{ 'dialog.layout.title' | translate }}</h3>
 <p>{{ 'dialog.layout.content' | translate }}</p>
-<button mat-stroked-button type="button" (click)="openCommon()">Open dialog</button>
+<div class="demo demo-row">
+  <button mat-stroked-button type="button" (click)="openCommon()">Open dialog</button>
+</div>
+<app-code-block [code]="layoutExample" language="html"></app-code-block>
 <p>{{ 'dialog.layout.form' | translate }}</p>
-<button mat-stroked-button type="button" (click)="openForm()">Open dialog</button>
+<div class="demo demo-row">
+  <button mat-stroked-button type="button" (click)="openForm()">Open dialog</button>
+</div>
+<app-code-block [code]="formExample" language="typescript"></app-code-block>
+
 <h3>{{ 'dialog.keyboard.title' | translate }}</h3>
 <p>{{ 'dialog.keyboard.content' | translate }}</p>
