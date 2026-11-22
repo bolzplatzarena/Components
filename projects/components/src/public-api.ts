@@ -1,4 +1,3 @@
-// services
 //modules
 export { PaginatorTexts, providePaginatorTexts } from './lib/paginator-texts';
 export { ColumnConfig, ColumnType } from './lib/components/table/inner-table/inner-table.component';
