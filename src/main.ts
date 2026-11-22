@@ -8,7 +8,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideAnimations } from '@angular/platform-browser/animations';
 import { providePaginatorTexts } from '@bolzplatzarena/components';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { provideTranslateService } from '@ngx-translate/core';
@@ -33,7 +32,6 @@ bootstrapApplication(AppComponent, {
       MatIconModule,
       MatButtonModule,
     ),
-    provideAnimations(),
     provideTranslateService(),
     providePaginatorTexts(),
   ],
